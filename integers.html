@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Integers and rationals | Analysis</title>
+  <meta name="description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Integers and rationals | Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="github-repo" content="Neoneu" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Integers and rationals | Analysis" />
+  
+  <meta name="twitter:description" content="This is a note of Analysis by Terence Tao." />
+  
+
+<meta name="author" content="Neoneu" />
+
+
+<meta name="date" content="2024-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="set.html"/>
+<link rel="next" href="real.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Starting at the begining: the natural numbers</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#the-peano-axioms"><i class="fa fa-check"></i><b>1.1</b> The Peano axioms</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#addition"><i class="fa fa-check"></i><b>1.2</b> Addition</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#multiplication"><i class="fa fa-check"></i><b>1.3</b> Multiplication</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#vocabulary"><i class="fa fa-check"></i><b>1.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="1.5" data-path="start.html"><a href="start.html#foot-note"><i class="fa fa-check"></i><b>1.5</b> Foot Note</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Set theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#fundamentals"><i class="fa fa-check"></i><b>2.1</b> Fundamentals</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#russells-paradox"><i class="fa fa-check"></i><b>2.2</b> Russell’s paradox</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#functions"><i class="fa fa-check"></i><b>2.3</b> Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#images-and-inverse-images"><i class="fa fa-check"></i><b>2.4</b> Images and inverse images</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#cartesian-products"><i class="fa fa-check"></i><b>2.5</b> Cartesian products</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cardinality-of-sets"><i class="fa fa-check"></i><b>2.6</b> Cardinality of sets</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#vocabulary-1"><i class="fa fa-check"></i><b>2.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="integers.html"><a href="integers.html"><i class="fa fa-check"></i><b>3</b> Integers and rationals</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="integers.html"><a href="integers.html#the-integers"><i class="fa fa-check"></i><b>3.1</b> The integers</a></li>
+<li class="chapter" data-level="3.2" data-path="integers.html"><a href="integers.html#the-rationals"><i class="fa fa-check"></i><b>3.2</b> The rationals</a></li>
+<li class="chapter" data-level="3.3" data-path="integers.html"><a href="integers.html#absolute-value-and-exponentiation"><i class="fa fa-check"></i><b>3.3</b> Absolute value and exponentiation</a></li>
+<li class="chapter" data-level="3.4" data-path="integers.html"><a href="integers.html#gaps-in-the-rational-numbers"><i class="fa fa-check"></i><b>3.4</b> Gaps in the rational numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="real.html"><a href="real.html"><i class="fa fa-check"></i><b>4</b> The real numbers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="real.html"><a href="real.html#cauchy-sequences"><i class="fa fa-check"></i><b>4.1</b> Cauchy sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="real.html"><a href="real.html#equivalent-cauchy-sequences"><i class="fa fa-check"></i><b>4.2</b> Equivalent Cauchy sequences</a></li>
+<li class="chapter" data-level="4.3" data-path="real.html"><a href="real.html#the-construction-of-the-real-numbers"><i class="fa fa-check"></i><b>4.3</b> The construction of the real numbers</a></li>
+<li class="chapter" data-level="4.4" data-path="real.html"><a href="real.html#ordering-the-reals"><i class="fa fa-check"></i><b>4.4</b> Ordering the reals</a></li>
+<li class="chapter" data-level="4.5" data-path="real.html"><a href="real.html#the-least-upper-bound-property"><i class="fa fa-check"></i><b>4.5</b> The least upper bound property</a></li>
+<li class="chapter" data-level="4.6" data-path="real.html"><a href="real.html#real-exponentiation-part-i"><i class="fa fa-check"></i><b>4.6</b> Real exponentiation, part I</a></li>
+<li class="chapter" data-level="4.7" data-path="real.html"><a href="real.html#foot-notes"><i class="fa fa-check"></i><b>4.7</b> Foot Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="limits.html"><a href="limits.html"><i class="fa fa-check"></i><b>5</b> Limits of sequences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="limits.html"><a href="limits.html#convergence-and-limte-laws"><i class="fa fa-check"></i><b>5.1</b> Convergence and limte laws</a></li>
+<li class="chapter" data-level="5.2" data-path="limits.html"><a href="limits.html#the-extended-real-number-system"><i class="fa fa-check"></i><b>5.2</b> The Extended real number system</a></li>
+<li class="chapter" data-level="5.3" data-path="limits.html"><a href="limits.html#suprema-and-infima-of-sequences"><i class="fa fa-check"></i><b>5.3</b> Suprema and Infima of sequences</a></li>
+<li class="chapter" data-level="5.4" data-path="limits.html"><a href="limits.html#limsup-liminf-and-limit-points"><i class="fa fa-check"></i><b>5.4</b> Limsup, Liminf, and limit points</a></li>
+<li class="chapter" data-level="5.5" data-path="limits.html"><a href="limits.html#subsequences"><i class="fa fa-check"></i><b>5.5</b> Subsequences</a></li>
+<li class="chapter" data-level="5.6" data-path="limits.html"><a href="limits.html#real-exponentiation-part-ii"><i class="fa fa-check"></i><b>5.6</b> Real exponentiation, part II</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="series.html"><a href="series.html"><i class="fa fa-check"></i><b>6</b> Series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="series.html"><a href="series.html#finite-series"><i class="fa fa-check"></i><b>6.1</b> Finite series</a></li>
+<li class="chapter" data-level="6.2" data-path="series.html"><a href="series.html#infinite-series"><i class="fa fa-check"></i><b>6.2</b> Infinite series</a></li>
+<li class="chapter" data-level="6.3" data-path="series.html"><a href="series.html#sums-of-non-negative-numbers"><i class="fa fa-check"></i><b>6.3</b> Sums of non-negative numbers</a></li>
+<li class="chapter" data-level="6.4" data-path="series.html"><a href="series.html#rearrangement-of-series"><i class="fa fa-check"></i><b>6.4</b> Rearrangement of series</a></li>
+<li class="chapter" data-level="6.5" data-path="series.html"><a href="series.html#the-root-and-ratio-tests"><i class="fa fa-check"></i><b>6.5</b> The root and ratio tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="infinite.html"><a href="infinite.html"><i class="fa fa-check"></i><b>7</b> Infinite sets</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="infinite.html"><a href="infinite.html#countability"><i class="fa fa-check"></i><b>7.1</b> Countability</a></li>
+<li class="chapter" data-level="7.2" data-path="infinite.html"><a href="infinite.html#summation-on-infinite-sets"><i class="fa fa-check"></i><b>7.2</b> Summation on infinite sets</a></li>
+<li class="chapter" data-level="7.3" data-path="infinite.html"><a href="infinite.html#uncountable-sets"><i class="fa fa-check"></i><b>7.3</b> Uncountable sets</a></li>
+<li class="chapter" data-level="7.4" data-path="infinite.html"><a href="infinite.html#the-axiom-of-choice"><i class="fa fa-check"></i><b>7.4</b> The axiom of choice</a></li>
+<li class="chapter" data-level="7.5" data-path="infinite.html"><a href="infinite.html#ordered-sets"><i class="fa fa-check"></i><b>7.5</b> Ordered sets</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>8</b> Continuous functions on <span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="continuous.html"><a href="continuous.html#subsets-of-the-real-line"><i class="fa fa-check"></i><b>8.1</b> Subsets of the real line</a></li>
+<li class="chapter" data-level="8.2" data-path="continuous.html"><a href="continuous.html#the-algebra-of-real-valued-functions"><i class="fa fa-check"></i><b>8.2</b> The algebra of real-valued functions</a></li>
+<li class="chapter" data-level="8.3" data-path="continuous.html"><a href="continuous.html#limiting-values-of-functions"><i class="fa fa-check"></i><b>8.3</b> Limiting values of functions</a></li>
+<li class="chapter" data-level="8.4" data-path="continuous.html"><a href="continuous.html#continuous-functions"><i class="fa fa-check"></i><b>8.4</b> Continuous functions</a></li>
+<li class="chapter" data-level="8.5" data-path="continuous.html"><a href="continuous.html#left-and-right-limits"><i class="fa fa-check"></i><b>8.5</b> Left and right limits</a></li>
+<li class="chapter" data-level="8.6" data-path="continuous.html"><a href="continuous.html#the-maximum-principle"><i class="fa fa-check"></i><b>8.6</b> The maximum principle</a></li>
+<li class="chapter" data-level="8.7" data-path="continuous.html"><a href="continuous.html#the-intermediate-value-theorem"><i class="fa fa-check"></i><b>8.7</b> The intermediate value theorem</a></li>
+<li class="chapter" data-level="8.8" data-path="continuous.html"><a href="continuous.html#monotonic-functions"><i class="fa fa-check"></i><b>8.8</b> Monotonic functions</a></li>
+<li class="chapter" data-level="8.9" data-path="continuous.html"><a href="continuous.html#uniform-continuity"><i class="fa fa-check"></i><b>8.9</b> Uniform continuity</a></li>
+<li class="chapter" data-level="8.10" data-path="continuous.html"><a href="continuous.html#limits-at-infinity"><i class="fa fa-check"></i><b>8.10</b> Limits at infinity</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>9</b> Differentiation of functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="diff.html"><a href="diff.html#basic-definitions"><i class="fa fa-check"></i><b>9.1</b> Basic definitions</a></li>
+<li class="chapter" data-level="9.2" data-path="diff.html"><a href="diff.html#local-maxima-local-minima-and-derivatives"><i class="fa fa-check"></i><b>9.2</b> Local maxima, local minima, and derivatives</a></li>
+<li class="chapter" data-level="9.3" data-path="diff.html"><a href="diff.html#monotone-functions-and-derivatives"><i class="fa fa-check"></i><b>9.3</b> Monotone functions and derivatives</a></li>
+<li class="chapter" data-level="9.4" data-path="diff.html"><a href="diff.html#inverse-functions-and-derivatives"><i class="fa fa-check"></i><b>9.4</b> Inverse functions and derivatives</a></li>
+<li class="chapter" data-level="9.5" data-path="diff.html"><a href="diff.html#lhôpitals-rule"><i class="fa fa-check"></i><b>9.5</b> L’Hôpital’s rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="riemann.html"><a href="riemann.html"><i class="fa fa-check"></i><b>10</b> The Riemann integral</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="riemann.html"><a href="riemann.html#partitions"><i class="fa fa-check"></i><b>10.1</b> Partitions</a></li>
+<li class="chapter" data-level="10.2" data-path="riemann.html"><a href="riemann.html#piecewise-constant-functions"><i class="fa fa-check"></i><b>10.2</b> Piecewise constant functions</a></li>
+<li class="chapter" data-level="10.3" data-path="riemann.html"><a href="riemann.html#upper-and-lower-riemann-integrals"><i class="fa fa-check"></i><b>10.3</b> Upper and lower Riemann integrals</a></li>
+<li class="chapter" data-level="10.4" data-path="riemann.html"><a href="riemann.html#basic-properties-of-the-riemann-integrals"><i class="fa fa-check"></i><b>10.4</b> Basic properties of the Riemann integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-continuous-functions"><i class="fa fa-check"></i><b>10.5</b> Riemann integrability of continuous functions</a></li>
+<li class="chapter" data-level="10.6" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-monotone-functions"><i class="fa fa-check"></i><b>10.6</b> Riemann integrability of monotone functions</a></li>
+<li class="chapter" data-level="10.7" data-path="riemann.html"><a href="riemann.html#a-non-riemann-integrable-function"><i class="fa fa-check"></i><b>10.7</b> A non-Riemann integrable function</a></li>
+<li class="chapter" data-level="10.8" data-path="riemann.html"><a href="riemann.html#the-riemann-stieltjes-integral"><i class="fa fa-check"></i><b>10.8</b> The Riemann-Stieltjes integral</a></li>
+<li class="chapter" data-level="10.9" data-path="riemann.html"><a href="riemann.html#the-two-fundamental-theorems-of-calculus"><i class="fa fa-check"></i><b>10.9</b> The two fundamental theorems of calculus</a></li>
+<li class="chapter" data-level="10.10" data-path="riemann.html"><a href="riemann.html#consequences-of-the-fundamental-theorems"><i class="fa fa-check"></i><b>10.10</b> Consequences of the fundamental theorems</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>11</b> Appendix: the basics of mathematical logic</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="logic.html"><a href="logic.html#mathematical-statements"><i class="fa fa-check"></i><b>11.1</b> Mathematical statements</a></li>
+<li class="chapter" data-level="11.2" data-path="logic.html"><a href="logic.html#implication"><i class="fa fa-check"></i><b>11.2</b> Implication</a></li>
+<li class="chapter" data-level="11.3" data-path="logic.html"><a href="logic.html#the-stucture-of-proofs"><i class="fa fa-check"></i><b>11.3</b> The stucture of proofs</a></li>
+<li class="chapter" data-level="11.4" data-path="logic.html"><a href="logic.html#variables-and-quantifiers"><i class="fa fa-check"></i><b>11.4</b> Variables and quantifiers</a></li>
+<li class="chapter" data-level="11.5" data-path="logic.html"><a href="logic.html#nested-quantifiers"><i class="fa fa-check"></i><b>11.5</b> Nested quantifiers</a></li>
+<li class="chapter" data-level="11.6" data-path="logic.html"><a href="logic.html#equality"><i class="fa fa-check"></i><b>11.6</b> Equality</a></li>
+<li class="chapter" data-level="11.7" data-path="logic.html"><a href="logic.html#vocabulary-2"><i class="fa fa-check"></i><b>11.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decimalism.html"><a href="decimalism.html"><i class="fa fa-check"></i><b>12</b> Appendix: the decimal system</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-natural-numbers"><i class="fa fa-check"></i><b>12.1</b> The decimal representation of natural numbers</a></li>
+<li class="chapter" data-level="12.2" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-real-numbers"><i class="fa fa-check"></i><b>12.2</b> The decimal representation of real numbers</a></li>
+<li class="chapter" data-level="12.3" data-path="decimalism.html"><a href="decimalism.html#vocabulary-3"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Skolgrand/skolgrand.github.io/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="integers" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Integers and rationals<a href="integers.html#integers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-integers" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> The integers<a href="integers.html#the-integers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition" nme="Integers">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 3.1  </strong></span>An <em>integer</em> is an expression of the form <span class="math inline">\(a\!\!-\!\!-b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are natural numbers. Two integers are considered to be equal, <span class="math inline">\(a\!\!-\!\!-b = c\!\!-\!\!-d\)</span>, iff <span class="math inline">\(a+d = c+b\)</span>. We let <span class="math inline">\(\mathbb{Z}\)</span> denote the set of all integers.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-2" class="definition"><strong>Definition 3.2  </strong></span>The sum of two integers, <span class="math inline">\((a\!\!-\!\!-b) + (c\!\!-\!\!-d)\)</span>, is defined by the fomula
+<span class="math display">\[
+(a\!\!-\!\!-b) + (c\!\!-\!\!-d):=(a+c)\!\!-\!\!-(b+d)
+\]</span>
+The product of two integers, <span class="math inline">\((a\!\!-\!\!-b) \times (c\!\!-\!\!-d)\)</span>, is defined by
+<span class="math display">\[
+(a\!\!-\!\!-b) \times (c\!\!-\!\!-d):=(ac+bd)\!\!-\!\!-(ad+bc)
+\]</span></p>
+</div>
+<p>One can verify that the addition and multiplication of integers are well-defined.</p>
+<p>We can find that there is an <em>isomorphism</em> between the natural number <span class="math inline">\(n\)</span> and those integers of the form <span class="math inline">\(n\!\!-\!\!-0\)</span>. That is, the integer <span class="math inline">\(n\!\!-\!\!-0\)</span> behave in the same way as the natural numbers <span class="math inline">\(n\)</span>:
+<span class="math display">\[
+\begin{aligned}
+(n\!\!-\!\!-0)+(m\!\!-\!\!-0)&amp;=(n+m)\!\!-\!\!-0;\\
+(n\!\!-\!\!-0)\times(m\!\!-\!\!-0)&amp;=nm\!\!-\!\!-0;\\
+n\!\!-\!\!-0=m\!\!-\!\!-0&amp; \iff n=m.
+\end{aligned}
+\]</span>
+Thus we can <em>identify</em> the natural numbers with integers by setting <span class="math inline">\(n \equiv n\!\!-\!\!-0\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 3.3  (Negation of integers) </strong></span>If <span class="math inline">\((a\!\!-\!\!-b)\)</span> is an integer, we define the negation <span class="math inline">\(-(a\!\!-\!\!-b)\)</span> to be the integer <span class="math inline">\((b\!\!-\!\!-a)\)</span>.</p>
+</div>
+<p>One can check the definition is well-defined.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-4" class="lemma"><strong>Lemma 3.1  (Trichotomy of integers) </strong></span>Let <span class="math inline">\(x\)</span> be an integer. Then exactly one of the following three statements is true: (a) <span class="math inline">\(x\)</span> is zero; (b) <span class="math inline">\(x\)</span> is equal to a positive natural number <span class="math inline">\(n\)</span>; or (c) <span class="math inline">\(x\)</span> is the negation <span class="math inline">\(-n\)</span> of a positive natural number <span class="math inline">\(n\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-5" class="proposition"><strong>Proposition 3.1  (Laws of algebra for integers) </strong></span>Let <span class="math inline">\(x,y,z\)</span> be integers. Then we have
+<span class="math display">\[
+\begin{aligned}
+  x+y&amp;=y+x\\
+  (x+y)+z&amp;=x+(y+z)\\
+  x+0=0+x&amp;=x\\
+  x+(-x) = (-x)+x&amp;=0\\
+  xy&amp;=yx\\
+  (xy)z&amp;=x(yz)\\
+  x1=1x&amp;=x\\
+  x(y+z)&amp;=xy+xz\\
+  (y+z)x=yx+zx
+\end{aligned}
+\]</span></p>
+</div>
+<p>The above set of nine identities are asserting that integers from a <em>commutative ring</em> (If one deleted the identity <span class="math inline">\(xy=yx\)</span>, then they would only assert that the integers form a <em>ring</em>).</p>
+<p>Now we define the operation of <em>substraction</em> of two integers by the fomula
+<span class="math display">\[
+x-y:=x+(-y).
+\]</span></p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-6" class="proposition"><strong>Proposition 3.2  (Integer have no zero divisors) </strong></span>Let <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be integers such that <span class="math inline">\(ab=0\)</span>. Then either <span class="math inline">\(a=0\)</span> or <span class="math inline">\(b=0\)</span> (or both).</p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-7" class="corollary"><strong>Corollary 3.1  (Cancellation law for integers) </strong></span>If <span class="math inline">\(a,b,c\)</span> are integers such that <span class="math inline">\(ac=bc\)</span> and <span class="math inline">\(c\)</span> is non-zero, then <span class="math inline">\(a=b\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 3.4  (Ordering of the integers) </strong></span>Let <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> be integers. We say that <span class="math inline">\(n\)</span> is greater than or equal to <span class="math inline">\(m\)</span>, and write <span class="math inline">\(n\geq m\)</span> or <span class="math inline">\(m\leq n\)</span>, iff we have <span class="math inline">\(n=m+a\)</span> for some natural number <span class="math inline">\(a\)</span>.We say that <span class="math inline">\(n\)</span> is strictly greater that <span class="math inline">\(m\)</span>, and write <span class="math inline">\(n&gt;m\)</span> or <span class="math inline">\(m&lt;n\)</span>, iff <span class="math inline">\(n\geq m\)</span> and <span class="math inline">\(n \ne m\)</span>.</p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-9" class="lemma"><strong>Lemma 3.2  (Properties of order) </strong></span>Let <span class="math inline">\(a,b,c\)</span> be integers.</p>
+<ul>
+<li><span class="math inline">\(a&gt;b\)</span> iff <span class="math inline">\(a-b\)</span> is positive natural number.</li>
+<li>(Addition preserves order) If <span class="math inline">\(a&gt;b\)</span>, then <span class="math inline">\(a+c&gt;b+c\)</span>.</li>
+<li>(Positive multiplication preserves order) If <span class="math inline">\(a&gt;b\)</span> and <span class="math inline">\(c\)</span> is positive, then <span class="math inline">\(ac&gt;bc\)</span>.</li>
+<li>(Negation reverses order) If <span class="math inline">\(a&gt;b\)</span>, then <span class="math inline">\(-a&lt;-b\)</span>.</li>
+<li>(Order is transitive) If <span class="math inline">\(a&gt;b\)</span> and <span class="math inline">\(b&gt;c\)</span>, then <span class="math inline">\(a&gt;c\)</span>.</li>
+<li>(Order trichotomy) Exactly one of the statements <span class="math inline">\(a&gt;b\)</span>, <span class="math inline">\(a&lt;b\)</span>, or <span class="math inline">\(a=b\)</span> is true.</li>
+</ul>
+</div>
+<p>Here we consider the last one. First, if <span class="math inline">\(a,b\)</span> are both positive, then it has been proven in Chapter <a href="start.html#start">1</a>; If <span class="math inline">\(a,b\)</span> are both negative, since negation reverses order, we only need to consider <span class="math inline">\(-a,-b\)</span>, which are both positive; as for other situation, we know that negative integers are small than zero, and zero is smaller than any positive integer.</p>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.1  </strong></span>Show that the principle of induction does not apply directly to the integers.</p>
+</div>
+</div>
+<div id="the-rationals" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> The rationals<a href="integers.html#the-rationals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 3.5  </strong></span>A <em>rational number</em> is an expression of the form <span class="math inline">\(a//b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers and <span class="math inline">\(b\)</span> is non-zero; <span class="math inline">\(a//0\)</span> is not considered to be a rational number. Two rational numbers are considered to be equal, <span class="math inline">\(a//b=c//d\)</span>, iff <span class="math inline">\(ad=cb\)</span>. The set of all rational numbers is denoted <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 3.6  </strong></span>If <span class="math inline">\(a//b\)</span> and <span class="math inline">\(c//d\)</span> are rational numbers, we defined their sum
+<span class="math display">\[
+(a//b) + (c//d) := (ad+bc)//(bd)
+\]</span>
+their product
+<span class="math display">\[
+(a//b)\times(c//d) := (ac)//(bd)
+\]</span>
+and the negation
+<span class="math display">\[
+-(a//b):=(-a)//b.
+\]</span></p>
+</div>
+<p>One can verify that the sum, product, and negation operations on rational numbers are well-defined.</p>
+<p>We note that the rational numbers <span class="math inline">\(a//1\)</span> behave in manner identical to the integer <span class="math inline">\(a\)</span>:
+<span class="math display">\[
+\begin{aligned}
+(a//1)+(b//1)&amp;=(a+b)//1;\\
+(a//1)\times(b//1)&amp;=(ab)//1;\\
+-(a//1)&amp;=(-a)//1.
+\end{aligned}
+\]</span>
+Because of this, we will identify <span class="math inline">\(a\)</span> with <span class="math inline">\(a//1\)</span> for each integer <span class="math inline">\(a:a\equiv a//1\)</span>.</p>
+<p>We now define a new operation on the rationals: reciprocal. If <span class="math inline">\(x=a//b\)</span> is a non-zero rationl then we define the <em>reciprocal</em> <span class="math inline">\(x^{-1}\)</span> of <span class="math inline">\(x\)</span> to be the rational number <span class="math inline">\(x^{-1}:=b//a\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-13" class="proposition"><strong>Proposition 3.3  (Laws of algebra for rationals) </strong></span>Let <span class="math inline">\(x,y,z\)</span> be integers. Then we have
+<span class="math display">\[
+\begin{aligned}
+  x+y&amp;=y+x\\
+  (x+y)+z&amp;=x+(y+z)\\
+  x+0=0+x&amp;=x\\
+  x+(-x) = (-x)+x&amp;=0\\
+  xy&amp;=yx\\
+  (xy)z&amp;=x(yz)\\
+  x1=1x&amp;=x\\
+  x(y+z)&amp;=xy+xz\\
+  (y+z)x=yx+zx
+\end{aligned}
+\]</span>
+If <span class="math inline">\(x\)</span> is non-zero, we also have
+<span class="math display">\[xx^{-1} = x^{-1}x=1.\]</span></p>
+</div>
+<p>The above set of ten identities are asserting that the rationals <span class="math inline">\(\mathbb{Q}\)</span> form a <em>field</em>.</p>
+<p>We can now define the <em>quotient</em> of thwo rational numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, provided that <span class="math inline">\(y\)</span> is non-zero, by the fomula
+<span class="math display">\[
+x/y:=x\times y^{-1}.
+\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 3.7  </strong></span>A rational number <span class="math inline">\(x\)</span> is said to be positive iff we have <span class="math inline">\(x=a/b\)</span> for some positive integers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. It is said to be negatve iff we haave <span class="math inline">\(x=-y\)</span> for some positive rational <span class="math inline">\(y\)</span>.</p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-15" class="lemma"><strong>Lemma 3.3  (Trichotomy of rationals) </strong></span>Let <span class="math inline">\(x\)</span> be a rational number. Then exactly one of the following three statements is true: (a) <span class="math inline">\(x\)</span> is zero; (b) <span class="math inline">\(x\)</span> is a positive rational number; or (c) <span class="math inline">\(x\)</span> is a negative rational number.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 3.8  (Ordering of the rationals) </strong></span>Let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be rational numbers. We say that <span class="math inline">\(x&gt;y\)</span> iff <span class="math inline">\(x-y\)</span> is a positive rational number, and write <span class="math inline">\(x&lt;y\)</span> iff <span class="math inline">\(x-y\)</span> is a negative rational number. We write <span class="math inline">\(x\geq y\)</span> iff either <span class="math inline">\(x&gt;y\)</span> or <span class="math inline">\(x=y\)</span>, and similarly define <span class="math inline">\(x\leq y\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-17" class="proposition"><strong>Proposition 3.4  (Basic properties of order on the rationals) </strong></span>Let <span class="math inline">\(x,y,z\)</span> be rtional numbers. Then the following properties hold.</p>
+<ul>
+<li>(Order trichotomy) Exactly one of the three statements <span class="math inline">\(x=y\)</span>, <span class="math inline">\(x&lt;y\)</span>, <span class="math inline">\(x&gt;y\)</span> is true.</li>
+<li>(Order is anti-symmetric) One has <span class="math inline">\(x&lt;y\)</span> iff <span class="math inline">\(y&gt;x\)</span>.</li>
+<li>(Order is transitive) If <span class="math inline">\(x&lt;y\)</span>, then <span class="math inline">\(x&lt;y\)</span> and <span class="math inline">\(y&lt;z\)</span>, then <span class="math inline">\(x&lt;z\)</span>.</li>
+<li>(Addition preserves order) If <span class="math inline">\(x&lt;y\)</span>, the <span class="math inline">\(x+z&lt;y+z\)</span>.</li>
+<li>(Positive multiplication preserves order) If <span class="math inline">\(x&lt;y\)</span> and <span class="math inline">\(z\)</span> is positive, then <span class="math inline">\(xz&lt;yz\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="absolute-value-and-exponentiation" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Absolute value and exponentiation<a href="integers.html#absolute-value-and-exponentiation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-18" class="definition"><strong>Definition 3.9  (Absolute value) </strong></span>If <span class="math inline">\(x\)</span> is rational number, then <em>absolute value</em> <span class="math inline">\(|x|\)</span> of <span class="math inline">\(x\)</span> is defined as follows. If <span class="math inline">\(x\)</span> is positive,then <span class="math inline">\(|x|:=x\)</span>. If <span class="math inline">\(x\)</span> is negative,then <span class="math inline">\(|x|:=-x\)</span>. If <span class="math inline">\(x\)</span> is zero, then <span class="math inline">\(|x|:=0\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-19" class="definition"><strong>Definition 3.10  (Distance) </strong></span>Let <span class="math inline">\(x\)</span> nd <span class="math inline">\(y\)</span> be rational numbers. Then quantity <span class="math inline">\(|x-y|\)</span> is called the <em>distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></em> and is sometimes denoted <span class="math inline">\(d(x,y)\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-20" class="proposition"><strong>Proposition 3.5  (Basic properties of absolute value and distance) </strong></span>Let <span class="math inline">\(x,y,z\)</span> be rational numbers.</p>
+<ul>
+<li>(Non-degeneracy of absolute value) We have <span class="math inline">\(|x|\geq 0\)</span>. Also, <span class="math inline">\(|x| = 0\)</span> iff <span class="math inline">\(x\)</span> is 0.</li>
+<li>(Triangle inequality for absolute value) We have <span class="math inline">\(|x+y|\leq |x|+|y|\)</span>.</li>
+<li>We have the inequalities <span class="math inline">\(-y\leq x\leq y\)</span> iff <span class="math inline">\(y\geq |x|\)</span>.</li>
+<li>(Multiplicativity of absolute value) We have <span class="math inline">\(|xy|=|x||y|\)</span>.</li>
+<li>(Non-degeneracy of distance) We have <span class="math inline">\(d(x,y)\geq 0\)</span>. Also, <span class="math inline">\(d(x,y)=0\)</span> iff <span class="math inline">\(x=y\)</span>.</li>
+<li>(Symmetry of distance) <span class="math inline">\(d(x,y)=d(y,x)\)</span>.</li>
+<li>(Triangle inequality for distance) <span class="math inline">\(d(x,z)\leq d(x,y)+d(y,z)\)</span>.</li>
+</ul>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 3.11  ($\varepsilon$-closeness) </strong></span>Let <span class="math inline">\(\varepsilon\)</span> be a rational number, and let <span class="math inline">\(x,y\)</span> be rational number. We say that <span class="math inline">\(y\)</span> is <span class="math inline">\(\varepsilon\)</span>-close to <span class="math inline">\(x\)</span> iff we have <span class="math inline">\(d(x,y)&lt;\varepsilon\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-22" class="proposition"><strong>Proposition 3.6  </strong></span>Let <span class="math inline">\(\varepsilon,\delta&gt;0\)</span>. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are <span class="math inline">\(\varepsilon\)</span>-close, and <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> are <span class="math inline">\(\delta\)</span>-close, then <span class="math inline">\(xz\)</span> are <span class="math inline">\(yw\)</span> are <span class="math inline">\(\varepsilon|z|+\delta|x+\varepsilon\delta\)</span>-close.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 3.12  (Exponentiation to a natural number) </strong></span>Let <span class="math inline">\(x\)</span> be a rational number. To raise <span class="math inline">\(x\)</span> to the power <span class="math inline">\(0\)</span>, we define <span class="math inline">\(x^0:=1\)</span>; in particular we define <span class="math inline">\(0^0:=1\)</span>. Now suppose inductively that <span class="math inline">\(x^n\)</span> has been defined for some natural number <span class="math inline">\(n\)</span>, then we define <span class="math inline">\(x^{n+1} : = x^n\times x\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-24" class="definition"><strong>Definition 3.13  (Exponentiation to a negative number) </strong></span>Let <span class="math inline">\(x\)</span> be a non-zero rational number. Then for any negative integer <span class="math inline">\(-n\)</span>, we define <span class="math inline">\(x^{-n} := 1/x^n\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-25" class="proposition"><strong>Proposition 3.7  (properties of exponentiation) </strong></span>Let <span class="math inline">\(x,y\)</span> be non-zero rational numbers, and <span class="math inline">\(n,m\)</span> be integers.</p>
+<ul>
+<li>We have <span class="math inline">\(x^nx^m = x^{n+m}\)</span>, <span class="math inline">\((x^n)^m = x^{nm}\)</span>, and <span class="math inline">\((xy)^n=x^ny^n\)</span>.</li>
+<li>If <span class="math inline">\(x\geq y&gt;0\)</span>, then <span class="math inline">\(x^n\geq y^n&gt;0\)</span> if <span class="math inline">\(n\)</span> is positive, and <span class="math inline">\(0&lt;x^n&lt;y^n\)</span> if <span class="math inline">\(n\)</span> is negative.</li>
+<li>If <span class="math inline">\(x,y &gt; 0\)</span>, <span class="math inline">\(n\ne 0\)</span>, and <span class="math inline">\(x^n=x^y\)</span>, then <span class="math inline">\(x=y\)</span>.</li>
+<li>We have <span class="math inline">\(|x^n| = |x|^n\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="gaps-in-the-rational-numbers" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Gaps in the rational numbers<a href="integers.html#gaps-in-the-rational-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-26" class="proposition"><strong>Proposition 3.8  (Interspersing of integers by rationals) </strong></span>Let <span class="math inline">\(x\)</span> be rational number. Then there exists an integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(n\leq x&lt;n+1\)</span>. In fact, this integer is unique. In poticular, there exists a natural number <span class="math inline">\(N\)</span> such that <span class="math inline">\(N&gt;x\)</span>.</p>
+</div>
+<p>The integer <span class="math inline">\(n\)</span> is somtimes referred to the <em>integer part</em> of <span class="math inline">\(x\)</span> and is sometimes denoted <span class="math inline">\(n=[x]\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-27" class="proposition"><strong>Proposition 3.9  (Interspersing of rationals by rationals) </strong></span>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two rationals such that <span class="math inline">\(x&lt;y\)</span>, then there exists a third rational <span class="math inline">\(z\)</span> such that <span class="math inline">\(x&lt;z&lt;y\)</span>.</p>
+</div>
+<div class="propsition">
+<p>There does not exist any rational number <span class="math inline">\(x\)</span> for which <span class="math inline">\(x^2=2\)</span>.</p>
+</div>
+<p>To prove the proposition above, we need to a conclusion from the exercise <a href="integers.html#exr:id">3.2</a>.</p>
+<div class="propsition">
+<p>For every rational numbers <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists a non-negative rational number <span class="math inline">\(x\)</span> such <span class="math inline">\(x^2&lt;2&lt;(x+\varepsilon)^2\)</span>.</p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:id" class="exercise"><strong>Exercise 3.2  </strong></span>Prove the <em>principle of infinite descent</em>: that it is not possible to have a sequence of natural numbers which is in infinite descent (a sequence <span class="math inline">\(a_0,a_1,\cdots\)</span> of numbers is said to be <em>infinite descent</em> if we have <span class="math inline">\(a_n&gt;a_{n+1}\)</span> for all natural numbers <span class="math inline">\(n\)</span>).</p>
+</div>
+<style>
+hr:nth-of-type(1){
+  border-top-style: double !important;
+}
+hr:nth-of-type(2){
+  border-top-style: double !important;
+}
+</style>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="real.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

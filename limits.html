@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Limits of sequences | Analysis</title>
+  <meta name="description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Limits of sequences | Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="github-repo" content="Neoneu" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Limits of sequences | Analysis" />
+  
+  <meta name="twitter:description" content="This is a note of Analysis by Terence Tao." />
+  
+
+<meta name="author" content="Neoneu" />
+
+
+<meta name="date" content="2024-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="real.html"/>
+<link rel="next" href="series.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Starting at the begining: the natural numbers</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#the-peano-axioms"><i class="fa fa-check"></i><b>1.1</b> The Peano axioms</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#addition"><i class="fa fa-check"></i><b>1.2</b> Addition</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#multiplication"><i class="fa fa-check"></i><b>1.3</b> Multiplication</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#vocabulary"><i class="fa fa-check"></i><b>1.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="1.5" data-path="start.html"><a href="start.html#foot-note"><i class="fa fa-check"></i><b>1.5</b> Foot Note</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Set theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#fundamentals"><i class="fa fa-check"></i><b>2.1</b> Fundamentals</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#russells-paradox"><i class="fa fa-check"></i><b>2.2</b> Russell’s paradox</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#functions"><i class="fa fa-check"></i><b>2.3</b> Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#images-and-inverse-images"><i class="fa fa-check"></i><b>2.4</b> Images and inverse images</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#cartesian-products"><i class="fa fa-check"></i><b>2.5</b> Cartesian products</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cardinality-of-sets"><i class="fa fa-check"></i><b>2.6</b> Cardinality of sets</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#vocabulary-1"><i class="fa fa-check"></i><b>2.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="integers.html"><a href="integers.html"><i class="fa fa-check"></i><b>3</b> Integers and rationals</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="integers.html"><a href="integers.html#the-integers"><i class="fa fa-check"></i><b>3.1</b> The integers</a></li>
+<li class="chapter" data-level="3.2" data-path="integers.html"><a href="integers.html#the-rationals"><i class="fa fa-check"></i><b>3.2</b> The rationals</a></li>
+<li class="chapter" data-level="3.3" data-path="integers.html"><a href="integers.html#absolute-value-and-exponentiation"><i class="fa fa-check"></i><b>3.3</b> Absolute value and exponentiation</a></li>
+<li class="chapter" data-level="3.4" data-path="integers.html"><a href="integers.html#gaps-in-the-rational-numbers"><i class="fa fa-check"></i><b>3.4</b> Gaps in the rational numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="real.html"><a href="real.html"><i class="fa fa-check"></i><b>4</b> The real numbers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="real.html"><a href="real.html#cauchy-sequences"><i class="fa fa-check"></i><b>4.1</b> Cauchy sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="real.html"><a href="real.html#equivalent-cauchy-sequences"><i class="fa fa-check"></i><b>4.2</b> Equivalent Cauchy sequences</a></li>
+<li class="chapter" data-level="4.3" data-path="real.html"><a href="real.html#the-construction-of-the-real-numbers"><i class="fa fa-check"></i><b>4.3</b> The construction of the real numbers</a></li>
+<li class="chapter" data-level="4.4" data-path="real.html"><a href="real.html#ordering-the-reals"><i class="fa fa-check"></i><b>4.4</b> Ordering the reals</a></li>
+<li class="chapter" data-level="4.5" data-path="real.html"><a href="real.html#the-least-upper-bound-property"><i class="fa fa-check"></i><b>4.5</b> The least upper bound property</a></li>
+<li class="chapter" data-level="4.6" data-path="real.html"><a href="real.html#real-exponentiation-part-i"><i class="fa fa-check"></i><b>4.6</b> Real exponentiation, part I</a></li>
+<li class="chapter" data-level="4.7" data-path="real.html"><a href="real.html#foot-notes"><i class="fa fa-check"></i><b>4.7</b> Foot Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="limits.html"><a href="limits.html"><i class="fa fa-check"></i><b>5</b> Limits of sequences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="limits.html"><a href="limits.html#convergence-and-limte-laws"><i class="fa fa-check"></i><b>5.1</b> Convergence and limte laws</a></li>
+<li class="chapter" data-level="5.2" data-path="limits.html"><a href="limits.html#the-extended-real-number-system"><i class="fa fa-check"></i><b>5.2</b> The Extended real number system</a></li>
+<li class="chapter" data-level="5.3" data-path="limits.html"><a href="limits.html#suprema-and-infima-of-sequences"><i class="fa fa-check"></i><b>5.3</b> Suprema and Infima of sequences</a></li>
+<li class="chapter" data-level="5.4" data-path="limits.html"><a href="limits.html#limsup-liminf-and-limit-points"><i class="fa fa-check"></i><b>5.4</b> Limsup, Liminf, and limit points</a></li>
+<li class="chapter" data-level="5.5" data-path="limits.html"><a href="limits.html#subsequences"><i class="fa fa-check"></i><b>5.5</b> Subsequences</a></li>
+<li class="chapter" data-level="5.6" data-path="limits.html"><a href="limits.html#real-exponentiation-part-ii"><i class="fa fa-check"></i><b>5.6</b> Real exponentiation, part II</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="series.html"><a href="series.html"><i class="fa fa-check"></i><b>6</b> Series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="series.html"><a href="series.html#finite-series"><i class="fa fa-check"></i><b>6.1</b> Finite series</a></li>
+<li class="chapter" data-level="6.2" data-path="series.html"><a href="series.html#infinite-series"><i class="fa fa-check"></i><b>6.2</b> Infinite series</a></li>
+<li class="chapter" data-level="6.3" data-path="series.html"><a href="series.html#sums-of-non-negative-numbers"><i class="fa fa-check"></i><b>6.3</b> Sums of non-negative numbers</a></li>
+<li class="chapter" data-level="6.4" data-path="series.html"><a href="series.html#rearrangement-of-series"><i class="fa fa-check"></i><b>6.4</b> Rearrangement of series</a></li>
+<li class="chapter" data-level="6.5" data-path="series.html"><a href="series.html#the-root-and-ratio-tests"><i class="fa fa-check"></i><b>6.5</b> The root and ratio tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="infinite.html"><a href="infinite.html"><i class="fa fa-check"></i><b>7</b> Infinite sets</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="infinite.html"><a href="infinite.html#countability"><i class="fa fa-check"></i><b>7.1</b> Countability</a></li>
+<li class="chapter" data-level="7.2" data-path="infinite.html"><a href="infinite.html#summation-on-infinite-sets"><i class="fa fa-check"></i><b>7.2</b> Summation on infinite sets</a></li>
+<li class="chapter" data-level="7.3" data-path="infinite.html"><a href="infinite.html#uncountable-sets"><i class="fa fa-check"></i><b>7.3</b> Uncountable sets</a></li>
+<li class="chapter" data-level="7.4" data-path="infinite.html"><a href="infinite.html#the-axiom-of-choice"><i class="fa fa-check"></i><b>7.4</b> The axiom of choice</a></li>
+<li class="chapter" data-level="7.5" data-path="infinite.html"><a href="infinite.html#ordered-sets"><i class="fa fa-check"></i><b>7.5</b> Ordered sets</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>8</b> Continuous functions on <span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="continuous.html"><a href="continuous.html#subsets-of-the-real-line"><i class="fa fa-check"></i><b>8.1</b> Subsets of the real line</a></li>
+<li class="chapter" data-level="8.2" data-path="continuous.html"><a href="continuous.html#the-algebra-of-real-valued-functions"><i class="fa fa-check"></i><b>8.2</b> The algebra of real-valued functions</a></li>
+<li class="chapter" data-level="8.3" data-path="continuous.html"><a href="continuous.html#limiting-values-of-functions"><i class="fa fa-check"></i><b>8.3</b> Limiting values of functions</a></li>
+<li class="chapter" data-level="8.4" data-path="continuous.html"><a href="continuous.html#continuous-functions"><i class="fa fa-check"></i><b>8.4</b> Continuous functions</a></li>
+<li class="chapter" data-level="8.5" data-path="continuous.html"><a href="continuous.html#left-and-right-limits"><i class="fa fa-check"></i><b>8.5</b> Left and right limits</a></li>
+<li class="chapter" data-level="8.6" data-path="continuous.html"><a href="continuous.html#the-maximum-principle"><i class="fa fa-check"></i><b>8.6</b> The maximum principle</a></li>
+<li class="chapter" data-level="8.7" data-path="continuous.html"><a href="continuous.html#the-intermediate-value-theorem"><i class="fa fa-check"></i><b>8.7</b> The intermediate value theorem</a></li>
+<li class="chapter" data-level="8.8" data-path="continuous.html"><a href="continuous.html#monotonic-functions"><i class="fa fa-check"></i><b>8.8</b> Monotonic functions</a></li>
+<li class="chapter" data-level="8.9" data-path="continuous.html"><a href="continuous.html#uniform-continuity"><i class="fa fa-check"></i><b>8.9</b> Uniform continuity</a></li>
+<li class="chapter" data-level="8.10" data-path="continuous.html"><a href="continuous.html#limits-at-infinity"><i class="fa fa-check"></i><b>8.10</b> Limits at infinity</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>9</b> Differentiation of functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="diff.html"><a href="diff.html#basic-definitions"><i class="fa fa-check"></i><b>9.1</b> Basic definitions</a></li>
+<li class="chapter" data-level="9.2" data-path="diff.html"><a href="diff.html#local-maxima-local-minima-and-derivatives"><i class="fa fa-check"></i><b>9.2</b> Local maxima, local minima, and derivatives</a></li>
+<li class="chapter" data-level="9.3" data-path="diff.html"><a href="diff.html#monotone-functions-and-derivatives"><i class="fa fa-check"></i><b>9.3</b> Monotone functions and derivatives</a></li>
+<li class="chapter" data-level="9.4" data-path="diff.html"><a href="diff.html#inverse-functions-and-derivatives"><i class="fa fa-check"></i><b>9.4</b> Inverse functions and derivatives</a></li>
+<li class="chapter" data-level="9.5" data-path="diff.html"><a href="diff.html#lhôpitals-rule"><i class="fa fa-check"></i><b>9.5</b> L’Hôpital’s rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="riemann.html"><a href="riemann.html"><i class="fa fa-check"></i><b>10</b> The Riemann integral</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="riemann.html"><a href="riemann.html#partitions"><i class="fa fa-check"></i><b>10.1</b> Partitions</a></li>
+<li class="chapter" data-level="10.2" data-path="riemann.html"><a href="riemann.html#piecewise-constant-functions"><i class="fa fa-check"></i><b>10.2</b> Piecewise constant functions</a></li>
+<li class="chapter" data-level="10.3" data-path="riemann.html"><a href="riemann.html#upper-and-lower-riemann-integrals"><i class="fa fa-check"></i><b>10.3</b> Upper and lower Riemann integrals</a></li>
+<li class="chapter" data-level="10.4" data-path="riemann.html"><a href="riemann.html#basic-properties-of-the-riemann-integrals"><i class="fa fa-check"></i><b>10.4</b> Basic properties of the Riemann integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-continuous-functions"><i class="fa fa-check"></i><b>10.5</b> Riemann integrability of continuous functions</a></li>
+<li class="chapter" data-level="10.6" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-monotone-functions"><i class="fa fa-check"></i><b>10.6</b> Riemann integrability of monotone functions</a></li>
+<li class="chapter" data-level="10.7" data-path="riemann.html"><a href="riemann.html#a-non-riemann-integrable-function"><i class="fa fa-check"></i><b>10.7</b> A non-Riemann integrable function</a></li>
+<li class="chapter" data-level="10.8" data-path="riemann.html"><a href="riemann.html#the-riemann-stieltjes-integral"><i class="fa fa-check"></i><b>10.8</b> The Riemann-Stieltjes integral</a></li>
+<li class="chapter" data-level="10.9" data-path="riemann.html"><a href="riemann.html#the-two-fundamental-theorems-of-calculus"><i class="fa fa-check"></i><b>10.9</b> The two fundamental theorems of calculus</a></li>
+<li class="chapter" data-level="10.10" data-path="riemann.html"><a href="riemann.html#consequences-of-the-fundamental-theorems"><i class="fa fa-check"></i><b>10.10</b> Consequences of the fundamental theorems</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>11</b> Appendix: the basics of mathematical logic</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="logic.html"><a href="logic.html#mathematical-statements"><i class="fa fa-check"></i><b>11.1</b> Mathematical statements</a></li>
+<li class="chapter" data-level="11.2" data-path="logic.html"><a href="logic.html#implication"><i class="fa fa-check"></i><b>11.2</b> Implication</a></li>
+<li class="chapter" data-level="11.3" data-path="logic.html"><a href="logic.html#the-stucture-of-proofs"><i class="fa fa-check"></i><b>11.3</b> The stucture of proofs</a></li>
+<li class="chapter" data-level="11.4" data-path="logic.html"><a href="logic.html#variables-and-quantifiers"><i class="fa fa-check"></i><b>11.4</b> Variables and quantifiers</a></li>
+<li class="chapter" data-level="11.5" data-path="logic.html"><a href="logic.html#nested-quantifiers"><i class="fa fa-check"></i><b>11.5</b> Nested quantifiers</a></li>
+<li class="chapter" data-level="11.6" data-path="logic.html"><a href="logic.html#equality"><i class="fa fa-check"></i><b>11.6</b> Equality</a></li>
+<li class="chapter" data-level="11.7" data-path="logic.html"><a href="logic.html#vocabulary-2"><i class="fa fa-check"></i><b>11.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decimalism.html"><a href="decimalism.html"><i class="fa fa-check"></i><b>12</b> Appendix: the decimal system</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-natural-numbers"><i class="fa fa-check"></i><b>12.1</b> The decimal representation of natural numbers</a></li>
+<li class="chapter" data-level="12.2" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-real-numbers"><i class="fa fa-check"></i><b>12.2</b> The decimal representation of real numbers</a></li>
+<li class="chapter" data-level="12.3" data-path="decimalism.html"><a href="decimalism.html#vocabulary-3"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Skolgrand/skolgrand.github.io/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="limits" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Limits of sequences<a href="limits.html#limits" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="convergence-and-limte-laws" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Convergence and limte laws<a href="limits.html#convergence-and-limte-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 5.1  (Distance between two real numbers) </strong></span>Given two real number <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, we define their distnce <span class="math inline">\(d(x,y)\)</span> to be <span class="math inline">\(d(x,y) :=|x-y|\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-2" class="definition"><strong>Definition 5.2  ($\varepsilon$-close real numbers) </strong></span>Let <span class="math inline">\(\varepsilon\)</span> be a real number. We say that two real numbers <span class="math inline">\(x,y\)</span> are <span class="math inline">\(\varepsilon\)</span>-close iff we have <span class="math inline">\(d(x,y)\leq \varepsilon\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 5.3  (Cauchy sequences of reals) </strong></span>Let <span class="math inline">\(\varepsilon&gt;0\)</span> be a real number. A sequence <span class="math inline">\((a_n)_{n=N}^{\infty}\)</span> of real numbers starting at some integer index <span class="math inline">\(N\)</span> is said to be <em><span class="math inline">\(\varepsilon\)</span>-steady</em> iff <span class="math inline">\(a_j\)</span> and <span class="math inline">\(a_k\)</span> are <span class="math inline">\(\varepsilon\)</span>-close for every <span class="math inline">\(j,k\geq N\)</span>. A sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> starting at some integer index <span class="math inline">\(m\)</span> is said to be <em>eventually <span class="math inline">\(\varepsilon\)</span>-steady</em> iff there exists an <span class="math inline">\(N\geq m\)</span> such that <span class="math inline">\((a_n)_{n=N}^{\infty}\)</span> is <span class="math inline">\(\varepsilon\)</span>-steady. We say that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is a <em>Cauchy sequences</em> iff it is eventually <span class="math inline">\(\varepsilon\)</span>-steady for every <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-4" class="proposition"><strong>Proposition 5.1  </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of rational numbers starting at some integer index <span class="math inline">\(m\)</span>. Then <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is a Cauchy sequence in the sense of Definition 5.4 iff it is a Cauchy sequence in the sense of Definition 6.3.</p>
+</div>
+<p>One can prove this with Proposition 5.7.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 5.4  (Convergence of sequences) </strong></span>Let <span class="math inline">\(\varepsilon&gt;0\)</span> be a real number, and let <span class="math inline">\(L\)</span> be a real number. A sequence <span class="math inline">\((a_n)_{n=N}^{\infty}\)</span> of real numbers is said to be <em><span class="math inline">\(\varepsilon\)</span>-close</em> to <span class="math inline">\(L\)</span> iff <span class="math inline">\(a_n\)</span> is <span class="math inline">\(\varepsilon\)</span>-close to <span class="math inline">\(L\)</span> for every <span class="math inline">\(n\geq N\)</span>. A sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is <em>eventually <span class="math inline">\(\varepsilon\)</span>-close</em> to <span class="math inline">\(L\)</span> iff there exists an <span class="math inline">\(N\geq m\)</span> such that <span class="math inline">\((a_n)_{n=N}^{\infty}\)</span> is <span class="math inline">\(\varepsilon\)</span>-close to <span class="math inline">\(L\)</span>. We say that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> <em>converges</em> to <span class="math inline">\(L\)</span> iff it is eventually <span class="math inline">\(\varepsilon\)</span>-close to <span class="math inline">\(L\)</span> for every real <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-6" class="proposition"><strong>Proposition 5.2  (Uniqueness of limits) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a real sequence starting at some integer index <span class="math inline">\(m\)</span>, and let <span class="math inline">\(L\ne L&#39;\)</span> be two distinct real numbers. Then it is not possible for <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> to converge to <span class="math inline">\(L\)</span> while also converging to <span class="math inline">\(L&#39;\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 5.5  (Limits of sequences) </strong></span>If a sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> converges to some real number <span class="math inline">\(L\)</span>, we say that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is <em>convergent</em> and that its <em>limit</em> is <span class="math inline">\(L\)</span>; we write
+<span class="math display">\[
+L= \lim_{n\to\infty}a_n
+\]</span>
+to denote this fact. If a sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is not converging to any real number <span class="math inline">\(L\)</span>, we say that sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is <em>divergent</em> and we leave <span class="math inline">\(\lim_{n\to\infty}a_n\)</span> undefined.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-8" class="proposition"><strong>Proposition 5.3  (Convergent sequences are Cauchy) </strong></span>Suppose that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is a convergent sequence of real numbers. Then <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is also a Cauchy sequence.</p>
+</div>
+<p>Now we show that formal limits can be superseded by actual limits, just as formal subtraction was superseded by actual subtraction when constructing the integers, and formal division superseded by actual division when constructing the rational numbers.</p>
+<div class="proposition">
+<p><span id="prp:fg" class="proposition"><strong>Proposition 5.4  (Formal limits are genuine limits) </strong></span>Suppose that <span class="math inline">\((a_n)_{n=1}^{\infty}\)</span> is a Cauchy sequence of rational numbers. Then <span class="math inline">\((a_n)_{n=1}^{\infty}\)</span> converges to <span class="math inline">\({\rm LIM}_{n\to \infty}a_n\)</span>, i.e.
+<span class="math display">\[
+{\rm LIM}_{n\to \infty}a_n = \lim_{n\to\infty}a_n
+\]</span></p>
+</div>
+<p>First we need to prove that the sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is convergent, which is not an easy job. Then we can prove that it converges to <span class="math inline">\({\rm LIM}_{n\to \infty}a_n\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-9" class="definition"><strong>Definition 5.6  (Bounded sequences) </strong></span>A sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> of real numbers is <em>bounded</em> by a real number <span class="math inline">\(M\)</span> iff <span class="math inline">\(|a_n|\leq M\)</span> for all <span class="math inline">\(n\geq m\)</span>. We say that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is <em>bounded</em> iff it is bounded by <span class="math inline">\(M\)</span> for some rational <span class="math inline">\(M&gt;0\)</span>.</p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-10" class="corollary"><strong>Corollary 5.1  </strong></span>Every convergent sequence of real numbers is bounded.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:law" class="theorem"><strong>Theorem 5.1  (Limit Laws) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> and <span class="math inline">\((b_n)_{n=m}^{\infty}\)</span> be convergent sequences of real numers, and let <span class="math inline">\(x,y\)</span> be the real numbers <span class="math inline">\(x:=\lim_{n\to\infty} a_n\)</span> and <span class="math inline">\(y:\lim_{n\to\infty} b_n\)</span>.</p>
+<ul>
+<li><span class="math display">\[\lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n.\]</span></li>
+<li><span class="math display">\[\lim_{n\to\infty}(a_nb_n)=(\lim_{n\to\infty}a_n)(\lim_{n\to\infty}b_n).\]</span></li>
+<li><span class="math display">\[\lim_{n\to\infty}(ca_n)=c\lim_{n\to\infty}a_n.\]</span></li>
+<li><span class="math display">\[\lim_{n\to\infty}(a_n-b_n)=\lim_{n\to\infty}a_n-\lim_{n\to\infty}b_n.\]</span></li>
+<li>Suppose that <span class="math inline">\(y\ne 0\)</span>, and that <span class="math inline">\(b_n\ne 0\)</span> for all <span class="math inline">\(n\geq m\)</span>. Then
+<span class="math display">\[
+\lim_{n\to\infty}b_n^{-1} = (\lim_{n\to\infty}b_n)^{-1}.
+\]</span></li>
+<li>Suppose that <span class="math inline">\(y\ne 0\)</span>, and that <span class="math inline">\(b_n\ne 0\)</span> for all <span class="math inline">\(n\geq m\)</span>. Then
+<span class="math display">\[
+\lim_{n\to\infty}\frac{a_n}{b_n} = \frac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}.
+\]</span></li>
+<li><span class="math display">\[\lim_{n\to\infty}\max(a_n,b_n)=\max(\lim_{n\to\infty}a_n,\lim_{n\to\infty}b_n).\]</span></li>
+<li><span class="math display">\[\lim_{n\to\infty}\min(a_n,b_n)=\min(\lim_{n\to\infty}a_n,\lim_{n\to\infty}b_n).\]</span></li>
+</ul>
+</div>
+</div>
+<div id="the-extended-real-number-system" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> The Extended real number system<a href="limits.html#the-extended-real-number-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 5.7  (Extended real number system) </strong></span>The <em>extended real number system</em> <span class="math inline">\(\mathbb{R}^{\ast}\)</span> is the real line <span class="math inline">\(\mathbb{R}\)</span> with two additional elements attached, called <span class="math inline">\(+\infty\)</span> and <span class="math inline">\(-\infty\)</span>. These elements are distinct from each other and also distinct from every real number. An extended real number <span class="math inline">\(x\)</span> is called <em>finite</em> iff it is a real number, and <em>infinite</em> iff it is equal to <span class="math inline">\(+\infty\)</span> or <span class="math inline">\(-\infty\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 5.8  (Negation of extended reals) </strong></span>The operation of negation <span class="math inline">\(x\mapsto -x\)</span> on <span class="math inline">\(\mathbb{R}\)</span>, we now extend to <span class="math inline">\(\mathbb{R}^{\ast}\)</span> by defining <span class="math inline">\(-(+\infty):=-\infty\)</span> and <span class="math inline">\(-(-\infty):=+\infty\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definition 5.9  (Ordering of extended reals) </strong></span>Let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be extended real numbers. We say that <span class="math inline">\(x\leq y\)</span>, i.e., <span class="math inline">\(x\)</span> is less than or equal to <span class="math inline">\(y\)</span>, iff one of the following three statements is true:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are real numbers, and <span class="math inline">\(x\leq y\)</span> as real numbers.</li>
+<li><span class="math inline">\(y=+\infty\)</span>.</li>
+<li><span class="math inline">\(x=-\infty\)</span>.</li>
+</ul>
+<p>We say that <span class="math inline">\(x&lt;y\)</span> if we have <span class="math inline">\(x\leq y\)</span> and <span class="math inline">\(x\ne y\)</span>. We sometimes write <span class="math inline">\(x&lt;y\)</span> as <span class="math inline">\(y&gt;x\)</span>, and <span class="math inline">\(x\leq y\)</span> as <span class="math inline">\(y\geq x\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proposition 5.5  </strong></span>Let <span class="math inline">\(x,y,z\)</span> be extended real numbers. Then the following statements are true:</p>
+<ul>
+<li>(Reflexivity) We have <span class="math inline">\(x\leq x\)</span>.</li>
+<li>(Trichotomy) Exactly one of the statements <span class="math inline">\(x&lt;y\)</span> ,<span class="math inline">\(x=y\)</span>, or <span class="math inline">\(x&gt;y\)</span> is true.</li>
+<li>(Transitivity) If <span class="math inline">\(x\leq y\)</span> and <span class="math inline">\(y\leq z\)</span>, then <span class="math inline">\(x\leq z\)</span>.</li>
+<li>(Negation reverses other) If <span class="math inline">\(x\leq y\)</span>, then <span class="math inline">\(-y\leq -x\)</span>.</li>
+</ul>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 5.10  (Supremum of sets of extended reals) </strong></span>Let <span class="math inline">\(E\)</span> be a subset of <span class="math inline">\(\mathbb{R}^{\ast}\)</span>. Then we define the <em>supremum</em> <span class="math inline">\(\sup(E)\)</span> or <em>least upper bound</em> of <span class="math inline">\(E\)</span> by the following rule.</p>
+<ul>
+<li>If <span class="math inline">\(E\)</span> is contained in <span class="math inline">\(\mathbb{R}\)</span>, then we let <span class="math inline">\(\sup(E)\)</span> be as defined in Definition 5.19</li>
+<li>If <span class="math inline">\(E\)</span> contains <span class="math inline">\(+\infty\)</span>, then we set <span class="math inline">\(\sup(E):=+\infty\)</span>.</li>
+<li>If <span class="math inline">\(E\)</span> does not contain <span class="math inline">\(+\infty\)</span> but does contain <span class="math inline">\(-\infty\)</span>, then we set <span class="math inline">\(\sup(E):=\sup(E\setminus\{-\infty\})\)</span></li>
+</ul>
+<p>We also define the <em>infimum</em> <span class="math inline">\(\inf(E)\)</span> of <span class="math inline">\(E\)</span> (also known as the <em>greatest lower bound</em> of <span class="math inline">\(E\)</span>) by the formula
+<span class="math display">\[
+\inf(E) :=-\sup(-E)
+\]</span>
+where <span class="math inline">\(-E\)</span> is the set <span class="math inline">\(-E:=\{-x:x\in E\}\)</span>.</p>
+</div>
+<p>Let <span class="math inline">\(E\)</span> be the empty set. Then <span class="math inline">\(\sup(E) = -\infty\)</span> and <span class="math inline">\(\inf(E) = +\infty\)</span>. This is the only case in which the supremum can be less than the infimum.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-16" class="theorem"><strong>Theorem 5.2  </strong></span>Let <span class="math inline">\(E\)</span> be a subset of <span class="math inline">\(\mathbb{R}^{\ast}\)</span>. Then the following statements are true.</p>
+<ul>
+<li>Forevery <span class="math inline">\(x\in E\)</span> we have <span class="math inline">\(x\leq \sup(E)\)</span> and <span class="math inline">\(x\geq \inf(E)\)</span>.</li>
+<li>Suppose that <span class="math inline">\(M\in \mathbb{R}^{\ast}\)</span> is an upper bound for <span class="math inline">\(E\)</span>, i.e., <span class="math inline">\(x\leq M\)</span> for all <span class="math inline">\(x\in E\)</span>. Then we have <span class="math inline">\(\sup(E)\leq M\)</span>.</li>
+<li>Suppose that <span class="math inline">\(M\in \mathbb{R}^{\ast}\)</span> is an lower bound for <span class="math inline">\(E\)</span>, i.e., <span class="math inline">\(x\leq M\)</span> for all <span class="math inline">\(x\in E\)</span>. Then we have <span class="math inline">\(\inf(E)\geq M\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="suprema-and-infima-of-sequences" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Suprema and Infima of sequences<a href="limits.html#suprema-and-infima-of-sequences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-17" class="definition"><strong>Definition 5.11  (Sup and inf of sequences) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers. Then we define <span class="math inline">\(\sup(a_n)_{n=m}^{\infty}\)</span> to be the supremum of the set <span class="math inline">\(\{a_n:n\geq m\}\)</span>, and <span class="math inline">\(\inf(a_n)_{n=m}^{\infty}\)</span> to be the infimum of the same set <span class="math inline">\(\{a_n:n\geq m\}\)</span>. The quantities <span class="math inline">\(\sup(a_n)_{n=m}^{\infty}\)</span> and <span class="math inline">\(\inf(a_n)_{n=m}^{\infty}\)</span> are sometimes written as <span class="math inline">\(\sup_{n\geq m}a_n\)</span> and <span class="math inline">\(\inf_{n\geq m}a_n\)</span> respectively.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-18" class="proposition"><strong>Proposition 5.6  (Least upper bound property) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers, and let <span class="math inline">\(x\)</span> be the extended real number <span class="math inline">\(x:=\sup(a_n)_{n=m}^{\infty}\)</span>. Then we have <span class="math inline">\(a_n\leq x\)</span> for all <span class="math inline">\(n\geq m\)</span>. Also, whenever <span class="math inline">\(M \in \mathbb{R}^{\ast}\)</span> is an upper bound for <span class="math inline">\(a_n\)</span>, we have <span class="math inline">\(x\leq M\)</span>. Finally, for every extended real number <span class="math inline">\(y\)</span> for which <span class="math inline">\(y&lt;x\)</span>, there exists at least one <span class="math inline">\(n\geq m\)</span> for which <span class="math inline">\(y&lt; a_n\leq x\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-19" class="proposition"><strong>Proposition 5.7  (Monotone bounded sequences converge) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers which has some finite upper bound <span class="math inline">\(M \in \mathbb{R}\)</span>, and which is also increasing. Then <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is convergent, and in fact
+<span class="math display">\[
+\lim_{n\to\infty}a_n=\sup (a_n)_{n=m}^{\infty} \leq M
+\]</span></p>
+</div>
+<p>One can similarly prove that if sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is bounded below and decreasing, then it is convergent, and that the limit is equal to the infimum.</p>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-20" class="corollary"><strong>Corollary 5.2  </strong></span>Let <span class="math inline">\(0&lt;x&lt;1\)</span>. Then we have <span class="math inline">\(\lim_{n\to \infty}x^n=0\)</span>. (Hint: let <span class="math inline">\(L =\lim_{n\to \infty}x^n\)</span>, then we see that <span class="math inline">\((x^{n+1})_{n=1}^{\infty}\)</span> converges to <span class="math inline">\(xL\)</span> from Theorem <a href="limits.html#thm:law">5.1</a>. But the sequence <span class="math inline">\((x^{n+1})_{n=1}^{\infty}\)</span> is just the sequence <span class="math inline">\((x^{n})_{n=2}^{\infty}\)</span>. So <span class="math inline">\(L=xL\)</span>.)</p>
+</div>
+</div>
+<div id="limsup-liminf-and-limit-points" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Limsup, Liminf, and limit points<a href="limits.html#limsup-liminf-and-limit-points" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 5.12  (Limit points) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers, let <span class="math inline">\(x\)</span> be a real number, and let <span class="math inline">\(\varepsilon&gt;0\)</span> be a real number. We say that <span class="math inline">\(x\)</span> is <em><span class="math inline">\(\varepsilon\)</span>-adherent</em> to <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> iff there exists an <span class="math inline">\(n\geq m\)</span> such that <span class="math inline">\(a_n\)</span> is <span class="math inline">\(\varepsilon\)</span>-close to <span class="math inline">\(x\)</span>. We say that <span class="math inline">\(x\)</span> is <em>continually <span class="math inline">\(\varepsilon\)</span>-adherent</em> to <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> iff it is <span class="math inline">\(\varepsilon\)</span>-adherent to <span class="math inline">\((a_n)_{n=N}^{\infty}\)</span> for every <span class="math inline">\(N\geq m\)</span>. We say that <span class="math inline">\(x\)</span> is a <em>limit point</em> or <em>adherent point</em> of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> iff it is continually <span class="math inline">\(\varepsilon\)</span>-adherent to <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> for every <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-22" class="proposition"><strong>Proposition 5.8  (Limits are limit points) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence which converges to a real number <span class="math inline">\(c\)</span>. Then <span class="math inline">\(c\)</span> is a limit point of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>, and in fact it is the only limit point of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 5.13  (Limit superior and limit inferior) </strong></span>Suppose that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> is a sequence. We define a new sequence <span class="math inline">\((a_N^+)_{N=m}^{\infty}\)</span> by the formula
+<span class="math display">\[
+a_N^+:=\sup(a_n)_{n=N}^{\infty}.
+\]</span>
+We define the <em>limit superior</em> of the sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>, denoted <span class="math inline">\(\limsup_{n\to\infty}a_n\)</span>, by the formula
+<span class="math display">\[
+\limsup_{n\to\infty}a_n := \inf (a_N^+)_{N=m}^{\infty}.
+\]</span>
+Similarly, we can define
+<span class="math display">\[
+a_N^-:=\inf(a_n)_{n=N}^{\infty}
+\]</span>
+and define the <em>limit inferior</em> of the sequence <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>, denoted <span class="math inline">\(\liminf_{n\to\infty}a_n\)</span>, by the formula
+<span class="math display">\[
+\liminf_{n\to\infty}a_n := \sup (a_N^-)_{N=m}^{\infty}.
+\]</span></p>
+</div>
+<p>Note that the starting index <span class="math inline">\(m\)</span> of the sequence is irrelevant.</p>
+<div class="proposition">
+<p><span id="prp:em" class="proposition"><strong>Proposition 5.9  </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers, let <span class="math inline">\(L^+\)</span> be the limit superior of this sequence, and let <span class="math inline">\(L^-\)</span> be the limit inferior of this sequence.</p>
+<ul>
+<li>For every <span class="math inline">\(x&gt;L^+\)</span>, there exists an <span class="math inline">\(N\geq m\)</span> such that <span class="math inline">\(a_n&lt;x\)</span> for all <span class="math inline">\(n\geq N\)</span>. Similarly, for every <span class="math inline">\(y&lt;L^-\)</span>, there exists an <span class="math inline">\(N\geq m\)</span> such that <span class="math inline">\(a_n&gt;y\)</span> for all <span class="math inline">\(n\geq N\)</span>.</li>
+<li>For every <span class="math inline">\(x&lt;L^+\)</span>, and every <span class="math inline">\(N\geq m\)</span>, there exists an <span class="math inline">\(n\geq N\)</span> such that <span class="math inline">\(a_n&gt;x\)</span>. Similarly, for every <span class="math inline">\(y&gt;L^-\)</span>, and every <span class="math inline">\(N\geq m\)</span>, there exists an <span class="math inline">\(n\geq N\)</span> such that <span class="math inline">\(a_n&lt;y\)</span>.</li>
+<li>We have <span class="math inline">\(\inf(a_n)_{n=m}^{\infty}\leq L^-\leq L^+\leq \sup(a_n)_{n=m}^{\infty}\)</span></li>
+<li>If <span class="math inline">\(c\)</span> is any limit point of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>, then we have <span class="math inline">\(L^-\leq c\leq L^+\)</span>.</li>
+<li>If <span class="math inline">\(L^+\)</span> is finite, then it is a limit point of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>. Similarly, if <span class="math inline">\(L^-\)</span> is finite, then it is a limit point of <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>.</li>
+<li>Let <span class="math inline">\(c\)</span> be a real number. If <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> converges to <span class="math inline">\(c\)</span>, then we must have <span class="math inline">\(L^+=L^-=c\)</span>. Conversely, if <span class="math inline">\(L^+=L^-=c\)</span>, then <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> converges to <span class="math inline">\(c\)</span>.</li>
+</ul>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-24" class="lemma"><strong>Lemma 5.1  (Comparison principle) </strong></span>Suppose that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> and <span class="math inline">\((b_n)_{n=m}^{\infty}\)</span> are two sequence of real numbers such that <span class="math inline">\(a_n\leq b_n\)</span> for all <span class="math inline">\(n\geq m\)</span>. Then we have the inequalities
+<span class="math display">\[
+\begin{aligned}
+\sup (a_n)_{n=m}^{\infty} &amp;\leq \sup (b_n)_{n=m}^{\infty}\\
+\inf (a_n)_{n=m}^{\infty} &amp;\leq \inf (b_n)_{n=m}^{\infty}\\
+\limsup_{n\to\infty}a_n &amp;\leq \limsup_{n\to\infty}b_n\\
+\liminf_{n\to\infty}a_n &amp;\leq \liminf_{n\to\infty}b_n
+\end{aligned}
+\]</span></p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-25" class="corollary"><strong>Corollary 5.3  (Squeeze test) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span>, <span class="math inline">\((b_n)_{n=m}^{\infty}\)</span>, <span class="math inline">\((c_n)_{n=m}^{\infty}\)</span> be sequences of real numbers such that <span class="math inline">\(a_n\leq b_n\leq c_n\)</span> for all <span class="math inline">\(n\geq m\)</span>. Suppose also that <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> and <span class="math inline">\((c_n)_{n=m}^{\infty}\)</span> both converge to the same limit <span class="math inline">\(L\)</span>. Then <span class="math inline">\((b_n)_{n=m}^{\infty}\)</span> is also convergent to <span class="math inline">\(L\)</span>.</p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-26" class="corollary"><strong>Corollary 5.4  (Zero test for sequences) </strong></span>Let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a sequence of real numbers. Then the limit <span class="math inline">\(\lim_{n\to\infty}a_n\)</span> exists and is equal to zero iff the limit <span class="math inline">\(\lim_{n\to \infty}|a_n|\)</span> exists and is equal to zero.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:c" class="theorem"><strong>Theorem 5.3  (Completeness of the reals) </strong></span>A sequence <span class="math inline">\((a_n)_{n=1}^{\infty}\)</span> of real numbers is a Cauchy sequence iff it is convergent.</p>
+</div>
+<p>Note that while it is very similar in spirit to Proposition <a href="limits.html#prp:fg">5.4</a>, it is a bit more general. Here we can prove this easily since we only need to show that <span class="math inline">\(L^-=L^+\)</span> according to <a href="limits.html#prp:em">5.9</a>.</p>
+<p>Theorem <a href="limits.html#thm:c">5.3</a> asserts that the real numbers are a <em>complete</em> metric space - that they do not contain “holes” the same way the rationals do. (Certainly the rationals have lots of Cauchy sequences which do not converge to other rationals) This property is closely related to the least upper bound property (Theorem 5.1), and is one of the principal characteristics which make the real numbers superior to the rational numbers for the purposes of doing analysis (taking limits, taking derivatives and integrals, finding zeroes of functions, that kind of thing), as we shall see in later chapters.</p>
+</div>
+<div id="subsequences" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Subsequences<a href="limits.html#subsequences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-27" class="definition"><strong>Definition 5.14  </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> and <span class="math inline">\((b_n)_{n=0}^{\infty}\)</span> be sequences of real numbers. We say that <span class="math inline">\((b_n)_{n=0}^{\infty}\)</span> is a <em>subsequence</em> of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> iff there exists a function <span class="math inline">\(f:\mathbb{N}\to\mathbb{N}\)</span> which is strictly increasing such that
+<span class="math display">\[
+b_n=f(a_n) \text{ for all } n\in\mathbb{N}.
+\]</span></p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-28" class="lemma"><strong>Lemma 5.2  </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span>, <span class="math inline">\((b_n)_{n=0}^{\infty}\)</span>, and <span class="math inline">\((c_n)_{n=0}^{\infty}\)</span> be sequences of real numbers. Then <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> is a subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span>. Furthermore, if <span class="math inline">\((b_n)_{n=0}^{\infty}\)</span> is a subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span>, and <span class="math inline">\((c_n)_{n=0}^{\infty}\)</span> is a subsequence of <span class="math inline">\((b_n)_{n=0}^{\infty}\)</span>, then <span class="math inline">\((c_n)_{n=0}^{\infty}\)</span> is a subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-29" class="proposition"><strong>Proposition 5.10  (Subsequences related to limits) </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> be a sequence of real numbers, and let <span class="math inline">\(L\)</span> be a real number. Then the following two statements are logically equivalent:</p>
+<ul>
+<li>The sequence <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> converges to <span class="math inline">\(L\)</span>.</li>
+<li>Every subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> converges to <span class="math inline">\(L\)</span>.</li>
+</ul>
+</div>
+<div class="proposition">
+<p><span id="prp:s" class="proposition"><strong>Proposition 5.11  (Subsequences related to limit points) </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> be a sequence of real numbers, and let <span class="math inline">\(L\)</span> be a real number. Then the following two statements are logically equivalent.</p>
+<ul>
+<li><span class="math inline">\(L\)</span> is a limit point of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span>.</li>
+<li>There exists a subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> which converges to <span class="math inline">\(L\)</span>.</li>
+</ul>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-30" class="theorem"><strong>Theorem 5.4  (Bolzano-Weierstrass theorem) </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> be a bounded sequence. Then there is at least one subsequence of <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> which converges.</p>
+</div>
+<p>One can prove this with Proposition <a href="limits.html#prp:em">5.9</a> and Proposition <a href="limits.html#prp:s">5.11</a>.</p>
+<p>The Bolzano-Weierstrass theorem says that if a sequence is bounded, then eventually it has no choice but to converge in some places; it has “no room” to spread out and stop itself from acquiring limit points. In the language of topology, this means that the interval <span class="math inline">\(\{x\in\mathbb{R}:-M\leq x\leq M\}\)</span> is <em>compact</em>, whereas an unbounded set such as the real line <span class="math inline">\(\mathbb{R}\)</span> is not compact.</p>
+</div>
+<div id="real-exponentiation-part-ii" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Real exponentiation, part II<a href="limits.html#real-exponentiation-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-31" class="lemma"><strong>Lemma 5.3  (Continuity of exponentiation) </strong></span>Let <span class="math inline">\(x&gt;0\)</span>, and let <span class="math inline">\(\alpha\)</span> be a real number. Let <span class="math inline">\((q_n)_{n=1}^{\infty}\)</span> be any sequence of rational numbers converging to <span class="math inline">\(\alpha\)</span>. Then <span class="math inline">\((x^{q_n})_{n=1}^{\infty}\)</span> is also a convergent sequence. Furthermore, if <span class="math inline">\((q&#39;_n)_{n=1}^{\infty}\)</span> is any other sequence of rational numbers converging to <span class="math inline">\(\alpha\)</span>, then <span class="math inline">\((x^{q&#39;_n})_{n=1}^{\infty}\)</span> has the same limit as <span class="math inline">\((x^{q_n})_{n=1}^{\infty}\)</span>:
+<span class="math display">\[
+\lim_{n\to \infty} x^{q_n}=\lim_{n\to \infty} x^{q&#39;_n}.
+\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 5.15  (Exponentiation to a real exponent) </strong></span>Let <span class="math inline">\(x&gt;0\)</span> be real, and let <span class="math inline">\(\alpha\)</span> be real number. We define the quantity <span class="math inline">\(x^{\alpha}\)</span> by the formula <span class="math inline">\(x^\alpha = \lim_{n\to \infty} x^{q_n}\)</span>, where <span class="math inline">\((q_n)_{n=1}^{\infty}\)</span> is any sequence of rational numbers converging to <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 5.12  </strong></span>All the results of Lemma 5.12, which held for rational numbers <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>, continue to hold for real numbers <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>.</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="real.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="series.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

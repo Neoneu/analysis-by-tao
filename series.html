@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Series | Analysis</title>
+  <meta name="description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Series | Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="github-repo" content="Neoneu" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Series | Analysis" />
+  
+  <meta name="twitter:description" content="This is a note of Analysis by Terence Tao." />
+  
+
+<meta name="author" content="Neoneu" />
+
+
+<meta name="date" content="2024-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="limits.html"/>
+<link rel="next" href="infinite.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Starting at the begining: the natural numbers</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#the-peano-axioms"><i class="fa fa-check"></i><b>1.1</b> The Peano axioms</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#addition"><i class="fa fa-check"></i><b>1.2</b> Addition</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#multiplication"><i class="fa fa-check"></i><b>1.3</b> Multiplication</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#vocabulary"><i class="fa fa-check"></i><b>1.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="1.5" data-path="start.html"><a href="start.html#foot-note"><i class="fa fa-check"></i><b>1.5</b> Foot Note</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Set theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#fundamentals"><i class="fa fa-check"></i><b>2.1</b> Fundamentals</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#russells-paradox"><i class="fa fa-check"></i><b>2.2</b> Russell’s paradox</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#functions"><i class="fa fa-check"></i><b>2.3</b> Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#images-and-inverse-images"><i class="fa fa-check"></i><b>2.4</b> Images and inverse images</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#cartesian-products"><i class="fa fa-check"></i><b>2.5</b> Cartesian products</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cardinality-of-sets"><i class="fa fa-check"></i><b>2.6</b> Cardinality of sets</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#vocabulary-1"><i class="fa fa-check"></i><b>2.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="integers.html"><a href="integers.html"><i class="fa fa-check"></i><b>3</b> Integers and rationals</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="integers.html"><a href="integers.html#the-integers"><i class="fa fa-check"></i><b>3.1</b> The integers</a></li>
+<li class="chapter" data-level="3.2" data-path="integers.html"><a href="integers.html#the-rationals"><i class="fa fa-check"></i><b>3.2</b> The rationals</a></li>
+<li class="chapter" data-level="3.3" data-path="integers.html"><a href="integers.html#absolute-value-and-exponentiation"><i class="fa fa-check"></i><b>3.3</b> Absolute value and exponentiation</a></li>
+<li class="chapter" data-level="3.4" data-path="integers.html"><a href="integers.html#gaps-in-the-rational-numbers"><i class="fa fa-check"></i><b>3.4</b> Gaps in the rational numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="real.html"><a href="real.html"><i class="fa fa-check"></i><b>4</b> The real numbers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="real.html"><a href="real.html#cauchy-sequences"><i class="fa fa-check"></i><b>4.1</b> Cauchy sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="real.html"><a href="real.html#equivalent-cauchy-sequences"><i class="fa fa-check"></i><b>4.2</b> Equivalent Cauchy sequences</a></li>
+<li class="chapter" data-level="4.3" data-path="real.html"><a href="real.html#the-construction-of-the-real-numbers"><i class="fa fa-check"></i><b>4.3</b> The construction of the real numbers</a></li>
+<li class="chapter" data-level="4.4" data-path="real.html"><a href="real.html#ordering-the-reals"><i class="fa fa-check"></i><b>4.4</b> Ordering the reals</a></li>
+<li class="chapter" data-level="4.5" data-path="real.html"><a href="real.html#the-least-upper-bound-property"><i class="fa fa-check"></i><b>4.5</b> The least upper bound property</a></li>
+<li class="chapter" data-level="4.6" data-path="real.html"><a href="real.html#real-exponentiation-part-i"><i class="fa fa-check"></i><b>4.6</b> Real exponentiation, part I</a></li>
+<li class="chapter" data-level="4.7" data-path="real.html"><a href="real.html#foot-notes"><i class="fa fa-check"></i><b>4.7</b> Foot Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="limits.html"><a href="limits.html"><i class="fa fa-check"></i><b>5</b> Limits of sequences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="limits.html"><a href="limits.html#convergence-and-limte-laws"><i class="fa fa-check"></i><b>5.1</b> Convergence and limte laws</a></li>
+<li class="chapter" data-level="5.2" data-path="limits.html"><a href="limits.html#the-extended-real-number-system"><i class="fa fa-check"></i><b>5.2</b> The Extended real number system</a></li>
+<li class="chapter" data-level="5.3" data-path="limits.html"><a href="limits.html#suprema-and-infima-of-sequences"><i class="fa fa-check"></i><b>5.3</b> Suprema and Infima of sequences</a></li>
+<li class="chapter" data-level="5.4" data-path="limits.html"><a href="limits.html#limsup-liminf-and-limit-points"><i class="fa fa-check"></i><b>5.4</b> Limsup, Liminf, and limit points</a></li>
+<li class="chapter" data-level="5.5" data-path="limits.html"><a href="limits.html#subsequences"><i class="fa fa-check"></i><b>5.5</b> Subsequences</a></li>
+<li class="chapter" data-level="5.6" data-path="limits.html"><a href="limits.html#real-exponentiation-part-ii"><i class="fa fa-check"></i><b>5.6</b> Real exponentiation, part II</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="series.html"><a href="series.html"><i class="fa fa-check"></i><b>6</b> Series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="series.html"><a href="series.html#finite-series"><i class="fa fa-check"></i><b>6.1</b> Finite series</a></li>
+<li class="chapter" data-level="6.2" data-path="series.html"><a href="series.html#infinite-series"><i class="fa fa-check"></i><b>6.2</b> Infinite series</a></li>
+<li class="chapter" data-level="6.3" data-path="series.html"><a href="series.html#sums-of-non-negative-numbers"><i class="fa fa-check"></i><b>6.3</b> Sums of non-negative numbers</a></li>
+<li class="chapter" data-level="6.4" data-path="series.html"><a href="series.html#rearrangement-of-series"><i class="fa fa-check"></i><b>6.4</b> Rearrangement of series</a></li>
+<li class="chapter" data-level="6.5" data-path="series.html"><a href="series.html#the-root-and-ratio-tests"><i class="fa fa-check"></i><b>6.5</b> The root and ratio tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="infinite.html"><a href="infinite.html"><i class="fa fa-check"></i><b>7</b> Infinite sets</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="infinite.html"><a href="infinite.html#countability"><i class="fa fa-check"></i><b>7.1</b> Countability</a></li>
+<li class="chapter" data-level="7.2" data-path="infinite.html"><a href="infinite.html#summation-on-infinite-sets"><i class="fa fa-check"></i><b>7.2</b> Summation on infinite sets</a></li>
+<li class="chapter" data-level="7.3" data-path="infinite.html"><a href="infinite.html#uncountable-sets"><i class="fa fa-check"></i><b>7.3</b> Uncountable sets</a></li>
+<li class="chapter" data-level="7.4" data-path="infinite.html"><a href="infinite.html#the-axiom-of-choice"><i class="fa fa-check"></i><b>7.4</b> The axiom of choice</a></li>
+<li class="chapter" data-level="7.5" data-path="infinite.html"><a href="infinite.html#ordered-sets"><i class="fa fa-check"></i><b>7.5</b> Ordered sets</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>8</b> Continuous functions on <span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="continuous.html"><a href="continuous.html#subsets-of-the-real-line"><i class="fa fa-check"></i><b>8.1</b> Subsets of the real line</a></li>
+<li class="chapter" data-level="8.2" data-path="continuous.html"><a href="continuous.html#the-algebra-of-real-valued-functions"><i class="fa fa-check"></i><b>8.2</b> The algebra of real-valued functions</a></li>
+<li class="chapter" data-level="8.3" data-path="continuous.html"><a href="continuous.html#limiting-values-of-functions"><i class="fa fa-check"></i><b>8.3</b> Limiting values of functions</a></li>
+<li class="chapter" data-level="8.4" data-path="continuous.html"><a href="continuous.html#continuous-functions"><i class="fa fa-check"></i><b>8.4</b> Continuous functions</a></li>
+<li class="chapter" data-level="8.5" data-path="continuous.html"><a href="continuous.html#left-and-right-limits"><i class="fa fa-check"></i><b>8.5</b> Left and right limits</a></li>
+<li class="chapter" data-level="8.6" data-path="continuous.html"><a href="continuous.html#the-maximum-principle"><i class="fa fa-check"></i><b>8.6</b> The maximum principle</a></li>
+<li class="chapter" data-level="8.7" data-path="continuous.html"><a href="continuous.html#the-intermediate-value-theorem"><i class="fa fa-check"></i><b>8.7</b> The intermediate value theorem</a></li>
+<li class="chapter" data-level="8.8" data-path="continuous.html"><a href="continuous.html#monotonic-functions"><i class="fa fa-check"></i><b>8.8</b> Monotonic functions</a></li>
+<li class="chapter" data-level="8.9" data-path="continuous.html"><a href="continuous.html#uniform-continuity"><i class="fa fa-check"></i><b>8.9</b> Uniform continuity</a></li>
+<li class="chapter" data-level="8.10" data-path="continuous.html"><a href="continuous.html#limits-at-infinity"><i class="fa fa-check"></i><b>8.10</b> Limits at infinity</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>9</b> Differentiation of functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="diff.html"><a href="diff.html#basic-definitions"><i class="fa fa-check"></i><b>9.1</b> Basic definitions</a></li>
+<li class="chapter" data-level="9.2" data-path="diff.html"><a href="diff.html#local-maxima-local-minima-and-derivatives"><i class="fa fa-check"></i><b>9.2</b> Local maxima, local minima, and derivatives</a></li>
+<li class="chapter" data-level="9.3" data-path="diff.html"><a href="diff.html#monotone-functions-and-derivatives"><i class="fa fa-check"></i><b>9.3</b> Monotone functions and derivatives</a></li>
+<li class="chapter" data-level="9.4" data-path="diff.html"><a href="diff.html#inverse-functions-and-derivatives"><i class="fa fa-check"></i><b>9.4</b> Inverse functions and derivatives</a></li>
+<li class="chapter" data-level="9.5" data-path="diff.html"><a href="diff.html#lhôpitals-rule"><i class="fa fa-check"></i><b>9.5</b> L’Hôpital’s rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="riemann.html"><a href="riemann.html"><i class="fa fa-check"></i><b>10</b> The Riemann integral</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="riemann.html"><a href="riemann.html#partitions"><i class="fa fa-check"></i><b>10.1</b> Partitions</a></li>
+<li class="chapter" data-level="10.2" data-path="riemann.html"><a href="riemann.html#piecewise-constant-functions"><i class="fa fa-check"></i><b>10.2</b> Piecewise constant functions</a></li>
+<li class="chapter" data-level="10.3" data-path="riemann.html"><a href="riemann.html#upper-and-lower-riemann-integrals"><i class="fa fa-check"></i><b>10.3</b> Upper and lower Riemann integrals</a></li>
+<li class="chapter" data-level="10.4" data-path="riemann.html"><a href="riemann.html#basic-properties-of-the-riemann-integrals"><i class="fa fa-check"></i><b>10.4</b> Basic properties of the Riemann integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-continuous-functions"><i class="fa fa-check"></i><b>10.5</b> Riemann integrability of continuous functions</a></li>
+<li class="chapter" data-level="10.6" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-monotone-functions"><i class="fa fa-check"></i><b>10.6</b> Riemann integrability of monotone functions</a></li>
+<li class="chapter" data-level="10.7" data-path="riemann.html"><a href="riemann.html#a-non-riemann-integrable-function"><i class="fa fa-check"></i><b>10.7</b> A non-Riemann integrable function</a></li>
+<li class="chapter" data-level="10.8" data-path="riemann.html"><a href="riemann.html#the-riemann-stieltjes-integral"><i class="fa fa-check"></i><b>10.8</b> The Riemann-Stieltjes integral</a></li>
+<li class="chapter" data-level="10.9" data-path="riemann.html"><a href="riemann.html#the-two-fundamental-theorems-of-calculus"><i class="fa fa-check"></i><b>10.9</b> The two fundamental theorems of calculus</a></li>
+<li class="chapter" data-level="10.10" data-path="riemann.html"><a href="riemann.html#consequences-of-the-fundamental-theorems"><i class="fa fa-check"></i><b>10.10</b> Consequences of the fundamental theorems</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>11</b> Appendix: the basics of mathematical logic</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="logic.html"><a href="logic.html#mathematical-statements"><i class="fa fa-check"></i><b>11.1</b> Mathematical statements</a></li>
+<li class="chapter" data-level="11.2" data-path="logic.html"><a href="logic.html#implication"><i class="fa fa-check"></i><b>11.2</b> Implication</a></li>
+<li class="chapter" data-level="11.3" data-path="logic.html"><a href="logic.html#the-stucture-of-proofs"><i class="fa fa-check"></i><b>11.3</b> The stucture of proofs</a></li>
+<li class="chapter" data-level="11.4" data-path="logic.html"><a href="logic.html#variables-and-quantifiers"><i class="fa fa-check"></i><b>11.4</b> Variables and quantifiers</a></li>
+<li class="chapter" data-level="11.5" data-path="logic.html"><a href="logic.html#nested-quantifiers"><i class="fa fa-check"></i><b>11.5</b> Nested quantifiers</a></li>
+<li class="chapter" data-level="11.6" data-path="logic.html"><a href="logic.html#equality"><i class="fa fa-check"></i><b>11.6</b> Equality</a></li>
+<li class="chapter" data-level="11.7" data-path="logic.html"><a href="logic.html#vocabulary-2"><i class="fa fa-check"></i><b>11.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decimalism.html"><a href="decimalism.html"><i class="fa fa-check"></i><b>12</b> Appendix: the decimal system</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-natural-numbers"><i class="fa fa-check"></i><b>12.1</b> The decimal representation of natural numbers</a></li>
+<li class="chapter" data-level="12.2" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-real-numbers"><i class="fa fa-check"></i><b>12.2</b> The decimal representation of real numbers</a></li>
+<li class="chapter" data-level="12.3" data-path="decimalism.html"><a href="decimalism.html#vocabulary-3"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Skolgrand/skolgrand.github.io/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="series" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Series<a href="series.html#series" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="finite-series" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Finite series<a href="series.html#finite-series" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 6.1  (Finite series) </strong></span>Let <span class="math inline">\(m,n\)</span> be integers, and let <span class="math inline">\((a_n)_{n=m}^{\infty}\)</span> be a finite sequence of real numbers, assigning a real number <span class="math inline">\(a_i\)</span> to each integer <span class="math inline">\(i\)</span> between <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> inclusive (i.e., <span class="math inline">\(m\leq i\leq n\)</span>). Then we define the finite sum (or finite series) <span class="math inline">\(\sum_{i=m}^na_i\)</span> by the recursive formula
+<span class="math display">\[
+\begin{aligned}
+\sum_{i=m}^na_i&amp;:=0 \text{ whenever } n&lt;m;\\
+\sum_{i=m}^{n+1}a_i&amp;:=\left(\sum_{i=m}^na_i\right)+a_{n+1}  \text{ whenever } n\geq m-1.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Strictly speaking, a series is an <em>expression</em> of the form <span class="math inline">\(\sum_{i=m}^na_i\)</span>; this series if mathematically (but not semantically) equal to a real number, which is the <em>sum</em> of that series. Note that the variable <span class="math inline">\(i\)</span> (sometimes called the <em>index of summation</em>) is a <em>bound variable</em> (sometimes called a <em>dummy variable</em>); the expression <span class="math inline">\(\sum_{i=m}^na_i\)</span> does not actually depend on any quantity named <span class="math inline">\(i\)</span>.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-2" class="lemma"><strong>Lemma 6.1  </strong></span></p>
+<ul>
+<li>Let <span class="math inline">\(m\leq n\leq p\)</span> be integers, and let <span class="math inline">\(a_i\)</span> be a real number assigned to each integer <span class="math inline">\(m\leq i \leq p\)</span>. Then we have
+<span class="math display">\[
+\sum_{i=m}^na_i + \sum_{i=n+1}^pa_i=\sum_{i=m}^pa_i.
+\]</span></li>
+<li>Let <span class="math inline">\(m\leq n\)</span> be integers, <span class="math inline">\(k\)</span> be another integer, and let <span class="math inline">\(a_i\)</span> be a real number assigned to each integer <span class="math inline">\(m\leq i \leq n\)</span>. Then we have
+<span class="math display">\[
+\sum_{i=m}^na_=\sum_{i=m+k}^{n+k}a_{i-k}.
+\]</span></li>
+<li>Let <span class="math inline">\(m\leq n\)</span> be integers, and let <span class="math inline">\(a_i, b_i\)</span> be real numbers assigned to each integer <span class="math inline">\(m\leq i \leq n\)</span>. Then we have
+<span class="math display">\[
+\sum_{i=m}^n(a_i+b_i)=\sum_{i=m}^na_i+\sum_{i=m}^nb_i.
+\]</span></li>
+<li>Let <span class="math inline">\(m\leq n\)</span> be integers, and let <span class="math inline">\(a_i\)</span> be a real number assigned to each integer <span class="math inline">\(m\leq i \leq n\)</span>, and <span class="math inline">\(c\)</span> be another real number. Then we have
+<span class="math display">\[
+\sum_{i=m}^n(ca_i)=c\sum_{i=m}^na_i.
+\]</span></li>
+<li>(Triangle inequality fir finite series) Let <span class="math inline">\(m\leq n\)</span> be integers, and let <span class="math inline">\(a_i\)</span> be a real number assigned to each integer <span class="math inline">\(m\leq i \leq n\)</span>. Then we have
+<span class="math display">\[
+\left|\sum_{i=m}^na_i\right|\leq\sum_{i=m}^n|a_i|.
+\]</span></li>
+<li>(Comparison test for finite series) Let <span class="math inline">\(m\leq n\)</span> be integers, and let <span class="math inline">\(a_i, b_i\)</span> be real numbers assigned to each integer <span class="math inline">\(m\leq i \leq n\)</span>. Suppose that <span class="math inline">\(a_i\leq b_i\)</span> for all <span class="math inline">\(m\leq i\leq n\)</span>. Then we have
+<span class="math display">\[
+\sum_{i=m}^na_i\leq\sum_{i=m}^nb_i.
+\]</span></li>
+</ul>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 6.2  (Summations over fintite sets) </strong></span>Let <span class="math inline">\(X\)</span> be a finite et with <span class="math inline">\(n\)</span> elements (where <span class="math inline">\(n\in \mathbb{N}\)</span>), and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> be a function from <span class="math inline">\(X\)</span> to the real numbers. Then we can define the finite sum <span class="math inline">\(\sum_{x\in X}f(x)\)</span> as follows. We first select and bijection <span class="math inline">\(g\)</span> from <span class="math inline">\(\{i\in\mathbb{N}:1\leq i\leq n\}\)</span> to <span class="math inline">\(X\)</span>; such a bijection exists since <span class="math inline">\(X\)</span> is assumed to have <span class="math inline">\(n\)</span> elements. We then define
+<span class="math display">\[
+\sum_{x\in X}f(x) :=\sum_{i=1}^nf(g(i)).
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-4" class="proposition"><strong>Proposition 6.1  (Finite summations are well-defined) </strong></span>Let <span class="math inline">\(X\)</span> be a finite et with <span class="math inline">\(n\)</span> elements (where <span class="math inline">\(n\in \mathbb{N}\)</span>), and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> be a function, and let <span class="math inline">\(g:\{i\in\mathbb{N}:1\leq i\leq n\}\to X\)</span> and <span class="math inline">\(h:\{i\in\mathbb{N}:1\leq i\leq n\}\to X\)</span> be bijections. Then we have
+<span class="math display">\[
+\sum_{i=1}^nf(g(i))=\sum_{i=1}^nf(h(i)).
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:bpf" class="proposition"><strong>Proposition 6.2  (Basic properties of summation over finite sets) </strong></span></p>
+<ul>
+<li>If <span class="math inline">\(X\)</span> is empty, and <span class="math inline">\(f:X\to \mathbb{R}\)</span> is a function, we have
+<span class="math display">\[
+\sum_{x\in X}f(x) = 0.
+\]</span></li>
+<li>If <span class="math inline">\(X\)</span> consists of a single element, <span class="math inline">\(X=\{x_0\}\)</span>, and <span class="math inline">\(f:X\to \mathbb{R}\)</span> is a function, we have
+<span class="math display">\[
+\sum_{x\in X}f(x) = f(x_0).
+\]</span></li>
+<li>(Substitution, part I) If <span class="math inline">\(X\)</span> is a finite set, <span class="math inline">\(f:X\to \mathbb{R}\)</span> is a function, and <span class="math inline">\(g:Y\to X\)</span> is a bijection, then
+<span class="math display">\[
+\sum_{x\in X}f(x) = \sum_{y\in Y}f(g(y)).
+\]</span></li>
+<li>(Substitution, part II) Let <span class="math inline">\(n\leq m\)</span> be integers, and let <span class="math inline">\(X\)</span> be the set <span class="math inline">\(X:=\{i\in\mathbb{Z}:n\leq i\leq m\}\)</span>. If <span class="math inline">\(a_i\)</span> is a real number assigned to each integer <span class="math inline">\(i\in X\)</span>, then we have
+<span class="math display">\[
+\sum_{i=n}^m a_i=\sum_{i\in X}a_i.
+\]</span></li>
+<li>Let <span class="math inline">\(X,Y\)</span> be disjoint finite sets, and <span class="math inline">\(f:X\cup Y\to \mathbb{R}\)</span> is a function. Then we have
+<span class="math display">\[
+\sum_{z\in X\cup Y}f(z)=\sum_{x\in X}f(x)+\sum_{y\in Y}f(y).
+\]</span></li>
+<li>(Linearity, part I) Let <span class="math inline">\(X\)</span> be a finite set, and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> and <span class="math inline">\(g:X\to \mathbb{R}\)</span> be functions. Then
+<span class="math display">\[
+\sum_{x\in X}(f(x)+g(x)) = \sum_{x\in X}f(x)+\sum_{x\in X}g(x).
+\]</span></li>
+<li>(Linearity, part II) Let <span class="math inline">\(X\)</span> be a finite set, and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> be a function. Then
+<span class="math display">\[
+\sum_{x\in X}cf(x) = c\sum_{x\in X}f(x).
+\]</span></li>
+<li>(Monotonicity) Let <span class="math inline">\(X\)</span> be a finite set, and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> and <span class="math inline">\(g:X\to \mathbb{R}\)</span> be functions such that <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span class="math inline">\(x\in X\)</span>. Then we have
+<span class="math display">\[
+\sum_{x\in X}f(x)\leq\sum_{x\in X}g(x).
+\]</span></li>
+<li>(Triangle inequality) Let <span class="math inline">\(x\)</span> be a finite set, and let <span class="math inline">\(f:X\to \mathbb{R}\)</span> be a function, then
+<span class="math display">\[
+\left|\sum_{x\in X}f(x)\right|\leq\sum_{x\in X}|f(x)|.
+\]</span></li>
+</ul>
+</div>
+<p>The substitution rule in Proposition <a href="series.html#prp:bpf">6.2</a> indicates that we can rearrange the elements of a finite sequence at will and still obtain the same value.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-5" class="lemma"><strong>Lemma 6.2  </strong></span>Let <span class="math inline">\(X,Y\)</span> be a finite set, and let <span class="math inline">\(f:X\times Y\to \mathbb{R}\)</span> be a function. Then
+<span class="math display">\[
+\sum_{x\in X}\left(\sum_{y\in Y}f(x,y)\right) = \sum_{(x,y)\in X\times Y}f(x,y).
+\]</span></p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-6" class="corollary"><strong>Corollary 6.1  (Fubini's theorem for finite series) </strong></span>Let <span class="math inline">\(X,Y\)</span> be finite sets, and let <span class="math inline">\(f:X\times Y\to \mathbb{R}\)</span> be a function. Then
+<span class="math display">\[
+\begin{aligned}
+\sum_{x\in X}\left(\sum_{y\in Y}f(x,y)\right) &amp;= \sum_{(x,y)\in X\times Y}f(x,y)\\
+&amp;= \sum_{(y,x)\in Y\times X}f(x,y)\\
+&amp;=\sum_{y\in Y}\left(\sum_{x\in X}f(x,y)\right)
+\end{aligned}
+\]</span></p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 6.1  </strong></span>Let <span class="math inline">\(X\)</span> be a finite set, let <span class="math inline">\(m\)</span> be an integer and for each <span class="math inline">\(x\in X\)</span> let <span class="math inline">\((a_n(x))_{n=m}^{\infty}\)</span> be a convergent sequence of real numbers. Show that the sequence <span class="math inline">\(\sum_{x\in X}(a_n(x))_{n=m}^{\infty}\)</span> is convergent, and
+<span class="math display">\[
+\lim_{n\to \infty}\sum_{x\in X}a_n(x)=\sum_{x\in X}\lim_{n\to \infty}a_n(x).
+\]</span></p>
+</div>
+</div>
+<div id="infinite-series" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Infinite series<a href="series.html#infinite-series" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 6.3  (Formal infinite series) </strong></span>A <em>(formal) series</em> is any expression of the form
+<span class="math display">\[
+\sum_{n=m}^{\infty}a_n,
+\]</span></p>
+</div>
+<p>where <span class="math inline">\(m\)</span> is an integer, and <span class="math inline">\(a_n\)</span> is a real number for any integer <span class="math inline">\(n\geq m\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-9" class="definition"><strong>Definition 6.4  (Convergence of series) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a formal infinite series. For any integer <span class="math inline">\(N \geq m\)</span>, we define the <span class="math inline">\(N^{\text{th}}\)</span> <em>partial sum</em> <span class="math inline">\(S_N\)</span> of this series to be <span class="math inline">\(S_N:=\sum_{n=m}^Na_n\)</span>. If the sequence <span class="math inline">\((S_N)^{\infty}_{N=m}\)</span> converges to some limit <span class="math inline">\(L\)</span> as <span class="math inline">\(N\to\infty\)</span>, then we say that the infinite series <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is <em>convergent</em>, and <em>converges</em> to <span class="math inline">\(L\)</span>; we also write <span class="math inline">\(L=\sum_{n=m}^{\infty}a_n\)</span>, and say that <span class="math inline">\(L\)</span> is the sum of the infinite series <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span>. If the partial sums <span class="math inline">\(S_N\)</span> diverge, then we say that the infinite series <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is <em>divergent</em>, and we do not assign any real number value to that series.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-10" class="proposition"><strong>Proposition 6.3  </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a formal series of real numbers. Then <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> converges iff for every real number <span class="math inline">\(\varepsilon&gt;0\)</span>. there exists an integer <span class="math inline">\(N\geq m\)</span> such that
+<span class="math display">\[
+\left|
+\sum_{n=p}^{q}a_n\right|\leq \varepsilon \text{ for all }p,q\geq N
+\]</span></p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-11" class="corollary"><strong>Corollary 6.2  (Zero test) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a convergent series of real numbers. Then must have <span class="math inline">\(\lim_{n\to\infty}a_n\)</span>. To put this another way, if <span class="math inline">\(\lim_{n\to\infty}a_n\)</span> is non-zero or divergent, then the series <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is divergent.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 6.5  (Absolute convergence) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a formal series of real numbers. We say that this series is <em>absolutely convergent</em> iff the series <span class="math inline">\(\sum_{n=m}^{\infty}|a_n|\)</span> is convergent.</p>
+</div>
+<p>In order to distinguish convergence from absolute convergence, we sometimes refer to the former as <em>conditional</em> convergence.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-13" class="proposition"><strong>Proposition 6.4  (Absolute convergence test) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a formal series of real numbers. If this series is absolutely convergent, then it is also conditionally convergent. Furthermore, in this case we have the triangle inequality
+<span class="math display">\[
+\left|\sum_{i=m}^{\infty}a_i\right|\leq\sum_{i=m}^{\infty}|a_i|.
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proposition 6.5  (Alternating series test) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a sequence of real numbers which are non-negative and decreasing. Then the series <span class="math inline">\(\sum_{n=m}^{\infty}(-1)^na_n\)</span> is convergent iff the sequence <span class="math inline">\(a_n\)</span> converges to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\to\infty\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-15" class="proposition"><strong>Proposition 6.6  (Series laws) </strong></span></p>
+<ul>
+<li>If <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is a series of real numbers converging to <span class="math inline">\(x\)</span>, and <span class="math inline">\(\sum_{n=m}^{\infty}b_n\)</span> is a series of real numbers converging to <span class="math inline">\(y\)</span>, then <span class="math inline">\(\sum_{n=m}^{\infty}(a_n+b_n)\)</span> is also a convergent series, and converges to <span class="math inline">\(x+y\)</span>. In particular, we have
+<span class="math display">\[
+\sum_{i=m}^{\infty}(a_i+b_i)=\sum_{i=m}^{\infty}a_i+\sum_{i=m}^{\infty}b_i.
+\]</span></li>
+<li>If <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is a series of real numbers converging to <span class="math inline">\(x\)</span>, and <span class="math inline">\(c\)</span> is a real number, then <span class="math inline">\(\sum_{n=m}^{\infty}(ca_n)\)</span> is also a convergent series, and converges to <span class="math inline">\(cx\)</span>. In particular, we have
+<span class="math display">\[
+\sum_{i=m}^{\infty}(ca_i)=c\sum_{i=m}^{\infty}a_i.
+\]</span></li>
+<li>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a series of real numbers, and <span class="math inline">\(k\geq 0\)</span> bean integer. If one of the two series <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=m+k}^{\infty}a_n\)</span> are convergent, then the other one is also, and we have the identity
+<span class="math display">\[
+\sum_{n=m}^{\infty}a_n=\sum_{n=m}^{m+k-1}a_n+\sum_{n=m+k}^{\infty}a_n
+\]</span></li>
+<li>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a series of real numbers converging to <span class="math inline">\(x\)</span>, and let <span class="math inline">\(k\)</span> be an integer. Then <span class="math inline">\(\sum_{n=m+k}^{\infty}a_{n-k}\)</span> also converges to <span class="math inline">\(x\)</span>.</li>
+</ul>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-16" class="lemma"><strong>Lemma 6.3  (Telescoping series) </strong></span>Let <span class="math inline">\((a_n)_{n=0}^{\infty}\)</span> be a sequence if real numbers which converge to <span class="math inline">\(0\)</span>. Then the series <span class="math inline">\(\sum_{n=0}^{\infty}(a_n-a_{n+1})\)</span> converges to <span class="math inline">\(a_0\)</span>.</p>
+</div>
+</div>
+<div id="sums-of-non-negative-numbers" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Sums of non-negative numbers<a href="series.html#sums-of-non-negative-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-17" class="proposition"><strong>Proposition 6.7  </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a formal series of non-negative real numbers. Then this series is convergent iff there is a real number <span class="math inline">\(M\)</span> such that</p>
+<p><span class="math display">\[
+\sum_{n=m}^{N}a_n\leq M \text{ for all integers } N\geq m.
+\]</span></p>
+</div>
+<p>:::{corollary name=“Comparision test”}
+Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=m}^{\infty}b_n\)</span> be two formal series of real numbers, and suppose that <span class="math inline">\(|a_n|\leq b_n\)</span> for all <span class="math inline">\(n\geq m\)</span>. Then if <span class="math inline">\(\sum_{n=m}^{\infty}b_n\)</span> is convergent, then <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> is absolutely convergent, and in fact</p>
+<p><span class="math display">\[
+\left|\sum_{n=m}^{\infty}a_n\right|\leq \sum_{n=m}^{\infty}|a_n|\leq\sum_{n=m}^{\infty}b_n.
+\]</span>
+:::</p>
+<p>:::{.lemma name=“Geometric series}
+Let <span class="math inline">\(x\)</span> be a real number. If <span class="math inline">\(|x|\geq 1\)</span>, the the series <span class="math inline">\(\sum_{n=0}^{\infty}x^n\)</span> is divergent. If however <span class="math inline">\(|x|&lt;1\)</span>, then the series is absolutely convergent and
+<span class="math display">\[
+\sum_{n=0}^{\infty}x^n = 1/(1-x).
+\]</span>
+:::</p>
+<div class="prposition" name="Cauchy criterion">
+<p>Let <span class="math inline">\((a_n)_{n=1}^{\infty}\)</span> be a decreasing sequence of non-negative real numbers (so <span class="math inline">\(a_n\geq 0\)</span> and <span class="math inline">\(a_{n+1}\leq a_n\)</span> for ll <span class="math inline">\(n\geq 1\)</span>). Then the series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> is convergent iff the series
+<span class="math display">\[
+\sum_{k=0}^{\infty}2^ka_{2^k}=a_1+2a_2+4a_4+\dots
+\]</span>
+is convergent.</p>
+</div>
+<div class="{corollary}">
+<p>Let <span class="math inline">\(q&gt;0\)</span> be a rational number. Then the series <span class="math inline">\(\sum_{n=1}^{\infty}1/n^q\)</span> is convergent when <span class="math inline">\(q&gt;1\)</span> and divergent when <span class="math inline">\(q\leq 1\)</span>.</p>
+</div>
+<p>Then quantity <span class="math inline">\(\sum_{n=1}^{\infty}1/n^q\)</span>, when it converges, is called <span class="math inline">\(\zeta(q)\)</span>, then <em>Riemann-zeta</em> function of <span class="math inline">\(q\)</span>.</p>
+</div>
+<div id="rearrangement-of-series" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Rearrangement of series<a href="series.html#rearrangement-of-series" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-18" class="proposition"><strong>Proposition 6.8  </strong></span>Let <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> be a convergent series of non-negative real numbers, and let <span class="math inline">\(f:\mathbb{N}\to\mathbb{N}\)</span> be a bijection. Then <span class="math inline">\(\sum_{m=0}^{\infty}a_{f(m)}\)</span> is also convergent, and has the same sum:
+<span class="math display">\[
+\sum_{n=0}^{\infty}a_n=\sum_{m=0}^{\infty}a_{f(m)}.
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-19" class="proposition"><strong>Proposition 6.9  (Rearrangement of series) </strong></span>Let <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> be an absolutely convergent series o real numbers, and let <span class="math inline">\(f:\mathbb{N}\to\mathbb{N}\)</span> be a bijection. Then <span class="math inline">\(\sum_{m=0}^{\infty}a_{f(m)}\)</span> is also absolutely convergent, and has the same sum:
+<span class="math display">\[
+\sum_{n=0}^{\infty}a_n=\sum_{m=0}^{\infty}a_{f(m)}.
+\]</span></p>
+</div>
+<p>A series which is conditionally convergent but bot absolutely convergent can in fact be rearranged to converge to any value.</p>
+</div>
+<div id="the-root-and-ratio-tests" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> The root and ratio tests<a href="series.html#the-root-and-ratio-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-20" class="theorem"><strong>Theorem 6.1  (Root test) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a series of real numbers, and let <span class="math inline">\(\alpha:=\limsup_{n\to \infty}|a_n|^{1/n}\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(\alpha&lt;1\)</span>, then the series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> is absolutely convergent (and hence conditionally convergent).</li>
+<li>If <span class="math inline">\(\alpha&gt;1\)</span>, then the series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> is not conditionally convergent (and hence absolutely convergent).</li>
+<li>If <span class="math inline">\(\alpha=1\)</span>, we cannot assert any conclusion.</li>
+</ul>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-21" class="lemma"><strong>Lemma 6.4  </strong></span>Let <span class="math inline">\((c_n)_{n=m}^{\infty}\)</span> be a sequence of positive numbers. Then we have
+<span class="math display">\[
+\liminf_{n\to\infty}\frac{c_{n+1}}{c_n} \leq \liminf_{n\to\infty}c_n^{1/n} \leq \limsup_{n\to\infty}c_n^{1/n} \leq \limsup_{n\to\infty}\frac{c_{n+1}}{c_n}.
+\]</span></p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-22" class="corollary"><strong>Corollary 6.3  (Ratio test) </strong></span>Let <span class="math inline">\(\sum_{n=m}^{\infty}a_n\)</span> be a series of non-zero real numbers, and let <span class="math inline">\(\alpha:=\limsup_{n\to \infty}\frac{|a_{n+1}|}{|a_n|}\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(\alpha&lt;1\)</span>, then the series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> is absolutely convergent (and hence conditionally convergent).</li>
+<li>If <span class="math inline">\(\alpha&gt;1\)</span>, then the series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> is not conditionally convergent (and hence absolutely convergent).</li>
+<li>If <span class="math inline">\(\alpha=1\)</span>, we cannot assert any conclusion.</li>
+</ul>
+</div>
+<div class="{proposition}">
+<p>We have <span class="math inline">\(\lim_{n\to \infty}n^{1/n}=1\)</span>.</p>
+</div>
+<style>
+hr:nth-of-type(1){
+  border-top-style: double !important;
+}
+hr:nth-of-type(2){
+  border-top-style: double !important;
+}
+hr:nth-of-type(3){
+  border-top-style: double !important;
+}
+</style>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="limits.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="infinite.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

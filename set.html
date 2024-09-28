@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Set theory | Analysis</title>
+  <meta name="description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Set theory | Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="github-repo" content="Neoneu" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Set theory | Analysis" />
+  
+  <meta name="twitter:description" content="This is a note of Analysis by Terence Tao." />
+  
+
+<meta name="author" content="Neoneu" />
+
+
+<meta name="date" content="2024-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="start.html"/>
+<link rel="next" href="integers.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Starting at the begining: the natural numbers</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#the-peano-axioms"><i class="fa fa-check"></i><b>1.1</b> The Peano axioms</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#addition"><i class="fa fa-check"></i><b>1.2</b> Addition</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#multiplication"><i class="fa fa-check"></i><b>1.3</b> Multiplication</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#vocabulary"><i class="fa fa-check"></i><b>1.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="1.5" data-path="start.html"><a href="start.html#foot-note"><i class="fa fa-check"></i><b>1.5</b> Foot Note</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Set theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#fundamentals"><i class="fa fa-check"></i><b>2.1</b> Fundamentals</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#russells-paradox"><i class="fa fa-check"></i><b>2.2</b> Russell’s paradox</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#functions"><i class="fa fa-check"></i><b>2.3</b> Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#images-and-inverse-images"><i class="fa fa-check"></i><b>2.4</b> Images and inverse images</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#cartesian-products"><i class="fa fa-check"></i><b>2.5</b> Cartesian products</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cardinality-of-sets"><i class="fa fa-check"></i><b>2.6</b> Cardinality of sets</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#vocabulary-1"><i class="fa fa-check"></i><b>2.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="integers.html"><a href="integers.html"><i class="fa fa-check"></i><b>3</b> Integers and rationals</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="integers.html"><a href="integers.html#the-integers"><i class="fa fa-check"></i><b>3.1</b> The integers</a></li>
+<li class="chapter" data-level="3.2" data-path="integers.html"><a href="integers.html#the-rationals"><i class="fa fa-check"></i><b>3.2</b> The rationals</a></li>
+<li class="chapter" data-level="3.3" data-path="integers.html"><a href="integers.html#absolute-value-and-exponentiation"><i class="fa fa-check"></i><b>3.3</b> Absolute value and exponentiation</a></li>
+<li class="chapter" data-level="3.4" data-path="integers.html"><a href="integers.html#gaps-in-the-rational-numbers"><i class="fa fa-check"></i><b>3.4</b> Gaps in the rational numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="real.html"><a href="real.html"><i class="fa fa-check"></i><b>4</b> The real numbers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="real.html"><a href="real.html#cauchy-sequences"><i class="fa fa-check"></i><b>4.1</b> Cauchy sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="real.html"><a href="real.html#equivalent-cauchy-sequences"><i class="fa fa-check"></i><b>4.2</b> Equivalent Cauchy sequences</a></li>
+<li class="chapter" data-level="4.3" data-path="real.html"><a href="real.html#the-construction-of-the-real-numbers"><i class="fa fa-check"></i><b>4.3</b> The construction of the real numbers</a></li>
+<li class="chapter" data-level="4.4" data-path="real.html"><a href="real.html#ordering-the-reals"><i class="fa fa-check"></i><b>4.4</b> Ordering the reals</a></li>
+<li class="chapter" data-level="4.5" data-path="real.html"><a href="real.html#the-least-upper-bound-property"><i class="fa fa-check"></i><b>4.5</b> The least upper bound property</a></li>
+<li class="chapter" data-level="4.6" data-path="real.html"><a href="real.html#real-exponentiation-part-i"><i class="fa fa-check"></i><b>4.6</b> Real exponentiation, part I</a></li>
+<li class="chapter" data-level="4.7" data-path="real.html"><a href="real.html#foot-notes"><i class="fa fa-check"></i><b>4.7</b> Foot Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="limits.html"><a href="limits.html"><i class="fa fa-check"></i><b>5</b> Limits of sequences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="limits.html"><a href="limits.html#convergence-and-limte-laws"><i class="fa fa-check"></i><b>5.1</b> Convergence and limte laws</a></li>
+<li class="chapter" data-level="5.2" data-path="limits.html"><a href="limits.html#the-extended-real-number-system"><i class="fa fa-check"></i><b>5.2</b> The Extended real number system</a></li>
+<li class="chapter" data-level="5.3" data-path="limits.html"><a href="limits.html#suprema-and-infima-of-sequences"><i class="fa fa-check"></i><b>5.3</b> Suprema and Infima of sequences</a></li>
+<li class="chapter" data-level="5.4" data-path="limits.html"><a href="limits.html#limsup-liminf-and-limit-points"><i class="fa fa-check"></i><b>5.4</b> Limsup, Liminf, and limit points</a></li>
+<li class="chapter" data-level="5.5" data-path="limits.html"><a href="limits.html#subsequences"><i class="fa fa-check"></i><b>5.5</b> Subsequences</a></li>
+<li class="chapter" data-level="5.6" data-path="limits.html"><a href="limits.html#real-exponentiation-part-ii"><i class="fa fa-check"></i><b>5.6</b> Real exponentiation, part II</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="series.html"><a href="series.html"><i class="fa fa-check"></i><b>6</b> Series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="series.html"><a href="series.html#finite-series"><i class="fa fa-check"></i><b>6.1</b> Finite series</a></li>
+<li class="chapter" data-level="6.2" data-path="series.html"><a href="series.html#infinite-series"><i class="fa fa-check"></i><b>6.2</b> Infinite series</a></li>
+<li class="chapter" data-level="6.3" data-path="series.html"><a href="series.html#sums-of-non-negative-numbers"><i class="fa fa-check"></i><b>6.3</b> Sums of non-negative numbers</a></li>
+<li class="chapter" data-level="6.4" data-path="series.html"><a href="series.html#rearrangement-of-series"><i class="fa fa-check"></i><b>6.4</b> Rearrangement of series</a></li>
+<li class="chapter" data-level="6.5" data-path="series.html"><a href="series.html#the-root-and-ratio-tests"><i class="fa fa-check"></i><b>6.5</b> The root and ratio tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="infinite.html"><a href="infinite.html"><i class="fa fa-check"></i><b>7</b> Infinite sets</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="infinite.html"><a href="infinite.html#countability"><i class="fa fa-check"></i><b>7.1</b> Countability</a></li>
+<li class="chapter" data-level="7.2" data-path="infinite.html"><a href="infinite.html#summation-on-infinite-sets"><i class="fa fa-check"></i><b>7.2</b> Summation on infinite sets</a></li>
+<li class="chapter" data-level="7.3" data-path="infinite.html"><a href="infinite.html#uncountable-sets"><i class="fa fa-check"></i><b>7.3</b> Uncountable sets</a></li>
+<li class="chapter" data-level="7.4" data-path="infinite.html"><a href="infinite.html#the-axiom-of-choice"><i class="fa fa-check"></i><b>7.4</b> The axiom of choice</a></li>
+<li class="chapter" data-level="7.5" data-path="infinite.html"><a href="infinite.html#ordered-sets"><i class="fa fa-check"></i><b>7.5</b> Ordered sets</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>8</b> Continuous functions on <span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="continuous.html"><a href="continuous.html#subsets-of-the-real-line"><i class="fa fa-check"></i><b>8.1</b> Subsets of the real line</a></li>
+<li class="chapter" data-level="8.2" data-path="continuous.html"><a href="continuous.html#the-algebra-of-real-valued-functions"><i class="fa fa-check"></i><b>8.2</b> The algebra of real-valued functions</a></li>
+<li class="chapter" data-level="8.3" data-path="continuous.html"><a href="continuous.html#limiting-values-of-functions"><i class="fa fa-check"></i><b>8.3</b> Limiting values of functions</a></li>
+<li class="chapter" data-level="8.4" data-path="continuous.html"><a href="continuous.html#continuous-functions"><i class="fa fa-check"></i><b>8.4</b> Continuous functions</a></li>
+<li class="chapter" data-level="8.5" data-path="continuous.html"><a href="continuous.html#left-and-right-limits"><i class="fa fa-check"></i><b>8.5</b> Left and right limits</a></li>
+<li class="chapter" data-level="8.6" data-path="continuous.html"><a href="continuous.html#the-maximum-principle"><i class="fa fa-check"></i><b>8.6</b> The maximum principle</a></li>
+<li class="chapter" data-level="8.7" data-path="continuous.html"><a href="continuous.html#the-intermediate-value-theorem"><i class="fa fa-check"></i><b>8.7</b> The intermediate value theorem</a></li>
+<li class="chapter" data-level="8.8" data-path="continuous.html"><a href="continuous.html#monotonic-functions"><i class="fa fa-check"></i><b>8.8</b> Monotonic functions</a></li>
+<li class="chapter" data-level="8.9" data-path="continuous.html"><a href="continuous.html#uniform-continuity"><i class="fa fa-check"></i><b>8.9</b> Uniform continuity</a></li>
+<li class="chapter" data-level="8.10" data-path="continuous.html"><a href="continuous.html#limits-at-infinity"><i class="fa fa-check"></i><b>8.10</b> Limits at infinity</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>9</b> Differentiation of functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="diff.html"><a href="diff.html#basic-definitions"><i class="fa fa-check"></i><b>9.1</b> Basic definitions</a></li>
+<li class="chapter" data-level="9.2" data-path="diff.html"><a href="diff.html#local-maxima-local-minima-and-derivatives"><i class="fa fa-check"></i><b>9.2</b> Local maxima, local minima, and derivatives</a></li>
+<li class="chapter" data-level="9.3" data-path="diff.html"><a href="diff.html#monotone-functions-and-derivatives"><i class="fa fa-check"></i><b>9.3</b> Monotone functions and derivatives</a></li>
+<li class="chapter" data-level="9.4" data-path="diff.html"><a href="diff.html#inverse-functions-and-derivatives"><i class="fa fa-check"></i><b>9.4</b> Inverse functions and derivatives</a></li>
+<li class="chapter" data-level="9.5" data-path="diff.html"><a href="diff.html#lhôpitals-rule"><i class="fa fa-check"></i><b>9.5</b> L’Hôpital’s rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="riemann.html"><a href="riemann.html"><i class="fa fa-check"></i><b>10</b> The Riemann integral</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="riemann.html"><a href="riemann.html#partitions"><i class="fa fa-check"></i><b>10.1</b> Partitions</a></li>
+<li class="chapter" data-level="10.2" data-path="riemann.html"><a href="riemann.html#piecewise-constant-functions"><i class="fa fa-check"></i><b>10.2</b> Piecewise constant functions</a></li>
+<li class="chapter" data-level="10.3" data-path="riemann.html"><a href="riemann.html#upper-and-lower-riemann-integrals"><i class="fa fa-check"></i><b>10.3</b> Upper and lower Riemann integrals</a></li>
+<li class="chapter" data-level="10.4" data-path="riemann.html"><a href="riemann.html#basic-properties-of-the-riemann-integrals"><i class="fa fa-check"></i><b>10.4</b> Basic properties of the Riemann integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-continuous-functions"><i class="fa fa-check"></i><b>10.5</b> Riemann integrability of continuous functions</a></li>
+<li class="chapter" data-level="10.6" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-monotone-functions"><i class="fa fa-check"></i><b>10.6</b> Riemann integrability of monotone functions</a></li>
+<li class="chapter" data-level="10.7" data-path="riemann.html"><a href="riemann.html#a-non-riemann-integrable-function"><i class="fa fa-check"></i><b>10.7</b> A non-Riemann integrable function</a></li>
+<li class="chapter" data-level="10.8" data-path="riemann.html"><a href="riemann.html#the-riemann-stieltjes-integral"><i class="fa fa-check"></i><b>10.8</b> The Riemann-Stieltjes integral</a></li>
+<li class="chapter" data-level="10.9" data-path="riemann.html"><a href="riemann.html#the-two-fundamental-theorems-of-calculus"><i class="fa fa-check"></i><b>10.9</b> The two fundamental theorems of calculus</a></li>
+<li class="chapter" data-level="10.10" data-path="riemann.html"><a href="riemann.html#consequences-of-the-fundamental-theorems"><i class="fa fa-check"></i><b>10.10</b> Consequences of the fundamental theorems</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>11</b> Appendix: the basics of mathematical logic</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="logic.html"><a href="logic.html#mathematical-statements"><i class="fa fa-check"></i><b>11.1</b> Mathematical statements</a></li>
+<li class="chapter" data-level="11.2" data-path="logic.html"><a href="logic.html#implication"><i class="fa fa-check"></i><b>11.2</b> Implication</a></li>
+<li class="chapter" data-level="11.3" data-path="logic.html"><a href="logic.html#the-stucture-of-proofs"><i class="fa fa-check"></i><b>11.3</b> The stucture of proofs</a></li>
+<li class="chapter" data-level="11.4" data-path="logic.html"><a href="logic.html#variables-and-quantifiers"><i class="fa fa-check"></i><b>11.4</b> Variables and quantifiers</a></li>
+<li class="chapter" data-level="11.5" data-path="logic.html"><a href="logic.html#nested-quantifiers"><i class="fa fa-check"></i><b>11.5</b> Nested quantifiers</a></li>
+<li class="chapter" data-level="11.6" data-path="logic.html"><a href="logic.html#equality"><i class="fa fa-check"></i><b>11.6</b> Equality</a></li>
+<li class="chapter" data-level="11.7" data-path="logic.html"><a href="logic.html#vocabulary-2"><i class="fa fa-check"></i><b>11.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decimalism.html"><a href="decimalism.html"><i class="fa fa-check"></i><b>12</b> Appendix: the decimal system</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-natural-numbers"><i class="fa fa-check"></i><b>12.1</b> The decimal representation of natural numbers</a></li>
+<li class="chapter" data-level="12.2" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-real-numbers"><i class="fa fa-check"></i><b>12.2</b> The decimal representation of real numbers</a></li>
+<li class="chapter" data-level="12.3" data-path="decimalism.html"><a href="decimalism.html#vocabulary-3"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Skolgrand/skolgrand.github.io/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="set" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Set theory<a href="set.html#set" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fundamentals" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Fundamentals<a href="set.html#fundamentals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 2.1  </strong></span>(Informal) We define a set A to be any unordered collection of objects. If <span class="math inline">\(x\)</span> is an object, we say that <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(A\)</span> or <span class="math inline">\(x\in A\)</span> if <span class="math inline">\(x\)</span> lies in the collection; other wise, we say that <span class="math inline">\(x \not\in A\)</span>.</p>
+</div>
+<p>However, which collections of objects are considered to be sets? Which sets are equal to other sets? How one defines operations on sets? We need some axioms to illustrate these problems.</p>
+<p><strong>Axiom 3.1 (Set are objects)</strong> If <span class="math inline">\(A\)</span> is a set, then <span class="math inline">\(A\)</span> is also an object.</p>
+<p><strong>Remark 3.1.3</strong> Comments on pure set theory from a logical point of view and a conceptual point of view respectively.</p>
+<div class="definition">
+<p><span id="def:eq" class="definition"><strong>Definition 2.2  (Equality of sets) </strong></span>Two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equal iff every element in <span class="math inline">\(A\)</span> is an element in <span class="math inline">\(B\)</span> and vice versa.</p>
+</div>
+<p>The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter <a href="logic.html#logic">11</a>.</p>
+<p><strong>Axiom 3.2 (Empty set)</strong> There exists a set <span class="math inline">\(\varnothing\)</span>, known as the empty set, which contains no elements, i.e., for every object <span class="math inline">\(x\)</span> we have <span class="math inline">\(x \not\in \varnothing\)</span>.</p>
+<p>There is only one singleton set for each object <span class="math inline">\(a\)</span>, and there is only one pair set formed by <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> thanks to Definition <a href="set.html#def:eq">2.2</a>. Also, Definition <a href="set.html#def:eq">2.2</a> ensures that <span class="math inline">\(\{a,b\} = \{b,a\}\)</span> and <span class="math inline">\(\{a,a\} = \{a\}\)</span>. Thus the singleton set axiom is in fact redundant, being a consequence of the pair set axiom.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-2" class="lemma"><strong>Lemma 2.1  (Single choice) </strong></span>Let <span class="math inline">\(A\)</span> be a non-empty set. Then there exists an object <span class="math inline">\(x\)</span> such that <span class="math inline">\(x\in A\)</span>.</p>
+</div>
+<p>The proof is quite easy once with the concept of “vacuously true”, see Chapter <a href="logic.html#logic">11</a>.</p>
+<p><strong>Remark 3.1.8</strong> Similarly, for finite number of non-empty sets, we have “finite choice” (<a href="set.html#lem:finitechoice">2.5</a>), and for an infinite number of sets, we need an additional axiom, the <em>axiom of choice</em>, see Chapter <a href="infinite.html#infinite">7</a>.</p>
+<p><strong>Axiom 3.3 (Singleton sets and pair sets)</strong> If <span class="math inline">\(a\)</span> is an obiect, then there exists a set <span class="math inline">\(\{a\}\)</span> whose only element is <span class="math inline">\(a\)</span>, i.e., for every object <span class="math inline">\(y\)</span>, we have <span class="math inline">\(y \in \{a\}\)</span> iff <span class="math inline">\(y = a\)</span>; we refer to <span class="math inline">\(\{a\}\)</span> as the singleton set whose element is <span class="math inline">\(a\)</span>. Furthermore, if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are object, then there exists a set <span class="math inline">\(\{a,b\}\)</span> whose only elements are <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>; i.e., for every object <span class="math inline">\(y\)</span>, we have <span class="math inline">\(y\in \{a,b\}\)</span> iff <span class="math inline">\(y=a\)</span> or <span class="math inline">\(y=b\)</span>; we refer to this set as thepair set formed by <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p><strong>Axiom 3.4 (Pairwise union)</strong> Given any two sets <span class="math inline">\(A,B\)</span>, there exists a set <span class="math inline">\(A\cup B\)</span>, called the union <span class="math inline">\(A\cup B\)</span> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, whose elements consists of all the elements which belongs to <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> or both. In other words, for any object <span class="math inline">\(x\)</span>,
+<span class="math display">\[
+x\in A\cup B \iff (x\in A\ \ or\ \ x\in B ).
+\]</span></p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-3" class="lemma"><strong>Lemma 2.2  </strong></span>if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are objects, then <span class="math inline">\(\{a,b\} =\{a\} \cup \{b\}\)</span>. If <span class="math inline">\(A,B,C\)</span> are sets, then the union operation is commutative and associative. Also, we have <span class="math inline">\(A\cup A = A\cup \varnothing = \varnothing \cup A = A\)</span> .</p>
+</div>
+<p>Since the union operation is associative, we can now define ${a,b,c} := {a}{b} {c} $ if <span class="math inline">\(a,b,c\)</span> are three objects; if <span class="math inline">\(a,b,c,d\)</span> are four objects, then we define <span class="math inline">\(\{a,b,c,d\} := \{a\}\cup \{b\} \cup \{c\} \cup \{d\}\)</span>, and so forth.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 2.3  (Subsets) </strong></span>Let <span class="math inline">\(A,B\)</span> be sets. We say that <span class="math inline">\(A\)</span> is a <em>subset</em> of <span class="math inline">\(B\)</span>, denote <span class="math inline">\(A\subseteq B\)</span>. iff every element of <span class="math inline">\(A\)</span> is also an element of <span class="math inline">\(B\)</span> i.e.
+<span class="math display">\[
+\text{For any object }x,\quad x\in A \Longrightarrow x\in B.
+\]</span>
+We say that <span class="math inline">\(A\)</span> is a <em>proper subset</em> of <span class="math inline">\(B\)</span>, denote <span class="math inline">\(A \subsetneq B\)</span>, if <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(A\ne B\)</span>.</p>
+</div>
+<p>The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter <a href="logic.html#logic">11</a>.</p>
+<div class="proposition" nae="Sets are partially ordered by set inclusion">
+<p><span id="prp:unlabeled-div-5" class="proposition"><strong>Proposition 2.1  </strong></span>Let <span class="math inline">\(A,B,C\)</span> be sets. If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B\subseteq C\)</span> then <span class="math inline">\(A \subseteq C\)</span>. If <span class="math inline">\(A \subseteq B\)</span> and <span class="math inline">\(B\subseteq A\)</span>, then <span class="math inline">\(A=B\)</span>. Finally, if <span class="math inline">\(A \subsetneq B\)</span> and <span class="math inline">\(B\subsetneq C\)</span>, then <span class="math inline">\(A \subsetneq C\)</span>.</p>
+</div>
+<p>Sets are <em>partially ordered</em>, whereas the natural numbers are <em>totally ordered</em>.</p>
+<p><strong>Axiom 3.5 (Axiom of specification)</strong> Let <span class="math inline">\(A\)</span> be a set, and for each <span class="math inline">\(x\in A\)</span>, let <span class="math inline">\(P(x)\)</span> be a property pertaining to <span class="math inline">\(x\)</span> (i.e., <span class="math inline">\(P(x)\)</span> is either a true statement or a false statement). Then there exists a set, called <span class="math inline">\(\{x\in A: P(x) \text{ is true}\}\)</span> (or simply <span class="math inline">\(\{x\in A: P(x)\}\)</span>) for short), whose elements are precisely the elements <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span> for which <span class="math inline">\(P(x)\)</span> is true. In other words, for any object <span class="math inline">\(y\)</span>,
+<span class="math display">\[
+y \in \{x\in A: P(x)\} \iff (y\in A\ \ and\ \ P(y) \text{ is true}).
+\]</span>
+This axiom is also known as the <em>axiom of separation</em>. One can verify that the axiom of substitution works for specification, see Chapter <a href="logic.html#logic">11</a></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.4  (Intersections) </strong></span>The <em>intersection</em> <span class="math inline">\(S_1\ \cap S_2\)</span> of two sets is defined to be the set
+<span class="math display">\[
+S_1 \cap S_2 := \{x\in S_1 : x\in S_2 \}.
+\]</span>
+In other words, for all objects <span class="math inline">\(x\)</span>,
+<span class="math display">\[
+x\in S_1\ \cap S_2 \iff (x\in S_1\ \ and\ \ x\in S_2)
+\]</span></p>
+</div>
+<p>The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter <a href="logic.html#logic">11</a>. Two set <span class="math inline">\(A,B\)</span> are said to be <em>disjoint</em> if <span class="math inline">\(A\cap B=\varnothing\)</span>. Note that this is not the same concept as being <em>distinct</em>, <span class="math inline">\(A\ne B\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 2.5  (Difference sets) </strong></span>Given two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we define the set <span class="math inline">\(A-B\)</span> or <span class="math inline">\(A \setminus B\)</span> to be the set <span class="math inline">\(A\)</span> with elements of <span class="math inline">\(B\)</span> removed:
+<span class="math display">\[
+A\setminus B:=\{x\in A: x\not \in B\}.
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-8" class="proposition"><strong>Proposition 2.2  (Sets from a boolean algebra) </strong></span>Let <span class="math inline">\(A,B,C\)</span> be sets, and let <span class="math inline">\(X\)</span> be a set containing <span class="math inline">\(A,B,C\)</span> as subsets.</p>
+<ul>
+<li>(Minimal element) <span class="math inline">\(A\cup \varnothing = A\)</span> and <span class="math inline">\(A \cap \varnothing = \varnothing\)</span>.</li>
+<li>(Maximal element) <span class="math inline">\(A\cup X =X\)</span> and <span class="math inline">\(A\cap X = A\)</span>.</li>
+<li>(Identity) <span class="math inline">\(A\cap A = A\cup A = A\)</span></li>
+<li>(Commutativity) <span class="math inline">\(A\cup B = B\cup A\)</span> and <span class="math inline">\(A\cap B = B\cap A\)</span></li>
+<li>(Associativity) <span class="math inline">\((A\cup B)\cup C = A\cup (B\cup C)\)</span> and <span class="math inline">\((A\cap B)\cap C = A\cap (B\cap C)\)</span></li>
+<li>(Distributivity) <span class="math inline">\(A\cap (B\cup C) = (A\cap B)\cup (A\cap C)\)</span> and <span class="math inline">\(A\cup (B\cap C) = (A\cup B)\cap(A\cup C)\)</span></li>
+<li>(Partition) <span class="math inline">\(A\cup (X\setminus A) = X\)</span> and <span class="math inline">\(A\cap (X\setminus A) = \varnothing\)</span></li>
+<li>(De Morgan laws) <span class="math inline">\(X\setminus (A\cup B) = (X\setminus A)\cap (X\setminus B)\)</span> and <span class="math inline">\(X\setminus (A\cap B) = (X\setminus A)\cup (X\setminus B)\)</span></li>
+</ul>
+</div>
+<p>Such symmetry in the laws between <span class="math inline">\(\cup\)</span> and <span class="math inline">\(\cap\)</span>, and between <span class="math inline">\(X\)</span> an <span class="math inline">\(\varnothing\)</span>, is an example of <em>duality</em> - two distinct properties or objects being dual to each other. In this case, the duality is manifested by the complementation relation <span class="math inline">\(A \mapsto X\setminus A\)</span>; the de Morgan laws assert that this relation converts unions and intersections and vice versa.</p>
+<p><strong>Axiom 3.6 (Replacement)</strong> Let <span class="math inline">\(A\)</span> be a set. For any object <span class="math inline">\(x\in A\)</span>, and any object <span class="math inline">\(y\)</span>, suppose we have a statement <span class="math inline">\(P(x,y)\)</span> pertaining to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, such that for each <span class="math inline">\(x\in A\)</span> there is at most one <span class="math inline">\(y\)</span> for which <span class="math inline">\(P(x,y)\)</span> is true, Then ther exists a set <span class="math inline">\(\{y: P(x,y) \text{ is true for some }x\in A\}\)</span>, such that for any object <span class="math inline">\(z\)</span>,
+<span class="math display">\[
+\begin{aligned}
+  z\in \{y&amp;: P(x,y) \text{ is true for some }x\in A\}\\
+  &amp;\iff P(x,z) \text{ is true for some }x\in A
+\end{aligned}
+\]</span></p>
+<p><strong>Axiom 3.7 (Infinity)</strong> There exists a set <span class="math inline">\(\mathbb{N}\)</span>, whose elements are called natural numbers,as well as an object <span class="math inline">\(0\)</span> in <span class="math inline">\(\mathbb{N}\)</span>, and an object <span class="math inline">\(n+\!\!+\)</span> assigned to every natural number <span class="math inline">\(n \in \mathbb{N}\)</span>, such that the Peano axioms (Axiom 2.1 - 2.5) hold.</p>
+<p>This is a more formal version of Assumption 2.6. It introduces the most basic example of an infinite set.</p>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-9" class="exercise"><strong>Exercise 2.1  </strong></span>Show that the axiom of replacement implies the axiom of specification.</p>
+</div>
+</div>
+<div id="russells-paradox" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Russell’s paradox<a href="set.html#russells-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Axiom 3.8 (Universal specification)</strong> Suppose for every object <span class="math inline">\(x\)</span> we have a property <span class="math inline">\(P(x)\)</span> pertaining to <span class="math inline">\(x\)</span> (so that for every <span class="math inline">\(x\)</span>, <span class="math inline">\(P(x)\)</span> is either a true statement or a false statement). Then there exists a set <span class="math inline">\(\{x:P(x) \text{ is true}\}\)</span> such that for every object <span class="math inline">\(y\)</span>,
+<span class="math display">\[
+y \in \{x:P(x) \text{ is true}\} \iff P(y) \text{ is true}
+\]</span></p>
+<p>The axiom is also known as the <em>axiom of comprehension</em>. This axiom cannot be introduced into set theory, because it creates a logical logical contradiction known as <em>Russell’s paradox</em>, discovered by the philosopher nd logician Bertrand Russell in 1901. The paradox runs as follows. Let <span class="math inline">\(P(x)\)</span> be the statement
+<span class="math display">\[
+P(x) \iff ``x \text{ is a set, and }x\not \in x \text{&#39;&#39;};
+\]</span>
+Now use the axiom of universal specification to create the set
+<span class="math display">\[
+\Omega := \{x:P(x) \text{ is true}\} = \{x:x \text{ is a set, and }x\not \in x\}
+\]</span>
+If <span class="math inline">\(\Omega \in \Omega\)</span>, then it can be deduced that <span class="math inline">\(\Omega \not \in \Omega\)</span>; If <span class="math inline">\(\Omega \not\in \Omega\)</span>, then it can be deduced that <span class="math inline">\(\Omega \in \Omega\)</span>. Thus in either case the conclusion is absurd. One way to informally resolve the issue that sets are allowed to contain themselves is to think of objects as being arranged in a hierarchy. To actually formalize the intuition of a hierarchy of objects is rather complicated, so we shall simply postulate an axiom which ensures that absurdities such as Russell’s paradox do not occur.</p>
+<p><strong>Axiom 3.9 (Regularity)</strong> If <span class="math inline">\(A\)</span> is a non-empty set, then there is at least one element <span class="math inline">\(x\)</span> of <span class="math inline">\(A\)</span> which is either not a set, or is disjoint from <span class="math inline">\(A\)</span>.</p>
+<p>The axiom is also known as the <em>axiom of foundation</em>.</p>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 2.2  </strong></span>Show that Axiom 3.8, if assumed to be true, would imply Axiom 3.2, 3.3, 3.4, 3.5 and 3.6.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 2.3  </strong></span>Use the axiom of regularity (and the singleton set axiom) to show that <span class="math inline">\(A\)</span> is a set, then <span class="math inline">\(A\not \in A\)</span>. Furthermore, show that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two set sets, then either <span class="math inline">\(A\not\in B\)</span> or <span class="math inline">\(B\not\in A\)</span> (or both).</p>
+</div>
+<p>The first statement is trivial. As for the latter one, for the sake of contradiction, suppose that <span class="math inline">\(A\in B\)</span> and <span class="math inline">\(B\in A\)</span>, then <span class="math inline">\(A\in A\cup B\)</span>; however, <span class="math inline">\(A\cap (A\cup B) \ne \varnothing\)</span> which contradict Axiom 3.9.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 2.4  </strong></span>Show that the axiom of comprehension is equivalent to an axiom postulating the existence of a “universal set” <span class="math inline">\(\Omega\)</span> consisting of all objects. (If such set exists, then <span class="math inline">\(\Omega \in \Omega\)</span>, thus the axiom of foundation rules out the axiom of comprehension).</p>
+</div>
+</div>
+<div id="functions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Functions<a href="set.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:func" class="definition"><strong>Definition 2.6  (Functions) </strong></span>Let <span class="math inline">\(X,Y\)</span> be sets, and let <span class="math inline">\(P(x,y)\)</span> be a property pertaining to an object <span class="math inline">\(x\in X\)</span> and an object <span class="math inline">\(y\in Y\)</span>, such that for every <span class="math inline">\(x\in X\)</span>, there is exactly one <span class="math inline">\(y\in Y\)</span> for which <span class="math inline">\(P(x,y)\)</span> is true (this is sometimes known as the <em>vertical line test</em>). Then we define the <em>function</em> <span class="math inline">\(f:X\to Y\)</span> defined by <span class="math inline">\(P\)</span> on the domain <span class="math inline">\(X\)</span> and range <span class="math inline">\(Y\)</span> to be the object which, given any input <span class="math inline">\(x\in X\)</span>, assigns an output <span class="math inline">\(f(x) \in Y\)</span>, defined to be the unique object <span class="math inline">\(f(x)\)</span> for which <span class="math inline">\(P(x,f(x))\)</span> is true. Thus, for any <span class="math inline">\(x\in X\)</span> and <span class="math inline">\(y\in Y\)</span>,
+<span class="math display">\[
+y=f(x) \iff P(x,y) \text{ is true.}
+\]</span></p>
+</div>
+<p>Functions are also referred to <em>maps</em>, <em>transformations</em> or <em>morphisms</em>.</p>
+<div class="definition">
+<p><span id="def:feq" class="definition"><strong>Definition 2.7  (Equality of functions) </strong></span>Two functions <span class="math inline">\(f:X\to Y\)</span>, <span class="math inline">\(g:X\to Y\)</span> with the same domain and range are said to be <em>equal</em>, <span class="math inline">\(f=g\)</span>, if and only if <span class="math inline">\(f(x) = g(x)\)</span> for all <span class="math inline">\(x\in X\)</span>.</p>
+</div>
+<p>The <em>empty function</em> <span class="math inline">\(f:\varnothing\to X\)</span> is a function from the empty set to an arbitrary set <span class="math inline">\(X\)</span>. Note that from Definition <a href="set.html#def:feq">2.7</a> it can be infered that for each set <span class="math inline">\(X\)</span>, there is only one function from <span class="math inline">\(\varnothing\)</span> to <span class="math inline">\(X\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definition 2.8  (Composition) </strong></span>Let <span class="math inline">\(f: X\to Y\)</span> and <span class="math inline">\(g:Y\to Z\)</span> be two functions,such that the range of <span class="math inline">\(f\)</span> is the same as the domain of <span class="math inline">\(g\)</span>. We the define <em>composition</em> <span class="math inline">\(g \circ f:X\to Z\)</span> of the two functions <span class="math inline">\(g\)</span> and <span class="math inline">\(f\)</span> to be the function defined explicitly by the formula
+<span class="math display">\[
+(g\circ f)(x):= g(f(x))
+\]</span>
+If the range of <span class="math inline">\(f\)</span> does not match the domain of <span class="math inline">\(g\)</span>, we leave the composition <span class="math inline">\(g\circ f\)</span> undefined.</p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-14" class="lemma"><strong>Lemma 2.3  (Composition is associative) </strong></span>Let <span class="math inline">\(f:Z\to W\)</span>, <span class="math inline">\(g:Y\to Z\)</span>, and <span class="math inline">\(h:X\to Y\)</span> be functions. Then <span class="math inline">\(f\circ(g\circ h) = (f\circ g)\circ h\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-15" class="proof"><em>Proof</em>. </span>First it should be interpreted that they have the same domain and range.</p>
+</div>
+<div class="definition">
+<p><span id="def:inj" class="definition"><strong>Definition 2.9  (One-to-one functions) </strong></span>A function <span class="math inline">\(f\)</span> is <em>one-to-one</em> (or <em>injective</em>) if different elements map to different elements:
+<span class="math display">\[
+x\ne x^{\prime} \Longrightarrow f(x) \ne f(x^{\prime}).
+\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:surj" class="definition"><strong>Definition 2.10  (Onto functions) </strong></span>A function <span class="math inline">\(f\)</span> is <em>onto</em> (or <em>surjective</em>) if <span class="math inline">\(f(X)=Y\)</span>, i.e., every element in <span class="math inline">\(Y\)</span> comes from applying <span class="math inline">\(f\)</span> to some element in <span class="math inline">\(X\)</span>:
+<span class="math display">\[
+\text{For every }y\in Y,\text{ there exists }x\in X \text{ such that }f(x) = y.
+\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:bj" class="definition"><strong>Definition 2.11  (Bijective functions) </strong></span>Functions <span class="math inline">\(f:X\to Y\)</span> which are both one-to-one and onto are also called <em>bijective</em> or <em>invertible</em>.</p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-16" class="exercise"><strong>Exercise 2.5  (Cancellation laws for composition) </strong></span>Let <span class="math inline">\(f_1: X\to Y\)</span>, <span class="math inline">\(f_2: X\to Y\)</span>, <span class="math inline">\(g_1:Y \to X\)</span> and <span class="math inline">\(g_2:Y \to X\)</span> be functions. Show that if <span class="math inline">\(g_1\circ f_1 = g_1\circ f_2\)</span> and <span class="math inline">\(g_1\)</span> is iniective, then <span class="math inline">\(f_1=f_2\)</span>. Is the same statement true if <span class="math inline">\(g\)</span> is not injective? Show that if <span class="math inline">\(g_1\circ f_1 = g_2\circ f_1\)</span> and <span class="math inline">\(f_1\)</span> is surjective, then <span class="math inline">\(g_1=g_2\)</span>. Is the same statement true if <span class="math inline">\(f_1\)</span> is not surjective?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-17" class="exercise"><strong>Exercise 2.6  </strong></span>Let <span class="math inline">\(f:X\to Y\)</span> nd <span class="math inline">\(g:Y\to Z\)</span> be functions. Show that if <span class="math inline">\(g\circ f\)</span> is injective, then <span class="math inline">\(f\)</span> must be injective, then <span class="math inline">\(f\)</span> must be injective. Is it true that <span class="math inline">\(g\)</span> must also be injective? Show that if <span class="math inline">\(g\circ f\)</span> is surjective, then <span class="math inline">\(g\)</span> must be surjective, then <span class="math inline">\(g\)</span> must be surjective. Is it true that <span class="math inline">\(f\)</span> must also be injective?</p>
+</div>
+<p>One may make a mistake when considering “Is it true that <span class="math inline">\(g\)</span> must also be injective?” as follow. <span class="math inline">\(g\circ f (x) = g\circ f(x&#39;) \Longrightarrow x=x&#39; \Longrightarrow f(x) = f(x&#39;)\)</span>, so <span class="math inline">\(g\)</span> must also be injective. The proof is wrong because <span class="math inline">\(g\)</span> is injective means that <span class="math inline">\(\forall y,y&#39;\in Y, y\ne y&#39; \Longrightarrow g(y)\ne g(y&#39;)\)</span>, while the proof only considers the situation that <span class="math inline">\(y,y&#39; \in f(X)\)</span>, which is a subset of <span class="math inline">\(Y\)</span>. For example, let’s consider <span class="math inline">\(X = \{1,2\}\)</span> and <span class="math inline">\(Y=Z=\{1,2,3\}\)</span>. Let’s define the function <span class="math inline">\(f\)</span> as the mapping <span class="math inline">\(f(1)=1\)</span>, <span class="math inline">\(f(2)=2\)</span>. Let’s define the function <span class="math inline">\(g\)</span> as the mapping <span class="math inline">\(g(1) = 1,\ g(2)=2,\ g(3)=2\)</span>. Here, <span class="math inline">\(f\)</span> is injective, so is <span class="math inline">\(g\circ f\)</span>, but <span class="math inline">\(g\)</span> is not injective. The latter question is similar to the former one.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-18" class="exercise"><strong>Exercise 2.7  </strong></span>Let <span class="math inline">\(f:X\to Y\)</span> be a bijective function, and let <span class="math inline">\(f^{-1}:Y\to X\)</span> be its inverse. Verify that cancellation laws <span class="math inline">\(f^{-1}(f(x)) = x\)</span> for all <span class="math inline">\(x\in X\)</span> and <span class="math inline">\(f(f^{-1}(y))=y\)</span> for all <span class="math inline">\(y\in Y\)</span>. Conclude that <span class="math inline">\(f^{-1}\)</span> is also invertible, nd has <span class="math inline">\(f\)</span> as its inverse.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 2.8  </strong></span>Let <span class="math inline">\(f:X\to Y\)</span> nd <span class="math inline">\(g:Y\to Z\)</span> be functions. Show that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are bijective, then so is <span class="math inline">\(g\circ f\)</span>, and we have <span class="math inline">\((g\circ f)^{-1} = f^{-1} \circ g^{-1}\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-20" class="exercise"><strong>Exercise 2.9  </strong></span>If <span class="math inline">\(X\)</span> is a subset of <span class="math inline">\(Y\)</span>, let <span class="math inline">\(\iota_{X\to Y}\)</span> be the <em>inclusion map from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span></em>, defined by mapping <span class="math inline">\(x\mapsto x\)</span> for all <span class="math inline">\(x\in X\)</span>, i.e.m <span class="math inline">\(\iota_{X\to Y}:=x\)</span> for all <span class="math inline">\(x\in X\)</span>. The mape <span class="math inline">\(\iota_{X\to X}\)</span> is in particular called the <em>identity map</em> on <span class="math inline">\(X\)</span>.</p>
+<ul>
+<li>Show that if <span class="math inline">\(X\subseteq Y\subseteq Z\)</span> then <span class="math inline">\(\iota_{Y\to Z}\circ \iota_{X\to Y} = \iota_{X\to Z}\)</span>.</li>
+<li>Show that if <span class="math inline">\(f:A\to B\)</span> is any function, then <span class="math inline">\(f= f\circ \iota_{A\to A} = \iota_{B\to B}\circ f\)</span>.</li>
+<li>Show that if <span class="math inline">\(f:A\to B\)</span> is a bijective function, then <span class="math inline">\(f\circ f^{-1} = \iota_{B\to B}\)</span> and <span class="math inline">\(f^{-1}\circ f =\iota_{A\to A}\)</span>.</li>
+<li>Show that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are disjoint sets, and <span class="math inline">\(f:X\to Z\)</span> and <span class="math inline">\(g: Y\to Z\)</span> are functions, then there is a unique function <span class="math inline">\(h\)</span>: <span class="math inline">\(X\cup Y \to Z\)</span> such that <span class="math inline">\(h \circ \iota_{X\to X\cup Y} =f\)</span> and <span class="math inline">\(h \circ \iota_{Y\to X\cup Y} =g\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="images-and-inverse-images" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Images and inverse images<a href="set.html#images-and-inverse-images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition" nme="Images of sets">
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 2.12  </strong></span>If <span class="math inline">\(f:X\to Y\)</span> is a function from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>, and <span class="math inline">\(S\)</span> is a set in <span class="math inline">\(X\)</span>, we define <span class="math inline">\(f(S)\)</span> to be the set
+<span class="math display">\[
+f(S):=\{f(x):x\in S\};
+\]</span>
+this set is a subset of <span class="math inline">\(Y\)</span>, and is sometimes called the <em>image</em> of <span class="math inline">\(S\)</span> under the map <span class="math inline">\(f\)</span>. We sometimes call <span class="math inline">\(f(S)\)</span> the <em>forward image</em> of <span class="math inline">\(S\)</span> to distinguish it from the concept of the <em>inverse image</em> <span class="math inline">\(f^{-1}(S)\)</span> of <span class="math inline">\(S\)</span>, which is defined below.</p>
+</div>
+<p>Note that the set <span class="math inline">\(f(S)\)</span> is well-defined thanks to the axiom of replacement or the axiom of specification.</p>
+<div class="definition" nme="Inver images">
+<p><span id="def:unlabeled-div-22" class="definition"><strong>Definition 2.13  </strong></span>If <span class="math inline">\(U\)</span> is a subset of <span class="math inline">\(Y\)</span>, we define the set <span class="math inline">\(f^{-1}(U)\)</span> to be the set
+<span class="math display">\[
+f^{-1}(U):=\{x\in X: f(x) \in U\}.
+\]</span></p>
+</div>
+<p>We call <span class="math inline">\(f^{-1}(U)\)</span> the <em>inverse image</em> of <span class="math inline">\(U\)</span>.</p>
+<p><strong>Axiom 3.10 (Power set axiom)</strong> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be sets. Then there exists a set, denoted <span class="math inline">\(Y^X\)</span>, which consists of all the functions from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>, thus
+<span class="math display">\[
+f\in Y^X \Longrightarrow (f\text{ is a function with domain }X\text{ and range }Y).
+\]</span></p>
+<p>For more details, see Proposition <a href="set.html#prp:power">2.3</a>.</p>
+<p>One consequence of this axiom is</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-23" class="lemma"><strong>Lemma 2.4  </strong></span>Let <span class="math inline">\(X\)</span> be a set. Then the set
+<span class="math display">\[
+\{Y: Y \text{ is a subset of } X\}
+\]</span>
+is a set.</p>
+</div>
+<p>The set <span class="math inline">\(\{Y: Y \text{ is a subset of } X\}\)</span> is known as the <em>power set</em> of <span class="math inline">\(X\)</span> and is denoted <span class="math inline">\(2^X\)</span>. For more details, see Chapter <a href="infinite.html#infinite">7</a>.</p>
+<p><strong>Axiom 3.11 (Union)</strong> Let <span class="math inline">\(A\)</span> be a set, all of whose elements re themselves sets. Then there exists a set <span class="math inline">\(\bigcup A\)</span> whose elements are precisely those objects which are elements of <span class="math inline">\(A\)</span>, thus for all objects <span class="math inline">\(x\)</span>
+<span class="math display">\[
+x\in \bigcup A \iff (x\in S \text{ for some }S\in A)
+\]</span>
+Thanks to the axiom of replacement and the axiom of union, if one has some set <span class="math inline">\(I\)</span>, and for every element <span class="math inline">\(\alpha \in I\)</span> we have some set <span class="math inline">\(A_{\alpha}\)</span>, then we can form the union set <span class="math inline">\(\bigcup_{\alpha\in I}A_{\alpha}\)</span> by defining
+<span class="math display">\[
+\bigcup_{\alpha\in I}A_{\alpha}:=\bigcup \{A_{\alpha}:\alpha\in I\}
+\]</span>
+In some situation, we refer to <span class="math inline">\(I\)</span> as an <em>index set</em>, and the elements <span class="math inline">\(\alpha\)</span> of this index set as <em>labels</em>; the sets <span class="math inline">\(A_{\alpha}\)</span> are then called a <em>family of sets</em>, and are <em>indexed</em> by the labels <span class="math inline">\(\alpha\in I\)</span>.</p>
+<p>Given any non-empty set <span class="math inline">\(I\)</span>, and given an assignment of a set <span class="math inline">\(A_{\alpha}\)</span> to each <span class="math inline">\(\alpha\in I\)</span>, we can define the intersection <span class="math inline">\(\bigcap_{\alpha\in I}A_{\alpha}\)</span> by first choosing some elements <span class="math inline">\(\beta\)</span> of <span class="math inline">\(I\)</span> (which we can da since <span class="math inline">\(I\)</span> is non-empty), and setting
+<span class="math display">\[
+\bigcap_{\alpha\in I}A_{\alpha}:=\{x\in A_{\beta}: x\in A_{\alpha} \text{ for all }\alpha \in I\},
+\]</span>
+which is a set by the axiom of specification. For more details, see Exercise <a href="#exr:beta"><strong>??</strong></a>.</p>
+<p>The axiom we’ve introduced in this chapter (excluding Axiom 3.8) are known as the <em>Zermelo-Fraenkel axiom of set theory</em>. There is one further axiom we will need, <em>axiom of choice</em> (see Chapter <a href="infinite.html#infinite">7</a>), giving rise to the <em>Zermelo-Fraenkel-Choice axiom of set theory (ZFC) axiom of set theory</em>.</p>
+<hr />
+</div>
+<div id="cartesian-products" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Cartesian products<a href="set.html#cartesian-products" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definite" name="Ordered pair">
+<p>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are any objects, we defined the <em>ordered pair</em> <span class="math inline">\((x,y)\)</span> to be a new object. Two ordered pairs <span class="math inline">\((x,y)\)</span> and <span class="math inline">\((x&#39;,y&#39;)\)</span> are considered equal iff both their components match, i.e.
+<span class="math display">\[
+(x,y)=(x&#39;,y&#39;) \iff (x=x&#39;\ and\ y=y&#39;)
+\]</span></p>
+</div>
+<div class="definite" name="Cartesian product">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are sets, then we define the <em>Cartesian product</em> <span class="math inline">\(X\times Y\)</span> to be the collection of ordered pairs whose first component lies on <span class="math inline">\(X\)</span> and second component lies in <span class="math inline">\(Y\)</span>, thus
+<span class="math display">\[
+X\times Y = \{(x,y):x\in X, y\in Y\}
+\]</span>
+or equivalently
+<span class="math display">\[
+a\in(X\times Y) \iff (a=(x,y) \text{ for some }x\in X \text{ and }y \in Y)
+\]</span></p>
+</div>
+<p>The addition operation <span class="math inline">\(+\)</span> on the natural numbers can now be re-interpreted as a function <span class="math inline">\(+: \mathbb{N}\times \mathbb{N}\to \mathbb{N}\)</span>, define by <span class="math inline">\((x,y)\mapsto x+y\)</span>.</p>
+<div class="definite" name="Ordered $n$-tuple and $n$-fold Cartesian product">
+<p>Let <span class="math inline">\(n\)</span> be a natural number. An <em>ordered <span class="math inline">\(n\)</span>-tuple</em> <span class="math inline">\((x_i)_{1\leq i\leq n}\)</span> (also denoted <span class="math inline">\((x_1,\dots,x_n)\)</span>) is a collection of objects <span class="math inline">\(x_i\)</span> as the <span class="math inline">\(i^{th}\)</span> component of the ordered <span class="math inline">\(n\)</span>-tuple. Two ordered <span class="math inline">\(n\)</span>-tuples <span class="math inline">\((x_i)_{1\leq i\leq n}\)</span> and <span class="math inline">\((y_i)_{1\leq i\leq n}\)</span> are said to be equal iff <span class="math inline">\(x_i=y_i\)</span> for all <span class="math inline">\(1\leq i\leq n0\)</span>. If <span class="math inline">\((X_i)_{1\leq i\leq n}\)</span> is an ordered <span class="math inline">\(n\)</span>-tuple of sets, we define their Cartesian product <span class="math inline">\(\prod_{1\leq i\leq n}X_i\)</span> (also denoted <span class="math inline">\(\prod_{i=1}^nX_i\)</span> or <span class="math inline">\(X_1\times \dots\times X_n\)</span>) by
+<span class="math display">\[
+\prod_{1\leq i\leq n}X_i :=\{(x_i)_{1\leq i\leq n}:x_i\in X_i \text{ for all }1\leq i \leq n\}.
+\]</span></p>
+</div>
+<p>An ordered <span class="math inline">\(n\)</span>-tuple is also called an <em>order sequence</em> of <span class="math inline">\(n\)</span> elements, or a <em>finite sequence</em> for short. For more details, see <a href="real.html#real">4</a>.</p>
+<p>The <em>empty Cartesian product</em> <span class="math inline">\(\prod_{1\leq i\leq 0}X_i\)</span> gives, not the empty set <span class="math inline">\(\{\}\)</span>, but rather the singleton set <span class="math inline">\(\{()\}\)</span> whose only element is the <em><span class="math inline">\(0\)</span>-tuple <span class="math inline">\(()\)</span></em>, also known aas the <em>empty tuple</em>.</p>
+<div class="lemma">
+<p><span id="lem:finitechoice" class="lemma"><strong>Lemma 2.5  </strong></span>Let <span class="math inline">\(n\geq 1\)</span> be a natural number, and for each natural number <span class="math inline">\(1\leq i\leq n\)</span>, let <span class="math inline">\(X_i\)</span> be a non-empty set. Then there exists an <span class="math inline">\(n\)</span>-tuple <span class="math inline">\((x_i)_{1\leq i\leq n}\)</span> such that <span class="math inline">\(x_i\in X_i\)</span> for all <span class="math inline">\(1\leq i\leq n\)</span>. In other words, if each <span class="math inline">\(X_i\)</span> is non-empty set, then the set <span class="math inline">\(\prod_{1\leq i\leq n}X_i\)</span> is also non-empty.</p>
+</div>
+<hr />
+</div>
+<div id="cardinality-of-sets" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Cardinality of sets<a href="set.html#cardinality-of-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The purpose of this section is to address this issue by noting that the natural numbers can be used to count the cardinality of sets, as long as the set is finite.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-24" class="definition"><strong>Definition 2.14  (Equal cardinality) </strong></span>We say that two sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have <em>equal cardinality</em> iff there exists a bijection <span class="math inline">\(f:X\to Y\)</span> from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>.</p>
+</div>
+<p>The property is commutative and associative.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 2.15  (Equal cardinality) </strong></span>Let <span class="math inline">\(n\)</span> be a natural number. A set <span class="math inline">\(X\)</span> is said to have cardinality <span class="math inline">\(n\)</span>, iff it has equal cardinality with <span class="math inline">\(\{i\in \mathbb{N}:1\leq i\leq n\}\)</span>. We also say that <span class="math inline">\(X\)</span> has n elements iff it has cardinality <span class="math inline">\(n\)</span>.</p>
+</div>
+<div class="purpose" name="Uniqueness of cardinality">
+<p>Let <span class="math inline">\(X\)</span> be a set with some cardinality <span class="math inline">\(n\)</span>. Then <span class="math inline">\(X\)</span> cannot have any other cardinality, i.e., <span class="math inline">\(X\)</span> cannot have cardinality <span class="math inline">\(m\)</span> for any <span class="math inline">\(m\ne n\)</span>.</p>
+</div>
+<p>To prove the proposition, we need the following lemma.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-26" class="lemma"><strong>Lemma 2.6  </strong></span>Suppose that <span class="math inline">\(n\geq 1\)</span>, and <span class="math inline">\(X\)</span> has cardinality <span class="math inline">\(n\)</span>. Then <span class="math inline">\(X\)</span> is non-empty, and if <span class="math inline">\(x\)</span> is element of <span class="math inline">\(X\)</span>, then the set <span class="math inline">\(X-\{x\}\)</span> has cardinality <span class="math inline">\(n-1\)</span>.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-27" class="theorem"><strong>Theorem 2.1  </strong></span>The set of natural numbers <span class="math inline">\(\mathbb{N}\)</span> is infinite.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:power" class="proposition"><strong>Proposition 2.3  (Cardinality arithmetic) </strong></span></p>
+<ul>
+<li>Let <span class="math inline">\(X\)</span> be a finite set, and let <span class="math inline">\(x\)</span> be an object which is not an element of <span class="math inline">\(X\)</span>. Then <span class="math inline">\(X\cup\{x\}\)</span> is finite and <span class="math inline">\(\#(X\cup\{x\}) = \#(X)+1\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be finite sets. Then <span class="math inline">\(X \cup Y\)</span> is finite and <span class="math inline">\(\#(X\cup Y) \leq \#(X) +\#(Y)\)</span>. If in addition <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are disjoint, <span class="math inline">\(\#(X\cup Y) =\#(X) +\#(Y)\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> be a finite set, and let <span class="math inline">\(Y\)</span> be a subset <span class="math inline">\(X\)</span>. Then <span class="math inline">\(Y\)</span> is finite, and <span class="math inline">\(\#(Y) \leq \#(X)\)</span>. In addition <span class="math inline">\(Y\ne X\)</span>, then <span class="math inline">\(\#(X\cup Y) &lt; \#(X)\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> be a finite set, and <span class="math inline">\(f:X\to Y\)</span> is a function, then <span class="math inline">\(F(X)\)</span> is a finite set with <span class="math inline">\(\#(f(X)) \leq \#(X)\)</span>. If in addition <span class="math inline">\(f\)</span> is one-to-one, then <span class="math inline">\(\#(f(X)) = \#(X)\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be finite sets. Then Cartesian product <span class="math inline">\(X\times Y\)</span> is finite and <span class="math inline">\(\#(X\times Y) = \#(X)\times \#(Y)\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be finite sets. Then the set <span class="math inline">\(Y^X\)</span> is finite and <span class="math inline">\(\#(Y^X) = \#(Y)^{\#(X)}\)</span>.</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="vocabulary-1" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Vocabulary<a href="set.html#vocabulary-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Cartesian co-ordinate system</li>
+<li>pedagogical</li>
+<li>overcomplete</li>
+<li>agnostic</li>
+<li>analogous</li>
+<li>curly brace</li>
+<li>lest</li>
+<li>state of affairs</li>
+<li>rung</li>
+<li>albeit</li>
+</ul>
+<style>
+hr:nth-of-type(1){
+  border-top-style: double !important;
+}
+
+hr:nth-of-type(2){
+  border-top-style: double !important;
+}
+
+hr:nth-of-type(3){
+  border-top-style: double !important;
+}
+
+hr:nth-of-type(4){
+  border-top-style: double !important;
+}
+
+hr:nth-of-type(5){
+  border-top-style: double !important;
+}
+
+hr:nth-of-type(6){
+  border-top-style: double !important;
+}
+</style>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="start.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="integers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

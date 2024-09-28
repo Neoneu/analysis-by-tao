@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Appendix: the basics of mathematical logic | Analysis</title>
+  <meta name="description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Appendix: the basics of mathematical logic | Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a note of Analysis by Terence Tao." />
+  <meta name="github-repo" content="Neoneu" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Appendix: the basics of mathematical logic | Analysis" />
+  
+  <meta name="twitter:description" content="This is a note of Analysis by Terence Tao." />
+  
+
+<meta name="author" content="Neoneu" />
+
+
+<meta name="date" content="2024-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="riemann.html"/>
+<link rel="next" href="decimalism.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Starting at the begining: the natural numbers</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#the-peano-axioms"><i class="fa fa-check"></i><b>1.1</b> The Peano axioms</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#addition"><i class="fa fa-check"></i><b>1.2</b> Addition</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#multiplication"><i class="fa fa-check"></i><b>1.3</b> Multiplication</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#vocabulary"><i class="fa fa-check"></i><b>1.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="1.5" data-path="start.html"><a href="start.html#foot-note"><i class="fa fa-check"></i><b>1.5</b> Foot Note</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Set theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#fundamentals"><i class="fa fa-check"></i><b>2.1</b> Fundamentals</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#russells-paradox"><i class="fa fa-check"></i><b>2.2</b> Russell’s paradox</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#functions"><i class="fa fa-check"></i><b>2.3</b> Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#images-and-inverse-images"><i class="fa fa-check"></i><b>2.4</b> Images and inverse images</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#cartesian-products"><i class="fa fa-check"></i><b>2.5</b> Cartesian products</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cardinality-of-sets"><i class="fa fa-check"></i><b>2.6</b> Cardinality of sets</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#vocabulary-1"><i class="fa fa-check"></i><b>2.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="integers.html"><a href="integers.html"><i class="fa fa-check"></i><b>3</b> Integers and rationals</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="integers.html"><a href="integers.html#the-integers"><i class="fa fa-check"></i><b>3.1</b> The integers</a></li>
+<li class="chapter" data-level="3.2" data-path="integers.html"><a href="integers.html#the-rationals"><i class="fa fa-check"></i><b>3.2</b> The rationals</a></li>
+<li class="chapter" data-level="3.3" data-path="integers.html"><a href="integers.html#absolute-value-and-exponentiation"><i class="fa fa-check"></i><b>3.3</b> Absolute value and exponentiation</a></li>
+<li class="chapter" data-level="3.4" data-path="integers.html"><a href="integers.html#gaps-in-the-rational-numbers"><i class="fa fa-check"></i><b>3.4</b> Gaps in the rational numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="real.html"><a href="real.html"><i class="fa fa-check"></i><b>4</b> The real numbers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="real.html"><a href="real.html#cauchy-sequences"><i class="fa fa-check"></i><b>4.1</b> Cauchy sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="real.html"><a href="real.html#equivalent-cauchy-sequences"><i class="fa fa-check"></i><b>4.2</b> Equivalent Cauchy sequences</a></li>
+<li class="chapter" data-level="4.3" data-path="real.html"><a href="real.html#the-construction-of-the-real-numbers"><i class="fa fa-check"></i><b>4.3</b> The construction of the real numbers</a></li>
+<li class="chapter" data-level="4.4" data-path="real.html"><a href="real.html#ordering-the-reals"><i class="fa fa-check"></i><b>4.4</b> Ordering the reals</a></li>
+<li class="chapter" data-level="4.5" data-path="real.html"><a href="real.html#the-least-upper-bound-property"><i class="fa fa-check"></i><b>4.5</b> The least upper bound property</a></li>
+<li class="chapter" data-level="4.6" data-path="real.html"><a href="real.html#real-exponentiation-part-i"><i class="fa fa-check"></i><b>4.6</b> Real exponentiation, part I</a></li>
+<li class="chapter" data-level="4.7" data-path="real.html"><a href="real.html#foot-notes"><i class="fa fa-check"></i><b>4.7</b> Foot Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="limits.html"><a href="limits.html"><i class="fa fa-check"></i><b>5</b> Limits of sequences</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="limits.html"><a href="limits.html#convergence-and-limte-laws"><i class="fa fa-check"></i><b>5.1</b> Convergence and limte laws</a></li>
+<li class="chapter" data-level="5.2" data-path="limits.html"><a href="limits.html#the-extended-real-number-system"><i class="fa fa-check"></i><b>5.2</b> The Extended real number system</a></li>
+<li class="chapter" data-level="5.3" data-path="limits.html"><a href="limits.html#suprema-and-infima-of-sequences"><i class="fa fa-check"></i><b>5.3</b> Suprema and Infima of sequences</a></li>
+<li class="chapter" data-level="5.4" data-path="limits.html"><a href="limits.html#limsup-liminf-and-limit-points"><i class="fa fa-check"></i><b>5.4</b> Limsup, Liminf, and limit points</a></li>
+<li class="chapter" data-level="5.5" data-path="limits.html"><a href="limits.html#subsequences"><i class="fa fa-check"></i><b>5.5</b> Subsequences</a></li>
+<li class="chapter" data-level="5.6" data-path="limits.html"><a href="limits.html#real-exponentiation-part-ii"><i class="fa fa-check"></i><b>5.6</b> Real exponentiation, part II</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="series.html"><a href="series.html"><i class="fa fa-check"></i><b>6</b> Series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="series.html"><a href="series.html#finite-series"><i class="fa fa-check"></i><b>6.1</b> Finite series</a></li>
+<li class="chapter" data-level="6.2" data-path="series.html"><a href="series.html#infinite-series"><i class="fa fa-check"></i><b>6.2</b> Infinite series</a></li>
+<li class="chapter" data-level="6.3" data-path="series.html"><a href="series.html#sums-of-non-negative-numbers"><i class="fa fa-check"></i><b>6.3</b> Sums of non-negative numbers</a></li>
+<li class="chapter" data-level="6.4" data-path="series.html"><a href="series.html#rearrangement-of-series"><i class="fa fa-check"></i><b>6.4</b> Rearrangement of series</a></li>
+<li class="chapter" data-level="6.5" data-path="series.html"><a href="series.html#the-root-and-ratio-tests"><i class="fa fa-check"></i><b>6.5</b> The root and ratio tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="infinite.html"><a href="infinite.html"><i class="fa fa-check"></i><b>7</b> Infinite sets</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="infinite.html"><a href="infinite.html#countability"><i class="fa fa-check"></i><b>7.1</b> Countability</a></li>
+<li class="chapter" data-level="7.2" data-path="infinite.html"><a href="infinite.html#summation-on-infinite-sets"><i class="fa fa-check"></i><b>7.2</b> Summation on infinite sets</a></li>
+<li class="chapter" data-level="7.3" data-path="infinite.html"><a href="infinite.html#uncountable-sets"><i class="fa fa-check"></i><b>7.3</b> Uncountable sets</a></li>
+<li class="chapter" data-level="7.4" data-path="infinite.html"><a href="infinite.html#the-axiom-of-choice"><i class="fa fa-check"></i><b>7.4</b> The axiom of choice</a></li>
+<li class="chapter" data-level="7.5" data-path="infinite.html"><a href="infinite.html#ordered-sets"><i class="fa fa-check"></i><b>7.5</b> Ordered sets</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>8</b> Continuous functions on <span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="continuous.html"><a href="continuous.html#subsets-of-the-real-line"><i class="fa fa-check"></i><b>8.1</b> Subsets of the real line</a></li>
+<li class="chapter" data-level="8.2" data-path="continuous.html"><a href="continuous.html#the-algebra-of-real-valued-functions"><i class="fa fa-check"></i><b>8.2</b> The algebra of real-valued functions</a></li>
+<li class="chapter" data-level="8.3" data-path="continuous.html"><a href="continuous.html#limiting-values-of-functions"><i class="fa fa-check"></i><b>8.3</b> Limiting values of functions</a></li>
+<li class="chapter" data-level="8.4" data-path="continuous.html"><a href="continuous.html#continuous-functions"><i class="fa fa-check"></i><b>8.4</b> Continuous functions</a></li>
+<li class="chapter" data-level="8.5" data-path="continuous.html"><a href="continuous.html#left-and-right-limits"><i class="fa fa-check"></i><b>8.5</b> Left and right limits</a></li>
+<li class="chapter" data-level="8.6" data-path="continuous.html"><a href="continuous.html#the-maximum-principle"><i class="fa fa-check"></i><b>8.6</b> The maximum principle</a></li>
+<li class="chapter" data-level="8.7" data-path="continuous.html"><a href="continuous.html#the-intermediate-value-theorem"><i class="fa fa-check"></i><b>8.7</b> The intermediate value theorem</a></li>
+<li class="chapter" data-level="8.8" data-path="continuous.html"><a href="continuous.html#monotonic-functions"><i class="fa fa-check"></i><b>8.8</b> Monotonic functions</a></li>
+<li class="chapter" data-level="8.9" data-path="continuous.html"><a href="continuous.html#uniform-continuity"><i class="fa fa-check"></i><b>8.9</b> Uniform continuity</a></li>
+<li class="chapter" data-level="8.10" data-path="continuous.html"><a href="continuous.html#limits-at-infinity"><i class="fa fa-check"></i><b>8.10</b> Limits at infinity</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>9</b> Differentiation of functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="diff.html"><a href="diff.html#basic-definitions"><i class="fa fa-check"></i><b>9.1</b> Basic definitions</a></li>
+<li class="chapter" data-level="9.2" data-path="diff.html"><a href="diff.html#local-maxima-local-minima-and-derivatives"><i class="fa fa-check"></i><b>9.2</b> Local maxima, local minima, and derivatives</a></li>
+<li class="chapter" data-level="9.3" data-path="diff.html"><a href="diff.html#monotone-functions-and-derivatives"><i class="fa fa-check"></i><b>9.3</b> Monotone functions and derivatives</a></li>
+<li class="chapter" data-level="9.4" data-path="diff.html"><a href="diff.html#inverse-functions-and-derivatives"><i class="fa fa-check"></i><b>9.4</b> Inverse functions and derivatives</a></li>
+<li class="chapter" data-level="9.5" data-path="diff.html"><a href="diff.html#lhôpitals-rule"><i class="fa fa-check"></i><b>9.5</b> L’Hôpital’s rule</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="riemann.html"><a href="riemann.html"><i class="fa fa-check"></i><b>10</b> The Riemann integral</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="riemann.html"><a href="riemann.html#partitions"><i class="fa fa-check"></i><b>10.1</b> Partitions</a></li>
+<li class="chapter" data-level="10.2" data-path="riemann.html"><a href="riemann.html#piecewise-constant-functions"><i class="fa fa-check"></i><b>10.2</b> Piecewise constant functions</a></li>
+<li class="chapter" data-level="10.3" data-path="riemann.html"><a href="riemann.html#upper-and-lower-riemann-integrals"><i class="fa fa-check"></i><b>10.3</b> Upper and lower Riemann integrals</a></li>
+<li class="chapter" data-level="10.4" data-path="riemann.html"><a href="riemann.html#basic-properties-of-the-riemann-integrals"><i class="fa fa-check"></i><b>10.4</b> Basic properties of the Riemann integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-continuous-functions"><i class="fa fa-check"></i><b>10.5</b> Riemann integrability of continuous functions</a></li>
+<li class="chapter" data-level="10.6" data-path="riemann.html"><a href="riemann.html#riemann-integrability-of-monotone-functions"><i class="fa fa-check"></i><b>10.6</b> Riemann integrability of monotone functions</a></li>
+<li class="chapter" data-level="10.7" data-path="riemann.html"><a href="riemann.html#a-non-riemann-integrable-function"><i class="fa fa-check"></i><b>10.7</b> A non-Riemann integrable function</a></li>
+<li class="chapter" data-level="10.8" data-path="riemann.html"><a href="riemann.html#the-riemann-stieltjes-integral"><i class="fa fa-check"></i><b>10.8</b> The Riemann-Stieltjes integral</a></li>
+<li class="chapter" data-level="10.9" data-path="riemann.html"><a href="riemann.html#the-two-fundamental-theorems-of-calculus"><i class="fa fa-check"></i><b>10.9</b> The two fundamental theorems of calculus</a></li>
+<li class="chapter" data-level="10.10" data-path="riemann.html"><a href="riemann.html#consequences-of-the-fundamental-theorems"><i class="fa fa-check"></i><b>10.10</b> Consequences of the fundamental theorems</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="logic.html"><a href="logic.html"><i class="fa fa-check"></i><b>11</b> Appendix: the basics of mathematical logic</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="logic.html"><a href="logic.html#mathematical-statements"><i class="fa fa-check"></i><b>11.1</b> Mathematical statements</a></li>
+<li class="chapter" data-level="11.2" data-path="logic.html"><a href="logic.html#implication"><i class="fa fa-check"></i><b>11.2</b> Implication</a></li>
+<li class="chapter" data-level="11.3" data-path="logic.html"><a href="logic.html#the-stucture-of-proofs"><i class="fa fa-check"></i><b>11.3</b> The stucture of proofs</a></li>
+<li class="chapter" data-level="11.4" data-path="logic.html"><a href="logic.html#variables-and-quantifiers"><i class="fa fa-check"></i><b>11.4</b> Variables and quantifiers</a></li>
+<li class="chapter" data-level="11.5" data-path="logic.html"><a href="logic.html#nested-quantifiers"><i class="fa fa-check"></i><b>11.5</b> Nested quantifiers</a></li>
+<li class="chapter" data-level="11.6" data-path="logic.html"><a href="logic.html#equality"><i class="fa fa-check"></i><b>11.6</b> Equality</a></li>
+<li class="chapter" data-level="11.7" data-path="logic.html"><a href="logic.html#vocabulary-2"><i class="fa fa-check"></i><b>11.7</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decimalism.html"><a href="decimalism.html"><i class="fa fa-check"></i><b>12</b> Appendix: the decimal system</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-natural-numbers"><i class="fa fa-check"></i><b>12.1</b> The decimal representation of natural numbers</a></li>
+<li class="chapter" data-level="12.2" data-path="decimalism.html"><a href="decimalism.html#the-decimal-representation-of-real-numbers"><i class="fa fa-check"></i><b>12.2</b> The decimal representation of real numbers</a></li>
+<li class="chapter" data-level="12.3" data-path="decimalism.html"><a href="decimalism.html#vocabulary-3"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Skolgrand/skolgrand.github.io/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="logic" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Appendix: the basics of mathematical logic<a href="logic.html#logic" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="mathematical-statements" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Mathematical statements<a href="logic.html#mathematical-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Not every combination of mathematical symbols is a statement; we sometimes call it <em>ill-formed</em> or <em>ill-defined</em>. ill-formed statements are considered to be neither true or false.</p>
+<p><strong>Axiom</strong> every well-formed statement is either true or false, bur not both. (Though if there are free variables, the truth of a statement may depend on the values of these variables)</p>
+<p>In fact, usually we call well-formed statement as statement, and ill-fomed statements are not considered statements at all.</p>
+<p><strong>Conjunction.</strong></p>
+<p><strong>Disjunction.</strong></p>
+<p><strong>Negation.</strong></p>
+<p><strong>If and only if (iff).</strong></p>
+</div>
+<div id="implication" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Implication<a href="logic.html#implication" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What this statement “if <span class="math inline">\(X\)</span>, then <span class="math inline">\(Y\)</span>” means depend on whether <span class="math inline">\(X\)</span> is true or false. If <span class="math inline">\(X\)</span> is true, then “if <span class="math inline">\(X\)</span>, then <span class="math inline">\(Y\)</span>” is true when <span class="math inline">\(Y\)</span> is true, and false when <span class="math inline">\(Y\)</span> is false. If however <span class="math inline">\(X\)</span> is false, then “if <span class="math inline">\(X\)</span>, then <span class="math inline">\(Y\)</span>” os always true, regardless of <span class="math inline">\(Y\)</span> is true or false. That is, when <span class="math inline">\(X\)</span> is false, the statement “if <span class="math inline">\(X\)</span>, then <span class="math inline">\(Y\)</span>” offers no information about whether <span class="math inline">\(Y\)</span> is true or not; the statement is true, but <em>vacuous</em>.</p>
+<p>The only way to disprove an implication is to show that the hypothesis is true while the conclusion is false.</p>
+</div>
+<div id="the-stucture-of-proofs" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> The stucture of proofs<a href="logic.html#the-stucture-of-proofs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="variables-and-quantifiers" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Variables and quantifiers<a href="logic.html#variables-and-quantifiers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>Mathematical logic</em> is the same as propositional logic but with the additional ingredient of variables added. A <em>variable</em> is a symbol, such as <span class="math inline">\(n\)</span> or <span class="math inline">\(x\)</span>, which denotes a certain type if mathematical object.</p>
+<p><strong>Universal quantifiers.</strong></p>
+<p><strong>Existential quantifiers.</strong></p>
+</div>
+<div id="nested-quantifiers" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Nested quantifiers<a href="logic.html#nested-quantifiers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Swapping two “for all” quantifiers or “there exists” quantifiers has no effect; swapping a “for all” with a “there exist” makes a lot of difference.</p>
+</div>
+<div id="equality" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Equality<a href="logic.html#equality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Equality is a relation linking two objects <span class="math inline">\(x,y\)</span> of the same type <span class="math inline">\(T\)</span>.For the purposes of logic we require that equality obeys the following four <em>axiom of equality</em>.</p>
+<ul>
+<li>(Reflexive axiom). Given any object <span class="math inline">\(x\)</span>, we have <span class="math inline">\(x=x\)</span>.</li>
+<li>(Symmetry axiom). Given any two objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the same type, if <span class="math inline">\(x=y\)</span>, then <span class="math inline">\(y=x\)</span>.</li>
+<li>(Transitive axiom). Given any three objects <span class="math inline">\(x,\ y,\ z\)</span> of the same type, if <span class="math inline">\(x=y\)</span> and <span class="math inline">\(y=z\)</span>, then <span class="math inline">\(x=z\)</span>.</li>
+<li>(Substitution axiom). Given any two objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the same type, if <span class="math inline">\(x=y\)</span>, then <span class="math inline">\(f(x) = f(y)\)</span> for all functions or operations <span class="math inline">\(f\)</span>. Similarly, for any property <span class="math inline">\(P(x)\)</span> depending on <span class="math inline">\(x\)</span>, if <span class="math inline">\(x=y\)</span>, then <span class="math inline">\(P(x)\)</span> and <span class="math inline">\(P(y)\)</span> are equivalent statements.</li>
+</ul>
+</div>
+<div id="vocabulary-2" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Vocabulary<a href="logic.html#vocabulary-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>veer</li>
+<li>viable</li>
+<li>Propositional logic <em>or</em> Boolean logic</li>
+<li>syllogism</li>
+<li>Aristotlean logic</li>
+<li>number crunching</li>
+<li>integral</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="riemann.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="decimalism.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Analysis.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,2301 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Analysis},
+  pdfauthor={Neoneu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Analysis}
+\author{Neoneu}
+\date{2024-06-26}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This is a note of \emph{Analysis} by Terence Tao.
+
+\chapter{Starting at the begining: the natural numbers}\label{start}
+
+\section{The Peano axioms}\label{the-peano-axioms}
+
+\textbf{Axiom 2.1} \(0\) is a natural number
+
+\textbf{Axiom 2.2} If \(n\) is natural number, then \(n+\!\!+\) is also a natural number.
+
+\textbf{Axiom 2.3} \(0\) is not the successor of any natural number; i.e., we have \(n+\!\!+\ne 0\) for every natural number \(n\).
+
+\textbf{Axiom 2.4} Different natural numbers must have different successors; i.e., if \(n,m\) are natural numbers and \(n\ne m\), then \(n+\!\!+ \ne m+\!\!+\). Equivalently \ref{1}, if \(n+\!\!+ = m+\!\!+\), then we must have \(n = m\).
+
+\textbf{Axiom 2.5 (Principle of mathematical induction)} Let \(P(n)\) be any property pertaining to a natural number \(n\). Suppose that \(P(0)\) is true, and suppose that whenever \(P(n)\) is true, \(P(n+\!\!+)\) is also true. Then \(P(n)\) is true for every natural number \(n\).
+
+\textbf{Assumption 2.6 (Informal)} There exists a number system \(\mathbb{N}\), whose elements we will call natural numbers, for which Axioms 2.1-2.5 is true.
+
+\textbf{Remark 2.1.13 (Informal)} One can prove that while each individual natural number is finite, the set of natural numbers is infinite; i.e., \(\mathbb{N}\) is infinite but consists of individually finite elements using Axiom 2.5.
+
+\textbf{Remark 2.1.14} Our definition of the natural numbers is \emph{axiomatic} but not \emph{constructive}.
+
+\textbf{Proposition 2.1.16 (Recursive definitions)} \emph{Suppose for each natural number \(n\), we have some function \(f_n:\mathbb{N} \to \mathbb{N}\) from the natural numbers to the natural numbers. Let \(c\) be a natural number. Then we can assign a unique natural number \(a_n\) to each natural number \(n\), such that \(a_0 = c\) and \(a_{n+\!+} = f_n(a_n)\) for each natural number \(n\)}
+
+\section{Addition}\label{addition}
+
+\begin{definition}[Addition of natural numbers]
+\protect\hypertarget{def:addition}{}\label{def:addition}Let \(m\) be a natural number. To add zero to \(m\), we define \(0+m:= m\). Now suppose inductively that we have defined how to add \(n\) to \(m\). Then we can add \(n+\!\!+\) to \(m\) by defining \((n+\!\!+) + m := (n+m)+\!\!+\).
+\end{definition}
+
+One can prove the the sum of two natural numbers is again a natural number using Axiom 2.1, 2.2, 2.5.
+
+\begin{lemma}
+For any natural number \(n\), \(n+0 = n\)
+\end{lemma}
+
+\begin{lemma}
+For any natural number \(n\) and \(m\), \(n+(m+\!\!+) =(n+m)+\!\!+\).
+\end{lemma}
+
+\begin{proposition}[Addition is commutative]
+\protect\hypertarget{prp:addcommutative}{}\label{prp:addcommutative}For any natural number \(n\) and \(m\), \(n+m = m+n\).
+\end{proposition}
+
+\begin{proposition}[Addition is associative]
+\protect\hypertarget{prp:addassociative}{}\label{prp:addassociative}For any natural number \(a,b,c\), \((a+b)+c = a+(b+c)\).
+\end{proposition}
+
+\begin{proposition}[Cancellation law]
+\protect\hypertarget{prp:cancel}{}\label{prp:cancel}Let \(a,b,c\) be natural numbers such that \(a+b=a+c\). Then we have \(b=c\).
+\end{proposition}
+
+We now discuss how addition interacts with positivity.
+
+\begin{definition}[Positive natural numbers]
+\protect\hypertarget{def:positive}{}\label{def:positive}A natural number \(n\) is said to be positive iff it is not equal to 0.
+\end{definition}
+
+\begin{proposition}
+If \(a\) is positive and \(a\) and \(b\) is a natural number, then \(a+b\) is positive (and hence \(b+a\) is also by Proposition \ref{prp:addcommutative})
+\end{proposition}
+
+\begin{corollary}
+If \(a\) and \(b\) are natural numbers such that \(a+b=0\), then \(a=b=0\)
+\end{corollary}
+
+\begin{lemma}
+\protect\hypertarget{lem:b}{}\label{lem:b}Let \(a\) be a positive number. Then there exists exactly one natural number \(b\) such that \(b+\!\!+ = a\).
+\end{lemma}
+
+To prove this lemma, we need to define a notion of \emph{order}.
+
+\begin{definition}[Ordering of the natural numbers]
+\protect\hypertarget{def:order}{}\label{def:order}Let \(n\) and \(m\) be natural numbers. We say that \(n\) is greater than or equal to \(m\), and write \(n \geq m\) or \(m \leq n\), iff we have \(n = m+a\) for some natural number \(a\). We say that \(n\) is strictly greater that \(m\), and write \(n>m\) or \(m<n\), iff \(n\geq m\) and \(n \ne m\).
+\end{definition}
+
+Now we can gain a more general version of the principle of mathematical induction: \emph{Let \(P(n)\) be any property pertaining to a natural number \(n\) while \(n \geq n_0\). Suppose that \(P(n_0)\) is true, and suppose that whenever \(P(n)\) is true, \(P(n+\!\!+)\) is also true. Then \(P(n)\) is true for every natural number \(n\) which is greater than \(n_0\).}
+
+Here is the proof.
+
+\begin{proof}
+Let \(Q(m)\) be the property ``\(P(n_0+m)\) is true'', then we can infer that \(Q(0)\) is true, and suppose that if \(Q(m)\) is true, \(Q(m+\!\!+)\) is also true. According to Axiom 2.5, \(Q(m)\) is true for every natural number \(m\). In the meanwhile, each natural number \(n\) which is greater that \(n_0\) can be written as \(n_0+m_0\) for some natural number \(m_0\).Thus \(P(n)\) is true for every natural number \(n\) which is greater than \(n_0\).
+\end{proof}
+
+With the proof above, we can prove Lemma \ref{lem:b}.
+
+\begin{proposition}[Basic properties of order for natural numbers]
+\protect\hypertarget{prp:basicorder}{}\label{prp:basicorder}
+
+Let \(a,b,c\) be natural numbers. Then
+
+\begin{itemize}
+\tightlist
+\item
+  (Order is reflexive) \(a\geq a\).
+\item
+  (Order is transitive) If \(a\geq b\) and \(b\geq c\), then \(a\geq c\).
+\item
+  (Order is anti-symmetric) If \(a\geq b\) and \(b \geq a\), then \(a=b\).
+\item
+  (Addition preserves order) \(a\geq b\iff a+c\geq b+c\).
+\item
+  \(a<b \iff a+\!\!+ \leq b\).\\
+\item
+  \(a<b \iff b = a+d\) for some positive number \(d\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{proposition}[Trichotomy of order for natural numbers]
+\protect\hypertarget{prp:trichotomyorder}{}\label{prp:trichotomyorder}Let \(a\) and \(b\) be natural numbers. Then exactly one of the following statements is true: \(a<b,a=b,a>b\).
+\end{proposition}
+
+\begin{proposition}[Strong principle of induction]
+\protect\hypertarget{prp:stronginduction}{}\label{prp:stronginduction}Let \(m_0\) be a natural number, and let \(P(m)\) be a property pertaining to an arbitrary natural number \(m\). Suppose that for each \(m\geq m_0\), we have the following implication: if \(P(m^{\prime})\) is true for all natural numbers \(m_0\leq m^{\prime} < m\), then \(P(m)\) is also true. Then we can conclude that \(P(m)\) is true for all natural numbers \(m \geq m_0\).
+\end{proposition}
+
+In applications we usually use this principle with \(m_0 =0\) or \(m_0 =1\). There is an interesting view of strong principle of induction in this \href{https://courses.csail.mit.edu/6.042/spring17/mcs.pdf}{book}.
+
+\begin{exercise}[Principle of backwards induction]
+\protect\hypertarget{exr:back}{}\label{exr:back}Let \(n\) be a natural number, and let \(P(m)\) be a property pertaining to the natural numbers such that whenever \(P(m+\!\!+)\) is true, then \(P(m)\) is true. Suppose that \(P(n)\) is also true. Prove that \(P(m)\) is true for all natural numbers \(m\leq n\).
+\end{exercise}
+
+\section{Multiplication}\label{multiplication}
+
+\begin{definition}[Multiplication of natural number]
+\protect\hypertarget{def:multiplication}{}\label{def:multiplication}Let \(m\) be a batural number. To multiply zero to \(m\), we define \(0\times m:=0\).Now suppose inductively that we have defined how to mutiply \(n\) to \(m\) by defining \((n+\!\!+)\times m =(n\times m)+m\).
+\end{definition}
+
+One can verify that the product of twow natural numbers is a natural numbers.
+
+\begin{lemma}[Multiplication is commutative]
+\protect\hypertarget{lem:multicommutative}{}\label{lem:multicommutative}For any natural number \(n\) and \(m\), \(n\times m = m\times n\).
+\end{lemma}
+
+We will now use the usual notational conventions of precedence over addition.
+
+\begin{lemma}[Positive natural numbers have no zero divisors]
+\protect\hypertarget{lem:zerodivisors}{}\label{lem:zerodivisors}Let \(n,m\) be natural numbers. Then \(n\times m= 0\) iff at least one of \(n,m\) is equal to zero. In partiular, if \(n\) and \(m\) are both positive, then \(nm\) is also positive.
+\end{lemma}
+
+\begin{proposition}[Distributive law]
+\protect\hypertarget{prp:distribution}{}\label{prp:distribution}For any natural numbers \(a,b,c\), we have \(a(b+c) = ab+ac\) and \((b+c)a = ba +ca\).
+\end{proposition}
+
+\begin{proposition}[Multiplication is associative]
+\protect\hypertarget{prp:multiassociative}{}\label{prp:multiassociative}For any natural number \(a,b,c\), \((a\times b)\times c = a\times(b\times c)\).
+\end{proposition}
+
+\begin{proposition}[Multiplication preserves order]
+\protect\hypertarget{prp:multiorder}{}\label{prp:multiorder}If \(a,b\) are natural numbers such \(a<b\), and \(c\) is positive, then \(ac<bc\).
+\end{proposition}
+
+\begin{corollary}[Cancellation law]
+\protect\hypertarget{cor:multican}{}\label{cor:multican}Let \(a,b,c\) be natural numbers such that \(ac=bc\) and \(c\) is non-zero. Then \(a=b\).
+\end{corollary}
+
+\begin{proposition}[Euclidean algorithm]
+\protect\hypertarget{prp:euclideanalgorithm}{}\label{prp:euclideanalgorithm}Let \(n\) be a natural number, and let \(q\) be a positive number. Then there exist natural numbers \(m\), \(r\) such that \(0\leq r<q\) and \(n=mq+r\).
+\end{proposition}
+
+This algorithm marks the beginning of number theory.
+
+\begin{definition}[Exponentation for natural numbers]
+\protect\hypertarget{def:exp}{}\label{def:exp}Let \(m\) be a natural number. To raise \(m\) to the power 0, we define \(m^0:=1\). Now suppose recursively that \(m^n\) has been defined for some natural number \(n\), then we difine \(m^{n+\!+}:=m^n\times m\).
+\end{definition}
+
+Deeper theory of exponentation will be developed after we have defined integers and rational numbers.
+
+\section{Vocabulary}\label{vocabulary}
+
+\begin{itemize}
+\tightlist
+\item
+  a priori, a posteriori
+\item
+  axiom schema
+\item
+  Hindu-Arabic number system, Roman number system
+\item
+  isomorphic
+\item
+  inextricably
+\item
+  superfluous
+\item
+  \emph{p}-adics
+\item
+  tautology
+\end{itemize}
+
+\section{Foot Note}\label{foot-note}
+
+\textbf{1}\{\#1\}
+
+\chapter{Set theory}\label{set}
+
+\section{Fundamentals}\label{fundamentals}
+
+\begin{definition}
+(Informal) We define a set A to be any unordered collection of objects. If \(x\) is an object, we say that \(x\) is an element of \(A\) or \(x\in A\) if \(x\) lies in the collection; other wise, we say that \(x \not\in A\).
+\end{definition}
+
+However, which collections of objects are considered to be sets? Which sets are equal to other sets? How one defines operations on sets? We need some axioms to illustrate these problems.
+
+\textbf{Axiom 3.1 (Set are objects)} If \(A\) is a set, then \(A\) is also an object.
+
+\textbf{Remark 3.1.3} Comments on pure set theory from a logical point of view and a conceptual point of view respectively.
+
+\begin{definition}[Equality of sets]
+\protect\hypertarget{def:eq}{}\label{def:eq}Two sets \(A\) and \(B\) are equal iff every element in \(A\) is an element in \(B\) and vice versa.
+\end{definition}
+
+The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter \ref{logic}.
+
+\textbf{Axiom 3.2 (Empty set)} There exists a set \(\varnothing\), known as the empty set, which contains no elements, i.e., for every object \(x\) we have \(x \not\in \varnothing\).
+
+There is only one singleton set for each object \(a\), and there is only one pair set formed by \(a\) and \(b\) thanks to Definition \ref{def:eq}. Also, Definition \ref{def:eq} ensures that \(\{a,b\} = \{b,a\}\) and \(\{a,a\} = \{a\}\). Thus the singleton set axiom is in fact redundant, being a consequence of the pair set axiom.
+
+\begin{lemma}[Single choice]
+Let \(A\) be a non-empty set. Then there exists an object \(x\) such that \(x\in A\).
+\end{lemma}
+
+The proof is quite easy once with the concept of ``vacuously true'', see Chapter \ref{logic}.
+
+\textbf{Remark 3.1.8} Similarly, for finite number of non-empty sets, we have ``finite choice'' (\ref{lem:finitechoice}), and for an infinite number of sets, we need an additional axiom, the \emph{axiom of choice}, see Chapter \ref{infinite}.
+
+\textbf{Axiom 3.3 (Singleton sets and pair sets)} If \(a\) is an obiect, then there exists a set \(\{a\}\) whose only element is \(a\), i.e., for every object \(y\), we have \(y \in \{a\}\) iff \(y = a\); we refer to \(\{a\}\) as the singleton set whose element is \(a\). Furthermore, if \(a\) and \(b\) are object, then there exists a set \(\{a,b\}\) whose only elements are \(a\) and \(b\); i.e., for every object \(y\), we have \(y\in \{a,b\}\) iff \(y=a\) or \(y=b\); we refer to this set as thepair set formed by \(a\) and \(b\).
+
+\textbf{Axiom 3.4 (Pairwise union)} Given any two sets \(A,B\), there exists a set \(A\cup B\), called the union \(A\cup B\) of \(A\) and \(B\), whose elements consists of all the elements which belongs to \(A\) or \(B\) or both. In other words, for any object \(x\),
+\[
+x\in A\cup B \iff (x\in A\ \ or\ \ x\in B ).
+\]
+
+\begin{lemma}
+if \(a\) and \(b\) are objects, then \(\{a,b\} =\{a\} \cup \{b\}\). If \(A,B,C\) are sets, then the union operation is commutative and associative. Also, we have \(A\cup A = A\cup \varnothing = \varnothing \cup A = A\) .
+\end{lemma}
+
+Since the union operation is associative, we can now define \$\{a,b,c\} := \{a\}\cup \{b\} \cup \{c\} \$ if \(a,b,c\) are three objects; if \(a,b,c,d\) are four objects, then we define \(\{a,b,c,d\} := \{a\}\cup \{b\} \cup \{c\} \cup \{d\}\), and so forth.
+
+\begin{definition}[Subsets]
+Let \(A,B\) be sets. We say that \(A\) is a \emph{subset} of \(B\), denote \(A\subseteq B\). iff every element of \(A\) is also an element of \(B\) i.e.
+\[
+\text{For any object }x,\quad x\in A \Longrightarrow x\in B.
+\]
+We say that \(A\) is a \emph{proper subset} of \(B\), denote \(A \subsetneq B\), if \(A \subseteq B\) and \(A\ne B\).
+\end{definition}
+
+The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter \ref{logic}.
+
+\begin{proposition}
+Let \(A,B,C\) be sets. If \(A \subseteq B\) and \(B\subseteq C\) then \(A \subseteq C\). If \(A \subseteq B\) and \(B\subseteq A\), then \(A=B\). Finally, if \(A \subsetneq B\) and \(B\subsetneq C\), then \(A \subsetneq C\).
+\end{proposition}
+
+Sets are \emph{partially ordered}, whereas the natural numbers are \emph{totally ordered}.
+
+\textbf{Axiom 3.5 (Axiom of specification)} Let \(A\) be a set, and for each \(x\in A\), let \(P(x)\) be a property pertaining to \(x\) (i.e., \(P(x)\) is either a true statement or a false statement). Then there exists a set, called \(\{x\in A: P(x) \text{ is true}\}\) (or simply \(\{x\in A: P(x)\}\)) for short), whose elements are precisely the elements \(x\) in \(A\) for which \(P(x)\) is true. In other words, for any object \(y\),
+\[
+y \in \{x\in A: P(x)\} \iff (y\in A\ \ and\ \ P(y) \text{ is true}).
+\]
+This axiom is also known as the \emph{axiom of separation}. One can verify that the axiom of substitution works for specification, see Chapter \ref{logic}
+
+\begin{definition}[Intersections]
+The \emph{intersection} \(S_1\ \cap S_2\) of two sets is defined to be the set
+\[
+S_1 \cap S_2 := \{x\in S_1 : x\in S_2 \}.
+\]
+In other words, for all objects \(x\),
+\[
+x\in S_1\ \cap S_2 \iff (x\in S_1\ \ and\ \ x\in S_2)
+\]
+\end{definition}
+
+The definition is well-defined, i.e., it obeys the axiom of substitution, see Chapter \ref{logic}. Two set \(A,B\) are said to be \emph{disjoint} if \(A\cap B=\varnothing\). Note that this is not the same concept as being \emph{distinct}, \(A\ne B\).
+
+\begin{definition}[Difference sets]
+Given two sets \(A\) and \(B\), we define the set \(A-B\) or \(A \setminus B\) to be the set \(A\) with elements of \(B\) removed:
+\[
+A\setminus B:=\{x\in A: x\not \in B\}.
+\]
+\end{definition}
+
+\begin{proposition}[Sets from a boolean algebra]
+
+Let \(A,B,C\) be sets, and let \(X\) be a set containing \(A,B,C\) as subsets.
+
+\begin{itemize}
+\tightlist
+\item
+  (Minimal element) \(A\cup \varnothing = A\) and \(A \cap \varnothing = \varnothing\).
+\item
+  (Maximal element) \(A\cup X =X\) and \(A\cap X = A\).
+\item
+  (Identity) \(A\cap A = A\cup A = A\)
+\item
+  (Commutativity) \(A\cup B = B\cup A\) and \(A\cap B = B\cap A\)
+\item
+  (Associativity) \((A\cup B)\cup C = A\cup (B\cup C)\) and \((A\cap B)\cap C = A\cap (B\cap C)\)
+\item
+  (Distributivity) \(A\cap (B\cup C) = (A\cap B)\cup (A\cap C)\) and \(A\cup (B\cap C) = (A\cup B)\cap(A\cup C)\)
+\item
+  (Partition) \(A\cup (X\setminus A) = X\) and \(A\cap (X\setminus A) = \varnothing\)
+\item
+  (De Morgan laws) \(X\setminus (A\cup B) = (X\setminus A)\cap (X\setminus B)\) and \(X\setminus (A\cap B) = (X\setminus A)\cup (X\setminus B)\)
+\end{itemize}
+
+\end{proposition}
+
+Such symmetry in the laws between \(\cup\) and \(\cap\), and between \(X\) an \(\varnothing\), is an example of \emph{duality} - two distinct properties or objects being dual to each other. In this case, the duality is manifested by the complementation relation \(A \mapsto X\setminus A\); the de Morgan laws assert that this relation converts unions and intersections and vice versa.
+
+\textbf{Axiom 3.6 (Replacement)} Let \(A\) be a set. For any object \(x\in A\), and any object \(y\), suppose we have a statement \(P(x,y)\) pertaining to \(x\) and \(y\), such that for each \(x\in A\) there is at most one \(y\) for which \(P(x,y)\) is true, Then ther exists a set \(\{y: P(x,y) \text{ is true for some }x\in A\}\), such that for any object \(z\),
+\[
+\begin{aligned}
+  z\in \{y&: P(x,y) \text{ is true for some }x\in A\}\\
+  &\iff P(x,z) \text{ is true for some }x\in A
+\end{aligned}
+\]
+
+\textbf{Axiom 3.7 (Infinity)} There exists a set \(\mathbb{N}\), whose elements are called natural numbers,as well as an object \(0\) in \(\mathbb{N}\), and an object \(n+\!\!+\) assigned to every natural number \(n \in \mathbb{N}\), such that the Peano axioms (Axiom 2.1 - 2.5) hold.
+
+This is a more formal version of Assumption 2.6. It introduces the most basic example of an infinite set.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Show that the axiom of replacement implies the axiom of specification.
+\end{exercise}
+
+\section{Russell's paradox}\label{russells-paradox}
+
+\textbf{Axiom 3.8 (Universal specification)} Suppose for every object \(x\) we have a property \(P(x)\) pertaining to \(x\) (so that for every \(x\), \(P(x)\) is either a true statement or a false statement). Then there exists a set \(\{x:P(x) \text{ is true}\}\) such that for every object \(y\),
+\[
+y \in \{x:P(x) \text{ is true}\} \iff P(y) \text{ is true}
+\]
+
+The axiom is also known as the \emph{axiom of comprehension}. This axiom cannot be introduced into set theory, because it creates a logical logical contradiction known as \emph{Russell's paradox}, discovered by the philosopher nd logician Bertrand Russell in 1901. The paradox runs as follows. Let \(P(x)\) be the statement
+\[
+P(x) \iff ``x \text{ is a set, and }x\not \in x \text{''};
+\]
+Now use the axiom of universal specification to create the set
+\[
+\Omega := \{x:P(x) \text{ is true}\} = \{x:x \text{ is a set, and }x\not \in x\}
+\]
+If \(\Omega \in \Omega\), then it can be deduced that \(\Omega \not \in \Omega\); If \(\Omega \not\in \Omega\), then it can be deduced that \(\Omega \in \Omega\). Thus in either case the conclusion is absurd. One way to informally resolve the issue that sets are allowed to contain themselves is to think of objects as being arranged in a hierarchy. To actually formalize the intuition of a hierarchy of objects is rather complicated, so we shall simply postulate an axiom which ensures that absurdities such as Russell's paradox do not occur.
+
+\textbf{Axiom 3.9 (Regularity)} If \(A\) is a non-empty set, then there is at least one element \(x\) of \(A\) which is either not a set, or is disjoint from \(A\).
+
+The axiom is also known as the \emph{axiom of foundation}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Show that Axiom 3.8, if assumed to be true, would imply Axiom 3.2, 3.3, 3.4, 3.5 and 3.6.
+\end{exercise}
+
+\begin{exercise}
+Use the axiom of regularity (and the singleton set axiom) to show that \(A\) is a set, then \(A\not \in A\). Furthermore, show that if \(A\) and \(B\) are two set sets, then either \(A\not\in B\) or \(B\not\in A\) (or both).
+\end{exercise}
+
+The first statement is trivial. As for the latter one, for the sake of contradiction, suppose that \(A\in B\) and \(B\in A\), then \(A\in A\cup B\); however, \(A\cap (A\cup B) \ne \varnothing\) which contradict Axiom 3.9.
+
+\begin{exercise}
+Show that the axiom of comprehension is equivalent to an axiom postulating the existence of a ``universal set'' \(\Omega\) consisting of all objects. (If such set exists, then \(\Omega \in \Omega\), thus the axiom of foundation rules out the axiom of comprehension).
+\end{exercise}
+
+\section{Functions}\label{functions}
+
+\begin{definition}[Functions]
+\protect\hypertarget{def:func}{}\label{def:func}Let \(X,Y\) be sets, and let \(P(x,y)\) be a property pertaining to an object \(x\in X\) and an object \(y\in Y\), such that for every \(x\in X\), there is exactly one \(y\in Y\) for which \(P(x,y)\) is true (this is sometimes known as the \emph{vertical line test}). Then we define the \emph{function} \(f:X\to Y\) defined by \(P\) on the domain \(X\) and range \(Y\) to be the object which, given any input \(x\in X\), assigns an output \(f(x) \in Y\), defined to be the unique object \(f(x)\) for which \(P(x,f(x))\) is true. Thus, for any \(x\in X\) and \(y\in Y\),
+\[
+y=f(x) \iff P(x,y) \text{ is true.}
+\]
+\end{definition}
+
+Functions are also referred to \emph{maps}, \emph{transformations} or \emph{morphisms}.
+
+\begin{definition}[Equality of functions]
+\protect\hypertarget{def:feq}{}\label{def:feq}Two functions \(f:X\to Y\), \(g:X\to Y\) with the same domain and range are said to be \emph{equal}, \(f=g\), if and only if \(f(x) = g(x)\) for all \(x\in X\).
+\end{definition}
+
+The \emph{empty function} \(f:\varnothing\to X\) is a function from the empty set to an arbitrary set \(X\). Note that from Definition \ref{def:feq} it can be infered that for each set \(X\), there is only one function from \(\varnothing\) to \(X\).
+
+\begin{definition}[Composition]
+Let \(f: X\to Y\) and \(g:Y\to Z\) be two functions,such that the range of \(f\) is the same as the domain of \(g\). We the define \emph{composition} \(g \circ f:X\to Z\) of the two functions \(g\) and \(f\) to be the function defined explicitly by the formula
+\[
+(g\circ f)(x):= g(f(x))
+\]
+If the range of \(f\) does not match the domain of \(g\), we leave the composition \(g\circ f\) undefined.
+\end{definition}
+
+\begin{lemma}[Composition is associative]
+Let \(f:Z\to W\), \(g:Y\to Z\), and \(h:X\to Y\) be functions. Then \(f\circ(g\circ h) = (f\circ g)\circ h\).
+\end{lemma}
+
+\begin{proof}
+First it should be interpreted that they have the same domain and range.
+\end{proof}
+
+\begin{definition}[One-to-one functions]
+\protect\hypertarget{def:inj}{}\label{def:inj}A function \(f\) is \emph{one-to-one} (or \emph{injective}) if different elements map to different elements:
+\[
+x\ne x^{\prime} \Longrightarrow f(x) \ne f(x^{\prime}).
+\]
+\end{definition}
+
+\begin{definition}[Onto functions]
+\protect\hypertarget{def:surj}{}\label{def:surj}A function \(f\) is \emph{onto} (or \emph{surjective}) if \(f(X)=Y\), i.e., every element in \(Y\) comes from applying \(f\) to some element in \(X\):
+\[
+\text{For every }y\in Y,\text{ there exists }x\in X \text{ such that }f(x) = y.
+\]
+\end{definition}
+
+\begin{definition}[Bijective functions]
+\protect\hypertarget{def:bj}{}\label{def:bj}Functions \(f:X\to Y\) which are both one-to-one and onto are also called \emph{bijective} or \emph{invertible}.
+\end{definition}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}[Cancellation laws for composition]
+Let \(f_1: X\to Y\), \(f_2: X\to Y\), \(g_1:Y \to X\) and \(g_2:Y \to X\) be functions. Show that if \(g_1\circ f_1 = g_1\circ f_2\) and \(g_1\) is iniective, then \(f_1=f_2\). Is the same statement true if \(g\) is not injective? Show that if \(g_1\circ f_1 = g_2\circ f_1\) and \(f_1\) is surjective, then \(g_1=g_2\). Is the same statement true if \(f_1\) is not surjective?
+\end{exercise}
+
+\begin{exercise}
+Let \(f:X\to Y\) nd \(g:Y\to Z\) be functions. Show that if \(g\circ f\) is injective, then \(f\) must be injective, then \(f\) must be injective. Is it true that \(g\) must also be injective? Show that if \(g\circ f\) is surjective, then \(g\) must be surjective, then \(g\) must be surjective. Is it true that \(f\) must also be injective?
+\end{exercise}
+
+One may make a mistake when considering ``Is it true that \(g\) must also be injective?'' as follow. \(g\circ f (x) = g\circ f(x') \Longrightarrow x=x' \Longrightarrow f(x) = f(x')\), so \(g\) must also be injective. The proof is wrong because \(g\) is injective means that \(\forall y,y'\in Y, y\ne y' \Longrightarrow g(y)\ne g(y')\), while the proof only considers the situation that \(y,y' \in f(X)\), which is a subset of \(Y\). For example, let's consider \(X = \{1,2\}\) and \(Y=Z=\{1,2,3\}\). Let's define the function \(f\) as the mapping \(f(1)=1\), \(f(2)=2\). Let's define the function \(g\) as the mapping \(g(1) = 1,\ g(2)=2,\ g(3)=2\). Here, \(f\) is injective, so is \(g\circ f\), but \(g\) is not injective. The latter question is similar to the former one.
+
+\begin{exercise}
+Let \(f:X\to Y\) be a bijective function, and let \(f^{-1}:Y\to X\) be its inverse. Verify that cancellation laws \(f^{-1}(f(x)) = x\) for all \(x\in X\) and \(f(f^{-1}(y))=y\) for all \(y\in Y\). Conclude that \(f^{-1}\) is also invertible, nd has \(f\) as its inverse.
+\end{exercise}
+
+\begin{exercise}
+Let \(f:X\to Y\) nd \(g:Y\to Z\) be functions. Show that if \(f\) and \(g\) are bijective, then so is \(g\circ f\), and we have \((g\circ f)^{-1} = f^{-1} \circ g^{-1}\).
+\end{exercise}
+
+\begin{exercise}
+
+If \(X\) is a subset of \(Y\), let \(\iota_{X\to Y}\) be the \emph{inclusion map from \(X\) to \(Y\)}, defined by mapping \(x\mapsto x\) for all \(x\in X\), i.e.m \(\iota_{X\to Y}:=x\) for all \(x\in X\). The mape \(\iota_{X\to X}\) is in particular called the \emph{identity map} on \(X\).
+
+\begin{itemize}
+\tightlist
+\item
+  Show that if \(X\subseteq Y\subseteq Z\) then \(\iota_{Y\to Z}\circ \iota_{X\to Y} = \iota_{X\to Z}\).
+\item
+  Show that if \(f:A\to B\) is any function, then \(f= f\circ \iota_{A\to A} = \iota_{B\to B}\circ f\).
+\item
+  Show that if \(f:A\to B\) is a bijective function, then \(f\circ f^{-1} = \iota_{B\to B}\) and \(f^{-1}\circ f =\iota_{A\to A}\).
+\item
+  Show that if \(X\) and \(Y\) are disjoint sets, and \(f:X\to Z\) and \(g: Y\to Z\) are functions, then there is a unique function \(h\): \(X\cup Y \to Z\) such that \(h \circ \iota_{X\to X\cup Y} =f\) and \(h \circ \iota_{Y\to X\cup Y} =g\).
+\end{itemize}
+
+\end{exercise}
+
+\section{Images and inverse images}\label{images-and-inverse-images}
+
+\begin{definition}
+If \(f:X\to Y\) is a function from \(X\) to \(Y\), and \(S\) is a set in \(X\), we define \(f(S)\) to be the set
+\[
+f(S):=\{f(x):x\in S\};
+\]
+this set is a subset of \(Y\), and is sometimes called the \emph{image} of \(S\) under the map \(f\). We sometimes call \(f(S)\) the \emph{forward image} of \(S\) to distinguish it from the concept of the \emph{inverse image} \(f^{-1}(S)\) of \(S\), which is defined below.
+\end{definition}
+
+Note that the set \(f(S)\) is well-defined thanks to the axiom of replacement or the axiom of specification.
+
+\begin{definition}
+If \(U\) is a subset of \(Y\), we define the set \(f^{-1}(U)\) to be the set
+\[
+f^{-1}(U):=\{x\in X: f(x) \in U\}.
+\]
+\end{definition}
+
+We call \(f^{-1}(U)\) the \emph{inverse image} of \(U\).
+
+\textbf{Axiom 3.10 (Power set axiom)} Let \(X\) and \(Y\) be sets. Then there exists a set, denoted \(Y^X\), which consists of all the functions from \(X\) to \(Y\), thus
+\[
+f\in Y^X \Longrightarrow (f\text{ is a function with domain }X\text{ and range }Y).
+\]
+
+For more details, see Proposition \ref{prp:power}.
+
+One consequence of this axiom is
+
+\begin{lemma}
+Let \(X\) be a set. Then the set
+\[
+\{Y: Y \text{ is a subset of } X\}
+\]
+is a set.
+\end{lemma}
+
+The set \(\{Y: Y \text{ is a subset of } X\}\) is known as the \emph{power set} of \(X\) and is denoted \(2^X\). For more details, see Chapter \ref{infinite}.
+
+\textbf{Axiom 3.11 (Union)} Let \(A\) be a set, all of whose elements re themselves sets. Then there exists a set \(\bigcup A\) whose elements are precisely those objects which are elements of \(A\), thus for all objects \(x\)
+\[
+x\in \bigcup A \iff (x\in S \text{ for some }S\in A)
+\]
+Thanks to the axiom of replacement and the axiom of union, if one has some set \(I\), and for every element \(\alpha \in I\) we have some set \(A_{\alpha}\), then we can form the union set \(\bigcup_{\alpha\in I}A_{\alpha}\) by defining
+\[
+\bigcup_{\alpha\in I}A_{\alpha}:=\bigcup \{A_{\alpha}:\alpha\in I\}
+\]
+In some situation, we refer to \(I\) as an \emph{index set}, and the elements \(\alpha\) of this index set as \emph{labels}; the sets \(A_{\alpha}\) are then called a \emph{family of sets}, and are \emph{indexed} by the labels \(\alpha\in I\).
+
+Given any non-empty set \(I\), and given an assignment of a set \(A_{\alpha}\) to each \(\alpha\in I\), we can define the intersection \(\bigcap_{\alpha\in I}A_{\alpha}\) by first choosing some elements \(\beta\) of \(I\) (which we can da since \(I\) is non-empty), and setting
+\[
+\bigcap_{\alpha\in I}A_{\alpha}:=\{x\in A_{\beta}: x\in A_{\alpha} \text{ for all }\alpha \in I\},
+\]
+which is a set by the axiom of specification. For more details, see Exercise \ref{exr:beta}.
+
+The axiom we've introduced in this chapter (excluding Axiom 3.8) are known as the \emph{Zermelo-Fraenkel axiom of set theory}. There is one further axiom we will need, \emph{axiom of choice} (see Chapter \ref{infinite}), giving rise to the \emph{Zermelo-Fraenkel-Choice axiom of set theory (ZFC) axiom of set theory}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Cartesian products}\label{cartesian-products}
+
+If \(x\) and \(y\) are any objects, we defined the \emph{ordered pair} \((x,y)\) to be a new object. Two ordered pairs \((x,y)\) and \((x',y')\) are considered equal iff both their components match, i.e.
+\[
+(x,y)=(x',y') \iff (x=x'\ and\ y=y')
+\]
+
+If \(X\) and \(Y\) are sets, then we define the \emph{Cartesian product} \(X\times Y\) to be the collection of ordered pairs whose first component lies on \(X\) and second component lies in \(Y\), thus
+\[
+X\times Y = \{(x,y):x\in X, y\in Y\}
+\]
+or equivalently
+\[
+a\in(X\times Y) \iff (a=(x,y) \text{ for some }x\in X \text{ and }y \in Y)
+\]
+
+The addition operation \(+\) on the natural numbers can now be re-interpreted as a function \(+: \mathbb{N}\times \mathbb{N}\to \mathbb{N}\), define by \((x,y)\mapsto x+y\).
+
+Let \(n\) be a natural number. An \emph{ordered \(n\)-tuple} \((x_i)_{1\leq i\leq n}\) (also denoted \((x_1,\dots,x_n)\)) is a collection of objects \(x_i\) as the \(i^{th}\) component of the ordered \(n\)-tuple. Two ordered \(n\)-tuples \((x_i)_{1\leq i\leq n}\) and \((y_i)_{1\leq i\leq n}\) are said to be equal iff \(x_i=y_i\) for all \(1\leq i\leq n0\). If \((X_i)_{1\leq i\leq n}\) is an ordered \(n\)-tuple of sets, we define their Cartesian product \(\prod_{1\leq i\leq n}X_i\) (also denoted \(\prod_{i=1}^nX_i\) or \(X_1\times \dots\times X_n\)) by
+\[
+\prod_{1\leq i\leq n}X_i :=\{(x_i)_{1\leq i\leq n}:x_i\in X_i \text{ for all }1\leq i \leq n\}.
+\]
+
+An ordered \(n\)-tuple is also called an \emph{order sequence} of \(n\) elements, or a \emph{finite sequence} for short. For more details, see \ref{real}.
+
+The \emph{empty Cartesian product} \(\prod_{1\leq i\leq 0}X_i\) gives, not the empty set \(\{\}\), but rather the singleton set \(\{()\}\) whose only element is the \emph{\(0\)-tuple \(()\)}, also known aas the \emph{empty tuple}.
+
+\begin{lemma}
+\protect\hypertarget{lem:finitechoice}{}\label{lem:finitechoice}Let \(n\geq 1\) be a natural number, and for each natural number \(1\leq i\leq n\), let \(X_i\) be a non-empty set. Then there exists an \(n\)-tuple \((x_i)_{1\leq i\leq n}\) such that \(x_i\in X_i\) for all \(1\leq i\leq n\). In other words, if each \(X_i\) is non-empty set, then the set \(\prod_{1\leq i\leq n}X_i\) is also non-empty.
+\end{lemma}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Cardinality of sets}\label{cardinality-of-sets}
+
+The purpose of this section is to address this issue by noting that the natural numbers can be used to count the cardinality of sets, as long as the set is finite.
+
+\begin{definition}[Equal cardinality]
+We say that two sets \(X\) and \(Y\) have \emph{equal cardinality} iff there exists a bijection \(f:X\to Y\) from \(X\) to \(Y\).
+\end{definition}
+
+The property is commutative and associative.
+
+\begin{definition}[Equal cardinality]
+Let \(n\) be a natural number. A set \(X\) is said to have cardinality \(n\), iff it has equal cardinality with \(\{i\in \mathbb{N}:1\leq i\leq n\}\). We also say that \(X\) has n elements iff it has cardinality \(n\).
+\end{definition}
+
+Let \(X\) be a set with some cardinality \(n\). Then \(X\) cannot have any other cardinality, i.e., \(X\) cannot have cardinality \(m\) for any \(m\ne n\).
+
+To prove the proposition, we need the following lemma.
+
+\begin{lemma}
+Suppose that \(n\geq 1\), and \(X\) has cardinality \(n\). Then \(X\) is non-empty, and if \(x\) is element of \(X\), then the set \(X-\{x\}\) has cardinality \(n-1\).
+\end{lemma}
+
+\begin{theorem}
+The set of natural numbers \(\mathbb{N}\) is infinite.
+\end{theorem}
+
+\begin{proposition}[Cardinality arithmetic]
+\protect\hypertarget{prp:power}{}\label{prp:power}\leavevmode
+
+\begin{itemize}
+\tightlist
+\item
+  Let \(X\) be a finite set, and let \(x\) be an object which is not an element of \(X\). Then \(X\cup\{x\}\) is finite and \(\#(X\cup\{x\}) = \#(X)+1\).
+\item
+  Let \(X\) and \(Y\) be finite sets. Then \(X \cup Y\) is finite and \(\#(X\cup Y) \leq \#(X) +\#(Y)\). If in addition \(X\) and \(Y\) are disjoint, \(\#(X\cup Y) =\#(X) +\#(Y)\).
+\item
+  Let \(X\) be a finite set, and let \(Y\) be a subset \(X\). Then \(Y\) is finite, and \(\#(Y) \leq \#(X)\). In addition \(Y\ne X\), then \(\#(X\cup Y) < \#(X)\).
+\item
+  Let \(X\) be a finite set, and \(f:X\to Y\) is a function, then \(F(X)\) is a finite set with \(\#(f(X)) \leq \#(X)\). If in addition \(f\) is one-to-one, then \(\#(f(X)) = \#(X)\).
+\item
+  Let \(X\) and \(Y\) be finite sets. Then Cartesian product \(X\times Y\) is finite and \(\#(X\times Y) = \#(X)\times \#(Y)\).
+\item
+  Let \(X\) and \(Y\) be finite sets. Then the set \(Y^X\) is finite and \(\#(Y^X) = \#(Y)^{\#(X)}\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Vocabulary}\label{vocabulary-1}
+
+\begin{itemize}
+\tightlist
+\item
+  Cartesian co-ordinate system
+\item
+  pedagogical
+\item
+  overcomplete
+\item
+  agnostic
+\item
+  analogous
+\item
+  curly brace
+\item
+  lest
+\item
+  state of affairs
+\item
+  rung
+\item
+  albeit
+\end{itemize}
+
+\chapter{Integers and rationals}\label{integers}
+
+\section{The integers}\label{the-integers}
+
+\begin{definition}
+An \emph{integer} is an expression of the form \(a\!\!-\!\!-b\), where \(a\) and \(b\) are natural numbers. Two integers are considered to be equal, \(a\!\!-\!\!-b = c\!\!-\!\!-d\), iff \(a+d = c+b\). We let \(\mathbb{Z}\) denote the set of all integers.
+\end{definition}
+
+\begin{definition}
+The sum of two integers, \((a\!\!-\!\!-b) + (c\!\!-\!\!-d)\), is defined by the fomula
+\[
+(a\!\!-\!\!-b) + (c\!\!-\!\!-d):=(a+c)\!\!-\!\!-(b+d)
+\]
+The product of two integers, \((a\!\!-\!\!-b) \times (c\!\!-\!\!-d)\), is defined by
+\[
+(a\!\!-\!\!-b) \times (c\!\!-\!\!-d):=(ac+bd)\!\!-\!\!-(ad+bc)
+\]
+\end{definition}
+
+One can verify that the addition and multiplication of integers are well-defined.
+
+We can find that there is an \emph{isomorphism} between the natural number \(n\) and those integers of the form \(n\!\!-\!\!-0\). That is, the integer \(n\!\!-\!\!-0\) behave in the same way as the natural numbers \(n\):
+\[
+\begin{aligned}
+(n\!\!-\!\!-0)+(m\!\!-\!\!-0)&=(n+m)\!\!-\!\!-0;\\
+(n\!\!-\!\!-0)\times(m\!\!-\!\!-0)&=nm\!\!-\!\!-0;\\
+n\!\!-\!\!-0=m\!\!-\!\!-0& \iff n=m.
+\end{aligned}
+\]
+Thus we can \emph{identify} the natural numbers with integers by setting \(n \equiv n\!\!-\!\!-0\).
+
+\begin{definition}[Negation of integers]
+If \((a\!\!-\!\!-b)\) is an integer, we define the negation \(-(a\!\!-\!\!-b)\) to be the integer \((b\!\!-\!\!-a)\).
+\end{definition}
+
+One can check the definition is well-defined.
+
+\begin{lemma}[Trichotomy of integers]
+Let \(x\) be an integer. Then exactly one of the following three statements is true: (a) \(x\) is zero; (b) \(x\) is equal to a positive natural number \(n\); or (c) \(x\) is the negation \(-n\) of a positive natural number \(n\).
+\end{lemma}
+
+\begin{proposition}[Laws of algebra for integers]
+Let \(x,y,z\) be integers. Then we have
+\[
+\begin{aligned}
+  x+y&=y+x\\
+  (x+y)+z&=x+(y+z)\\
+  x+0=0+x&=x\\
+  x+(-x) = (-x)+x&=0\\
+  xy&=yx\\
+  (xy)z&=x(yz)\\
+  x1=1x&=x\\
+  x(y+z)&=xy+xz\\
+  (y+z)x=yx+zx
+\end{aligned}
+\]
+\end{proposition}
+
+The above set of nine identities are asserting that integers from a \emph{commutative ring} (If one deleted the identity \(xy=yx\), then they would only assert that the integers form a \emph{ring}).
+
+Now we define the operation of \emph{substraction} of two integers by the fomula
+\[
+x-y:=x+(-y).
+\]
+
+\begin{proposition}[Integer have no zero divisors]
+Let \(a\) and \(b\) be integers such that \(ab=0\). Then either \(a=0\) or \(b=0\) (or both).
+\end{proposition}
+
+\begin{corollary}[Cancellation law for integers]
+If \(a,b,c\) are integers such that \(ac=bc\) and \(c\) is non-zero, then \(a=b\).
+\end{corollary}
+
+\begin{definition}[Ordering of the integers]
+Let \(n\) and \(m\) be integers. We say that \(n\) is greater than or equal to \(m\), and write \(n\geq m\) or \(m\leq n\), iff we have \(n=m+a\) for some natural number \(a\).We say that \(n\) is strictly greater that \(m\), and write \(n>m\) or \(m<n\), iff \(n\geq m\) and \(n \ne m\).
+\end{definition}
+
+\begin{lemma}[Properties of order]
+
+Let \(a,b,c\) be integers.
+
+\begin{itemize}
+\tightlist
+\item
+  \(a>b\) iff \(a-b\) is positive natural number.
+\item
+  (Addition preserves order) If \(a>b\), then \(a+c>b+c\).
+\item
+  (Positive multiplication preserves order) If \(a>b\) and \(c\) is positive, then \(ac>bc\).
+\item
+  (Negation reverses order) If \(a>b\), then \(-a<-b\).
+\item
+  (Order is transitive) If \(a>b\) and \(b>c\), then \(a>c\).
+\item
+  (Order trichotomy) Exactly one of the statements \(a>b\), \(a<b\), or \(a=b\) is true.
+\end{itemize}
+
+\end{lemma}
+
+Here we consider the last one. First, if \(a,b\) are both positive, then it has been proven in Chapter \ref{start}; If \(a,b\) are both negative, since negation reverses order, we only need to consider \(-a,-b\), which are both positive; as for other situation, we know that negative integers are small than zero, and zero is smaller than any positive integer.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Show that the principle of induction does not apply directly to the integers.
+\end{exercise}
+
+\section{The rationals}\label{the-rationals}
+
+\begin{definition}
+A \emph{rational number} is an expression of the form \(a//b\), where \(a\) and \(b\) are integers and \(b\) is non-zero; \(a//0\) is not considered to be a rational number. Two rational numbers are considered to be equal, \(a//b=c//d\), iff \(ad=cb\). The set of all rational numbers is denoted \(\mathbb{Q}\).
+\end{definition}
+
+\begin{definition}
+If \(a//b\) and \(c//d\) are rational numbers, we defined their sum
+\[
+(a//b) + (c//d) := (ad+bc)//(bd)
+\]
+their product
+\[
+(a//b)\times(c//d) := (ac)//(bd)
+\]
+and the negation
+\[
+-(a//b):=(-a)//b.
+\]
+\end{definition}
+
+One can verify that the sum, product, and negation operations on rational numbers are well-defined.
+
+We note that the rational numbers \(a//1\) behave in manner identical to the integer \(a\):
+\[
+\begin{aligned}
+(a//1)+(b//1)&=(a+b)//1;\\
+(a//1)\times(b//1)&=(ab)//1;\\
+-(a//1)&=(-a)//1.
+\end{aligned}
+\]
+Because of this, we will identify \(a\) with \(a//1\) for each integer \(a:a\equiv a//1\).
+
+We now define a new operation on the rationals: reciprocal. If \(x=a//b\) is a non-zero rationl then we define the \emph{reciprocal} \(x^{-1}\) of \(x\) to be the rational number \(x^{-1}:=b//a\).
+
+\begin{proposition}[Laws of algebra for rationals]
+Let \(x,y,z\) be integers. Then we have
+\[
+\begin{aligned}
+  x+y&=y+x\\
+  (x+y)+z&=x+(y+z)\\
+  x+0=0+x&=x\\
+  x+(-x) = (-x)+x&=0\\
+  xy&=yx\\
+  (xy)z&=x(yz)\\
+  x1=1x&=x\\
+  x(y+z)&=xy+xz\\
+  (y+z)x=yx+zx
+\end{aligned}
+\]
+If \(x\) is non-zero, we also have
+\[xx^{-1} = x^{-1}x=1.\]
+\end{proposition}
+
+The above set of ten identities are asserting that the rationals \(\mathbb{Q}\) form a \emph{field}.
+
+We can now define the \emph{quotient} of thwo rational numbers \(x\) and \(y\), provided that \(y\) is non-zero, by the fomula
+\[
+x/y:=x\times y^{-1}.
+\]
+
+\begin{definition}
+A rational number \(x\) is said to be positive iff we have \(x=a/b\) for some positive integers \(a\) and \(b\). It is said to be negatve iff we haave \(x=-y\) for some positive rational \(y\).
+\end{definition}
+
+\begin{lemma}[Trichotomy of rationals]
+Let \(x\) be a rational number. Then exactly one of the following three statements is true: (a) \(x\) is zero; (b) \(x\) is a positive rational number; or (c) \(x\) is a negative rational number.
+\end{lemma}
+
+\begin{definition}[Ordering of the rationals]
+Let \(x\) and \(y\) be rational numbers. We say that \(x>y\) iff \(x-y\) is a positive rational number, and write \(x<y\) iff \(x-y\) is a negative rational number. We write \(x\geq y\) iff either \(x>y\) or \(x=y\), and similarly define \(x\leq y\).
+\end{definition}
+
+\begin{proposition}[Basic properties of order on the rationals]
+
+Let \(x,y,z\) be rtional numbers. Then the following properties hold.
+
+\begin{itemize}
+\tightlist
+\item
+  (Order trichotomy) Exactly one of the three statements \(x=y\), \(x<y\), \(x>y\) is true.
+\item
+  (Order is anti-symmetric) One has \(x<y\) iff \(y>x\).
+\item
+  (Order is transitive) If \(x<y\), then \(x<y\) and \(y<z\), then \(x<z\).
+\item
+  (Addition preserves order) If \(x<y\), the \(x+z<y+z\).
+\item
+  (Positive multiplication preserves order) If \(x<y\) and \(z\) is positive, then \(xz<yz\).
+\end{itemize}
+
+\end{proposition}
+
+\section{Absolute value and exponentiation}\label{absolute-value-and-exponentiation}
+
+\begin{definition}[Absolute value]
+If \(x\) is rational number, then \emph{absolute value} \(|x|\) of \(x\) is defined as follows. If \(x\) is positive,then \(|x|:=x\). If \(x\) is negative,then \(|x|:=-x\). If \(x\) is zero, then \(|x|:=0\).
+\end{definition}
+
+\begin{definition}[Distance]
+Let \(x\) nd \(y\) be rational numbers. Then quantity \(|x-y|\) is called the \emph{distance between \(x\) and \(y\)} and is sometimes denoted \(d(x,y)\).
+\end{definition}
+
+\begin{proposition}[Basic properties of absolute value and distance]
+
+Let \(x,y,z\) be rational numbers.
+
+\begin{itemize}
+\tightlist
+\item
+  (Non-degeneracy of absolute value) We have \(|x|\geq 0\). Also, \(|x| = 0\) iff \(x\) is 0.
+\item
+  (Triangle inequality for absolute value) We have \(|x+y|\leq |x|+|y|\).
+\item
+  We have the inequalities \(-y\leq x\leq y\) iff \(y\geq |x|\).
+\item
+  (Multiplicativity of absolute value) We have \(|xy|=|x||y|\).
+\item
+  (Non-degeneracy of distance) We have \(d(x,y)\geq 0\). Also, \(d(x,y)=0\) iff \(x=y\).
+\item
+  (Symmetry of distance) \(d(x,y)=d(y,x)\).
+\item
+  (Triangle inequality for distance) \(d(x,z)\leq d(x,y)+d(y,z)\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{definition}[$\varepsilon$-closeness]
+Let \(\varepsilon\) be a rational number, and let \(x,y\) be rational number. We say that \(y\) is \(\varepsilon\)-close to \(x\) iff we have \(d(x,y)<\varepsilon\).
+\end{definition}
+
+\begin{proposition}
+Let \(\varepsilon,\delta>0\). If \(x\) and \(y\) are \(\varepsilon\)-close, and \(z\) and \(w\) are \(\delta\)-close, then \(xz\) are \(yw\) are \(\varepsilon|z|+\delta|x+\varepsilon\delta\)-close.
+\end{proposition}
+
+\begin{definition}[Exponentiation to a natural number]
+Let \(x\) be a rational number. To raise \(x\) to the power \(0\), we define \(x^0:=1\); in particular we define \(0^0:=1\). Now suppose inductively that \(x^n\) has been defined for some natural number \(n\), then we define \(x^{n+1} : = x^n\times x\).
+\end{definition}
+
+\begin{definition}[Exponentiation to a negative number]
+Let \(x\) be a non-zero rational number. Then for any negative integer \(-n\), we define \(x^{-n} := 1/x^n\).
+\end{definition}
+
+\begin{proposition}[properties of exponentiation]
+
+Let \(x,y\) be non-zero rational numbers, and \(n,m\) be integers.
+
+\begin{itemize}
+\tightlist
+\item
+  We have \(x^nx^m = x^{n+m}\), \((x^n)^m = x^{nm}\), and \((xy)^n=x^ny^n\).
+\item
+  If \(x\geq y>0\), then \(x^n\geq y^n>0\) if \(n\) is positive, and \(0<x^n<y^n\) if \(n\) is negative.
+\item
+  If \(x,y > 0\), \(n\ne 0\), and \(x^n=x^y\), then \(x=y\).
+\item
+  We have \(|x^n| = |x|^n\).
+\end{itemize}
+
+\end{proposition}
+
+\section{Gaps in the rational numbers}\label{gaps-in-the-rational-numbers}
+
+\begin{proposition}[Interspersing of integers by rationals]
+Let \(x\) be rational number. Then there exists an integer \(n\) such that \(n\leq x<n+1\). In fact, this integer is unique. In poticular, there exists a natural number \(N\) such that \(N>x\).
+\end{proposition}
+
+The integer \(n\) is somtimes referred to the \emph{integer part} of \(x\) and is sometimes denoted \(n=[x]\).
+
+\begin{proposition}[Interspersing of rationals by rationals]
+If \(x\) and \(y\) are two rationals such that \(x<y\), then there exists a third rational \(z\) such that \(x<z<y\).
+\end{proposition}
+
+There does not exist any rational number \(x\) for which \(x^2=2\).
+
+To prove the proposition above, we need to a conclusion from the exercise \ref{exr:id}.
+
+For every rational numbers \(\varepsilon>0\), there exists a non-negative rational number \(x\) such \(x^2<2<(x+\varepsilon)^2\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+\protect\hypertarget{exr:id}{}\label{exr:id}Prove the \emph{principle of infinite descent}: that it is not possible to have a sequence of natural numbers which is in infinite descent (a sequence \(a_0,a_1,\cdots\) of numbers is said to be \emph{infinite descent} if we have \(a_n>a_{n+1}\) for all natural numbers \(n\)).
+\end{exercise}
+
+\chapter{The real numbers}\label{real}
+
+\section{Cauchy sequences}\label{cauchy-sequences}
+
+\begin{definition}[Sequences]
+Let \(m\) be an integer. A \emph{sequence} \((a_n)_{n=m}^{\infty}\) of rational numbers is ant function from the set \(\{n\in \mathbb{Z}: n \geq m\) to \(\mathbb{Q}\), i.e., a mapping which assigns to each integer \(n\) greater than or equal to \(m\), a rational number \(a_n\). More informally, a sequence \((a_n)_{n=m}^{\infty}\) of rational numbers is a collection of rationals \(a_m, a_{m+1}, a_{m+2}, \dots\)
+\end{definition}
+
+\begin{definition}[$\varepsilon$-steadness]
+Let \(\varepsilon>0\). A sequence \((a_n)_{n=0}^{\infty}\) is said to be \emph{\(\varepsilon\)-steady} iff each pair \(a_j, a_k\) of sequence elements is \(\varepsilon\)-close for every natural number \(j,k\). In order words, the sequence \(a_0,a_1,\dots\) is \(\varepsilon\)-steady iff \(d(a_j,a_k)\leq \varepsilon\) for all \(j,k\).
+\end{definition}
+
+\begin{definition}[Eventual $\varepsilon$-steadness]
+Let \(\varepsilon>0\). A sequence \((a_n)_{n=0}^{\infty}\) is said to be \emph{eventually \(\varepsilon\)-steady} iff the sequence \(a_N, a_{N+1}, a_{N+2}, \dots\) is \(\varepsilon\)-steady for some natural number \(N\geq 0\). In other words, the sequence \(a_0,a_1,\dots\) is eventually \(\varepsilon\)-steady iff there exists an \(N\geq 0\) such that \(d(a_j,a_k)\leq \varepsilon\) for all \(j,k\geq N\).
+\end{definition}
+
+\begin{definition}[Cauchy sequences]
+A sequence \((a_n)_{n=0}^{\infty}\) of rational numbers is said to be \emph{Cauchy sequences} iff for every rational \(\varepsilon>0\), thesequence \((a_n)_{n=0}^{\infty}\) is eventually \(\varepsilon\)-steady.
+\end{definition}
+
+\begin{definition}[Bounded sequences]
+Let \(M\geq 0\) be rational. A finite sequence \(a_1,a_2, \dots, a_n\) is \emph{bounded} by \(M\) iff \(|a_i|\leq M\) for all \(1\leq i \leq n\). An infinite sequence \((a_n)_{n=1}^{\infty}\) is \emph{bounded} by \(M\) iff iff \(|a_i|\leq M\) for all \(i\geq 1\). A sequence is said to be \emph{bounded} iff it is bounded by \(M\) for some rational \(M>0\).
+\end{definition}
+
+\begin{lemma}
+Every finite sequence is bounded.
+\end{lemma}
+
+\begin{lemma}
+Every Cauchy sequence \((a_n)_{n=1}^{\infty}\) is bounded.
+\end{lemma}
+
+\section{Equivalent Cauchy sequences}\label{equivalent-cauchy-sequences}
+
+\begin{definition}[$\varepsilon$-close sequences]
+Let \((a_n)_{n=0}^{\infty}\) and \((b_n)_{n=0}^{\infty}\) be two sequences, and let \(\varepsilon>0\). We say the sequence \((a_n)_{n=0}^{\infty}\) is \emph{\(\varepsilon\)-close} to \((b_n)_{n=0}^{\infty}\) iff \(a_n\) is \(\varepsilon\)-close to \(b_n\) for each \(n\in \mathbb{N}\). In other wors, the sequence \((a_n)_{n=0}^{\infty}\) is \(\varepsilon\)-close to \((b_n)_{n=0}^{\infty}\) iff \(|a_n-b_n|\leq \varepsilon\) for all \(n=0,1,2,\dots\).
+\end{definition}
+
+\begin{definition}[$Eventually \varepsilon$-close sequences]
+Let \((a_n)_{n=0}^{\infty}\) and \((b_n)_{n=0}^{\infty}\) be two sequences, and let \(\varepsilon>0\). We say the sequence \((a_n)_{n=0}^{\infty}\) is \emph{eventually \(\varepsilon\)-close} to \((b_n)_{n=0}^{\infty}\) iff there exists an \(N>0\) such that the sequences \((a_n)_{n=N}^{\infty}\) and \((b_n)_{n=N}^{\infty}\) are \(\varepsilon\)-close.
+\end{definition}
+
+\begin{definition}[Equivalent sequences]
+Two sequences \((a_n)_{n=0}^{\infty}\) and \((b_n)_{n=0}^{\infty}\) are \emph{equivalent} iff for each rational \(\varepsilon >0\), the sequences \((a_n)_{n=0}^{\infty}\) and \((b_n)_{n=0}^{\infty}\) are eventually \(\varepsilon\)-close.
+\end{definition}
+
+\section{The construction of the real numbers}\label{the-construction-of-the-real-numbers}
+
+\begin{definition}[Real numbers]
+A \emph{real number} is defined to be an object of the form \({\rm LIM}_{n\to \infty}a_n\), where \((a_n)_{n=1}^{\infty}\) is a Cauchy sequence of rational numbers. Two real numbers \({\rm LIM}_{n\to \infty}a_n\) and \({\rm LIM}_{n\to \infty}b_n\) are said to be equal iff \((a_n)_{n=1}^{\infty}\) and \((b_n)_{n=1}^{\infty}\) are equivalent Cauchy sequences. The set of all real numbers is denoted \(\mathbb{R}\).
+\end{definition}
+
+From now on we will refer to \({\rm LIM}_{n\to \infty}a_n\) as the \emph{formal limit} of the sequence \((a_n)_{n=1}^{\infty}\).
+
+\begin{proposition}[Formal limits are well-defined]
+Formal limits obeys reflexive axiom, symmetry axiom and transitive axiom (see Chapter \ref{logic}).
+\end{proposition}
+
+\begin{definition}[Addition of reals]
+Let \(x={\rm LIM}_{n\to \infty}a_n\) and \(y={\rm LIM}_{n\to \infty}b_n\) be real numbers. Then we define the sum \(x+y\) to be \(x+y:{\rm LIM}_{n\to \infty}(a_n+b_n)\).
+\end{definition}
+
+\begin{lemma}
+Let \(x={\rm LIM}_{n\to \infty}a_n\) and \(y={\rm LIM}_{n\to \infty}b_n\) be real numbers. Then \(x+y\) is also a real number.
+\end{lemma}
+
+\begin{lemma}
+Let \(x={\rm LIM}_{n\to \infty}a_n\), \(y={\rm LIM}_{n\to \infty}b_n\) and \(x'={\rm LIM}_{n\to \infty}a_n'\) be real numbers. Suppose that \(x=x'\). Then we have \(x+y=x'+y\).
+\end{lemma}
+
+The above lemma verify the axiom of substitution.
+
+\begin{definition}[Multiplication of reals]
+Let \(x={\rm LIM}_{n\to \infty}a_n\) and \(y={\rm LIM}_{n\to \infty}b_n\) be real numbers. Then we define the product \(xy\) to be \(xy:{\rm LIM}_{n\to \infty}a_n b_n\).
+\end{definition}
+
+\begin{lemma}
+Let \(x={\rm LIM}_{n\to \infty}a_n\), \(y={\rm LIM}_{n\to \infty}b_n\) and \(x'={\rm LIM}_{n\to \infty}a_n'\) be real numbers. The \(xy\) is also a real number. Furthermore, if \(x=x'\), then \(xy=x'y\).
+\end{lemma}
+
+At this point we embed the rationals back into the reals, by equating every rational number \(q\) with the real number \({\rm LIM}_{n\to \infty}q\).
+
+We can now easily define negation \(-x\) for real numbers \(x\) by the formula
+\[
+-x:=(-1)\times x,
+\]
+since \(-1\) is a rational number and is hence real. Also, from our define it is clear that
+\[
+-{\rm LIM}_{n\to \infty}a_n = {\rm LIM}_{n\to \infty}(-a_n)
+\]
+
+Once we have addition and negation, we can define substraction as usual by
+\[
+x-y:= x+(-y)
+\]
+note that this implies
+\[
+{\rm LIM}_{n\to \infty}a_n-{\rm LIM}_{n\to \infty}b_n = {\rm LIM}_{n\to \infty}(a_n-b_n)
+\]
+
+\begin{proposition}
+All the laws of algebra from Proposition 4.1 hold not only for integers, but for the reals as well.
+\end{proposition}
+
+The last basic arithmetic operation we need to define is reciprocation.
+
+\begin{definition}[Sequences bounded away from zero]
+A sequence \((a_n)_{n=1}^{\infty}\) of rational numbers is said to \emph{bounded away from zero} iff there exists a rational numbers \(c>0\) such that \(|a_n|>c\) for all \(n\geq 1\).
+\end{definition}
+
+\begin{lemma}
+\protect\hypertarget{lem:basic}{}\label{lem:basic}Let \(x\) be a non-zero real number. Then \(x={\rm LIM}_{n\to \infty}a_n\) for some Cauchy sequence \((a_n)_{n=1}^{\infty}\) which is bounded away from zero.
+\end{lemma}
+
+\begin{lemma}
+Suppose that \((a_n)_{n=1}^{\infty}\) is a Cauchy sequence which is bounded away from zero. Then the sequence \((a_n^{-1})_{n=1}^{\infty}\) is also a Cauchy sequence.
+\end{lemma}
+
+\begin{definition}[Reciprocals of real numbers]
+Let \(x\) be a non-zero real number. Let \((a_n)_{n=1}^{\infty}\) be a Cauchy sequence bounded away from zero such that \(x={\rm LIM}_{n\to \infty}a_n\). Then we define the reciprocal \(x^{_1}\) by the formula \(x^{_1}:={\rm LIM}_{n\to \infty}a_n^{-1}\)
+\end{definition}
+
+\begin{lemma}[Reciprocal is well-defined]
+Let \((a_n)_{n=1}^{\infty}\) and \((b_n)_{n=1}^{\infty}\) be two Cauchy Sequences bounded away from zero such that \({\rm LIM}_{n\to \infty}a_n={\rm LIM}_{n\to \infty}b_n\). Then \({\rm LIM}_{n\to \infty}a^{-1}_n={\rm LIM}_{n\to \infty}b^{-1}_n\).
+\end{lemma}
+
+Once one has reciprocal, one can define division \(x/y\) of two real numbers \(x,y\), provided \(y\) non-zeo, by the formula
+\[
+x/y:=x\times y^{-1}
+\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Let \(a,b\) be rational numbers. Show that \(a=b\) iff \({\rm LIM}_{n\to \infty}a= {\rm LIM}_{n\to \infty}b\). This allows us to embed the rational numbers inside the real number in a well-defined manner.
+\end{exercise}
+
+\section{Ordering the reals}\label{ordering-the-reals}
+
+\begin{definition}
+Let \((a_n)_{n=1}^{\infty}\) be a sequence of rationals. We say that this sequence is \emph{positive bounded away from zero} iff we have positive rational \(c>0\) such that \(a_n\geq c\) for all \(n\geq 1\). The sequence is \emph{negative bounded away from zero} iff we have positive rational \(c>0\) such that \(a_n\leq -c\) for all \(n\geq 1\).
+\end{definition}
+
+\begin{definition}
+A real number \(x\) is said to be \emph{positive} iff it can be written as \(x={\rm LIM}_{n\to \infty}a_n\) for some Cauchy sequence \((a_n)_{n=1}^{\infty}\) which is positively bounded away from zero. \(x\) is said to be \emph{negative} iff it can be written as \(x={\rm LIM}_{n\to \infty}a_n\) for some Cauchy sequence \((a_n)_{n=1}^{\infty}\) which is negatively bounded away from zero.
+\end{definition}
+
+\begin{proposition}[Basic properties of positive reals]
+For every real number \(x\), exactly one of the following three statements is true: (a) \(x\) is zero; (b) \(x\) is positive; (c) \(x\) is negative. A real number \(x\) is negative if and only if \(-x\) is positive. If \(x\) and \(y\) are positive, then so are \(x+y\) and \(xy\).
+\end{proposition}
+
+One can prove this with \ref{lem:basic}.
+
+\begin{definition}[Absolute value]
+If \(x\) is real number. We define the \emph{absolute value} \(|x|\) of \(x\) is defined as follows. If \(x\) is positive,then \(|x|:=x\). If \(x\) is negative,then \(|x|:=-x\). If \(x\) is zero, then \(|x|:=0\).
+\end{definition}
+
+\begin{definition}[Ordering of the real numbers]
+Let \(x\) and \(y\) be real numbers. We say that \(x>y\) iff \(x-y\) is a positive rational number, and write \(x<y\) iff \(x-y\) is a negative rational number. We write \(x\geq y\) iff either \(x>y\) or \(x=y\), and similarly define \(x\leq y\).
+\end{definition}
+
+\begin{proposition}
+All the claims in Proposition 4.4 which held for rationals, continue to hold for real numbers.
+\end{proposition}
+
+\begin{proposition}
+Let \(x\) be a positive real number. Then \(x^{-1}\) is also positive. Also, if \(y\) is another positive number and \(x>y\), then \(x^{-1} < y^{-1}\).
+\end{proposition}
+
+\begin{proposition}[The non-negative reals are closed]
+Let \(a_1,a_2,\dots\) be a Cauchy sequence of non-negative rational numbers. Then \({\rm LIM}_{n\to \infty}a_n\) is a non-negative real number.
+\end{proposition}
+
+Eventually we will see a better explanation of this fact: the set of non-negative reals is \emph{closed}, whereas the set of positive reals is \emph{open}. See Section \ref{riemann}.
+
+\begin{corollary}
+\protect\hypertarget{cor:order-preserving}{}\label{cor:order-preserving}Let \((a_n)_{n=1}^{\infty}\) and \((b_n)_{n=1}^{\infty}\) be Cauchy sequence of rationals such that \(a_n\geq b_n\) for all \(n\geq 1\). Then \({\rm LIM}_{n\to \infty}a_n \geq {\rm LIM}_{n\to \infty}b_n\).
+\end{corollary}
+
+We now define distance \(d(x,y):=|x-y|\) just as we did for the rationals. In fact Proposition 4.5 and 4.6 hold out not only for the rationals, but for the reals; the proof is identical.
+
+\begin{proposition}[Bounding of reals by rationals]
+Let \(x\) be a positive real number. Then there exists a positive rational number \(q\) such that \(q\leq x\), and there exists a positive integer \(N\) such that \(x\leq N\).
+\end{proposition}
+
+One can prove this with Proposition 4.8 and Corollary \ref{cor:order-preserving}.
+
+\begin{corollary}[Archimedean property]
+\protect\hypertarget{cor:archi}{}\label{cor:archi}Let \(x\) and \(\varepsilon\) be any positive real numbers. THen there exists a positive integer \(M\) such that \(M\varepsilon>x\).
+\end{corollary}
+
+\begin{proposition}
+Given any two real numbers \(x<y\), we can find a rational number \(q\) such that \(x<q<y\).
+\end{proposition}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Show that for every real number \(x\) there is exactly one integer \(N\) such that \(N\leq x<N+1\).(This integer \(N\) is caled the \emph{integer part} of \(x\), and is sometimes denoted \(N=[x]\).)
+\end{exercise}
+
+\begin{exercise}
+Let \(x\) and \(y\) be real numbers. Show that \(x\leq y+\varepsilon\) for all numbers \(\varepsilon>0\) iff \(x\leq y\). Show that \(|x-y|\leq \varepsilon\) for all numbers \(\varepsilon>0\) iff \(x=y\).
+\end{exercise}
+
+\section{The least upper bound property}\label{the-least-upper-bound-property}
+
+\begin{definition}[Upper bound]
+Let \(E\) be a subset of \(\mathbb{R}\), and let \(M\) be a real number. We say that \(M\) is an \emph{upper bound} for \(E\), iff we have \(x\leq M\) for element \(x\) in \(E\).
+\end{definition}
+
+\begin{definition}[Least upper bound]
+Let \(E\) be a subset of \(\mathbb{R}\), and let \(M\) be a real number. We say that \(M\) is an \emph{least upper bound} for \(E\), iff (a) \(M\) is an upper bound for \(E\), and also (b) any other upper bound \(M'\) for \(E\) numst be greater than or equal to \(M\).
+\end{definition}
+
+\begin{proposition}[Uniqueness of least upper bound]
+Let \(E\) be a subset of \(\mathbb{R}\). Then \(E\) can have at most one least upper bound.
+\end{proposition}
+
+\begin{theorem}[Existence of least upper bound]
+\protect\hypertarget{thm:ex}{}\label{thm:ex}Let \(E\) be a non-empty subset of \(\mathbb{R}\). If \(E\) has an upper bound, then it must have exactly one least bound.
+\end{theorem}
+
+\begin{definition}[Supremum]
+Let \(E\) be subset of the real numbers. If \(E\) is non-empty and has some upper bound, we define \(\sup(E)\) to be the least upper bound of \(E\) (this is well-defined by Theorem \ref{thm:ex}). We introduce two dditional symbols, \(+\infty\) and \(-\infty\). If \(E\) is non-empty and has no upper bound, we set \(\sup(E):=+\infty\); if \(E\) is empty, we set \(\sup(E):=-\infty\). We refer to \(\sup(E)\) as the \emph{supremum} of \(E\), and also denote it by \(\sup E\).
+\end{definition}
+
+\begin{proposition}
+There exists a positive real number \(x\) such that \(x^2=2\).
+\end{proposition}
+
+In Chapter \ref{limits} we will use the least lower bounds property to develop the theory of limits, which allows us to do many more things than just take square roots.
+
+We can of course talk about lower bounds, and greatest lower bounds, of sets \(E\), which is also known as \emph{infimum} of \(E\) and is denoted \(\inf(E)\) or \(\inf E\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Let \(E\) be a subset of \(\mathbb{R}\), and suppose that \(E\) has a least upper bound \(M\) which is a real number, i.e., \(M=\sup(E)\). Let \(-E\) be the set
+\[
+-E:=\{-x:x\in E\}
+\]
+Show that \(-M\) is the greatest lower bound of \(-E\), i.e., \(-M=\inf(-E)\).
+\end{exercise}
+
+\section{Real exponentiation, part I}\label{real-exponentiation-part-i}
+
+\begin{definition}[Exponentiation to a natural number]
+Let \(x\) be a real number. To raise \(x\) to the power \(0\), we define \(x^0:=1\); in particular we define \(0^0:=1\). Now suppose inductively that \(x^n\) has been defined for some natural number \(n\), then we define \(x^{n+1} : = x^n\times x\).
+\end{definition}
+
+\begin{definition}[Exponentiation to a negative number]
+Let \(x\) be a non-zero real number. Then for any negative integer \(-n\), we define \(x^{-n} := 1/x^n\).
+\end{definition}
+
+\begin{proposition}
+All the properties in Proposition 4.7 remain valid if \(x\) and \(y\) are assumed to be real numbers instead of rational numbers.
+\end{proposition}
+
+\begin{definition}
+Let \(x\geq 0\) be a non-negative real, and let \(n\geq 1\) be a positive integer. We define \(x^{1/n}\), also known as the \(n^{\text{th}}\) root of \(x\), by the formula
+\[
+x^{1/n}:=\sup\{y\in\mathbb{R}:y\geq0 \text{ and }y^n\leq x\}.
+\]
+\end{definition}
+
+\begin{lemma}[Existence of $n^{\text{th}}$ roots]
+Let \(x\geq 0\) be a non-negative real, an let \(n\geq 1\) be a positive integer. Then the set \(E:=\sup\{y\in\mathbb{R}:y\geq0 \text{ and }y^n\leq x\}\) is non-empty and is also bounded above. In particular \(x^{1/n}\) is a real number.
+\end{lemma}
+
+We list some basic properties of \(n^{\text{th}}\) root below.
+
+\begin{lemma}
+
+Let \(x,y\geq 0\) be non-negative reals, and let \(n,m\geq 1\) be positive integers.
+
+\begin{itemize}
+\tightlist
+\item
+  If \(y=x^{1/n}\), then \(y^n=x\).
+\item
+  Conversely, if \(y^n=x\), then \(y=x^{1/n}\).
+\item
+  \(x^{1/n}\) is a positive real number.
+\item
+  We have \(x>y\) iff \(x^{1/n}>y^{1/n}\)
+\item
+  If \(x>1\), then \(x^{1/k}\) is a decreasing function of \(k\). If \(x<1\), then \(x^{1/k}\) is an increasing function of \(k\). If \(x=1\), then \(x^{1/k}=1\) for all \(k\).
+\item
+  We have \((xy)^{1/n}=x^{1/n}y^{1/n}\).
+\item
+  We have \((x^{1/n})^{1/m}=x^{1/nm}\).
+\end{itemize}
+
+\end{lemma}
+
+Now we define how to raise a positive real number \(x\) to a rational exponent \(q\).
+
+\begin{definition}
+Let \(x>0\) be a positive real number, and let \(q\) be a reational number. To define \(q=a/b\) for some integer \(a\) and positive integer \(b\), and define
+\[
+x^q:=(x^{1/b})^a.
+\]
+\end{definition}
+
+\begin{lemma}
+Let \(a,a'\) be integers and \(b,b'\) be positive integers such that \(a/b=a'/b'\), and let \(x\) be a positive real number. Then we have \((x^{1/b'})^{a'} = (x^{1/b})^a\).
+\end{lemma}
+
+Some basic facts about rational exponentiation:
+
+\begin{lemma}
+
+Let \(x,y>0\) be positive reals, and let \(q,r\) be rationals.
+
+\begin{itemize}
+\tightlist
+\item
+  \(x^q\) is a positive real.
+\item
+  \(x^{q+r} = x^q x^r\) and \((x^q)^r = x^{qr}\).
+\item
+  \(x^{-q} = 1/x^q\)
+\item
+  If \(q>0\), then \(x>y\) iff \(x^q>y^q\).
+\item
+  If \(x>1\), then \(x^q>x^r\) iff \(q>r\). If \(x<1\), then \(x^q>x^r\) iff \(q<r\).
+\end{itemize}
+
+\end{lemma}
+
+\section{Foot Notes}\label{foot-notes}
+
+The system \(\mathbb{N}\), \(\mathbb{Q}\), and \(\mathbb{R}\) stand for ``natural'', ``quotient'', and ``real'' respectively. \(\mathbb{Z}\) stands for ``Zahlen'', the German word for number.
+
+\chapter{Limits of sequences}\label{limits}
+
+\section{Convergence and limte laws}\label{convergence-and-limte-laws}
+
+\begin{definition}[Distance between two real numbers]
+Given two real number \(x\) and \(y\), we define their distnce \(d(x,y)\) to be \(d(x,y) :=|x-y|\).
+\end{definition}
+
+\begin{definition}[$\varepsilon$-close real numbers]
+Let \(\varepsilon\) be a real number. We say that two real numbers \(x,y\) are \(\varepsilon\)-close iff we have \(d(x,y)\leq \varepsilon\).
+\end{definition}
+
+\begin{definition}[Cauchy sequences of reals]
+Let \(\varepsilon>0\) be a real number. A sequence \((a_n)_{n=N}^{\infty}\) of real numbers starting at some integer index \(N\) is said to be \emph{\(\varepsilon\)-steady} iff \(a_j\) and \(a_k\) are \(\varepsilon\)-close for every \(j,k\geq N\). A sequence \((a_n)_{n=m}^{\infty}\) starting at some integer index \(m\) is said to be \emph{eventually \(\varepsilon\)-steady} iff there exists an \(N\geq m\) such that \((a_n)_{n=N}^{\infty}\) is \(\varepsilon\)-steady. We say that \((a_n)_{n=m}^{\infty}\) is a \emph{Cauchy sequences} iff it is eventually \(\varepsilon\)-steady for every \(\varepsilon>0\).
+\end{definition}
+
+\begin{proposition}
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of rational numbers starting at some integer index \(m\). Then \((a_n)_{n=m}^{\infty}\) is a Cauchy sequence in the sense of Definition 5.4 iff it is a Cauchy sequence in the sense of Definition 6.3.
+\end{proposition}
+
+One can prove this with Proposition 5.7.
+
+\begin{definition}[Convergence of sequences]
+Let \(\varepsilon>0\) be a real number, and let \(L\) be a real number. A sequence \((a_n)_{n=N}^{\infty}\) of real numbers is said to be \emph{\(\varepsilon\)-close} to \(L\) iff \(a_n\) is \(\varepsilon\)-close to \(L\) for every \(n\geq N\). A sequence \((a_n)_{n=m}^{\infty}\) is \emph{eventually \(\varepsilon\)-close} to \(L\) iff there exists an \(N\geq m\) such that \((a_n)_{n=N}^{\infty}\) is \(\varepsilon\)-close to \(L\). We say that \((a_n)_{n=m}^{\infty}\) \emph{converges} to \(L\) iff it is eventually \(\varepsilon\)-close to \(L\) for every real \(\varepsilon>0\).
+\end{definition}
+
+\begin{proposition}[Uniqueness of limits]
+Let \((a_n)_{n=m}^{\infty}\) be a real sequence starting at some integer index \(m\), and let \(L\ne L'\) be two distinct real numbers. Then it is not possible for \((a_n)_{n=m}^{\infty}\) to converge to \(L\) while also converging to \(L'\).
+\end{proposition}
+
+\begin{definition}[Limits of sequences]
+If a sequence \((a_n)_{n=m}^{\infty}\) converges to some real number \(L\), we say that \((a_n)_{n=m}^{\infty}\) is \emph{convergent} and that its \emph{limit} is \(L\); we write
+\[
+L= \lim_{n\to\infty}a_n
+\]
+to denote this fact. If a sequence \((a_n)_{n=m}^{\infty}\) is not converging to any real number \(L\), we say that sequence \((a_n)_{n=m}^{\infty}\) is \emph{divergent} and we leave \(\lim_{n\to\infty}a_n\) undefined.
+\end{definition}
+
+\begin{proposition}[Convergent sequences are Cauchy]
+Suppose that \((a_n)_{n=m}^{\infty}\) is a convergent sequence of real numbers. Then \((a_n)_{n=m}^{\infty}\) is also a Cauchy sequence.
+\end{proposition}
+
+Now we show that formal limits can be superseded by actual limits, just as formal subtraction was superseded by actual subtraction when constructing the integers, and formal division superseded by actual division when constructing the rational numbers.
+
+\begin{proposition}[Formal limits are genuine limits]
+\protect\hypertarget{prp:fg}{}\label{prp:fg}Suppose that \((a_n)_{n=1}^{\infty}\) is a Cauchy sequence of rational numbers. Then \((a_n)_{n=1}^{\infty}\) converges to \({\rm LIM}_{n\to \infty}a_n\), i.e.
+\[
+{\rm LIM}_{n\to \infty}a_n = \lim_{n\to\infty}a_n
+\]
+\end{proposition}
+
+First we need to prove that the sequence \((a_n)_{n=m}^{\infty}\) is convergent, which is not an easy job. Then we can prove that it converges to \({\rm LIM}_{n\to \infty}a_n\).
+
+\begin{definition}[Bounded sequences]
+A sequence \((a_n)_{n=m}^{\infty}\) of real numbers is \emph{bounded} by a real number \(M\) iff \(|a_n|\leq M\) for all \(n\geq m\). We say that \((a_n)_{n=m}^{\infty}\) is \emph{bounded} iff it is bounded by \(M\) for some rational \(M>0\).
+\end{definition}
+
+\begin{corollary}
+Every convergent sequence of real numbers is bounded.
+\end{corollary}
+
+\begin{theorem}[Limit Laws]
+\protect\hypertarget{thm:law}{}\label{thm:law}
+
+Let \((a_n)_{n=m}^{\infty}\) and \((b_n)_{n=m}^{\infty}\) be convergent sequences of real numers, and let \(x,y\) be the real numbers \(x:=\lim_{n\to\infty} a_n\) and \(y:\lim_{n\to\infty} b_n\).
+
+\begin{itemize}
+\tightlist
+\item
+  \[\lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n.\]
+\item
+  \[\lim_{n\to\infty}(a_nb_n)=(\lim_{n\to\infty}a_n)(\lim_{n\to\infty}b_n).\]
+\item
+  \[\lim_{n\to\infty}(ca_n)=c\lim_{n\to\infty}a_n.\]
+\item
+  \[\lim_{n\to\infty}(a_n-b_n)=\lim_{n\to\infty}a_n-\lim_{n\to\infty}b_n.\]
+\item
+  Suppose that \(y\ne 0\), and that \(b_n\ne 0\) for all \(n\geq m\). Then
+  \[
+  \lim_{n\to\infty}b_n^{-1} = (\lim_{n\to\infty}b_n)^{-1}.
+  \]
+\item
+  Suppose that \(y\ne 0\), and that \(b_n\ne 0\) for all \(n\geq m\). Then
+  \[
+  \lim_{n\to\infty}\frac{a_n}{b_n} = \frac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}.
+  \]
+\item
+  \[\lim_{n\to\infty}\max(a_n,b_n)=\max(\lim_{n\to\infty}a_n,\lim_{n\to\infty}b_n).\]
+\item
+  \[\lim_{n\to\infty}\min(a_n,b_n)=\min(\lim_{n\to\infty}a_n,\lim_{n\to\infty}b_n).\]
+\end{itemize}
+
+\end{theorem}
+
+\section{The Extended real number system}\label{the-extended-real-number-system}
+
+\begin{definition}[Extended real number system]
+The \emph{extended real number system} \(\mathbb{R}^{\ast}\) is the real line \(\mathbb{R}\) with two additional elements attached, called \(+\infty\) and \(-\infty\). These elements are distinct from each other and also distinct from every real number. An extended real number \(x\) is called \emph{finite} iff it is a real number, and \emph{infinite} iff it is equal to \(+\infty\) or \(-\infty\).
+\end{definition}
+
+\begin{definition}[Negation of extended reals]
+The operation of negation \(x\mapsto -x\) on \(\mathbb{R}\), we now extend to \(\mathbb{R}^{\ast}\) by defining \(-(+\infty):=-\infty\) and \(-(-\infty):=+\infty\).
+\end{definition}
+
+\begin{definition}[Ordering of extended reals]
+Let \(x\) and \(y\) be extended real numbers. We say that \(x\leq y\), i.e., \(x\) is less than or equal to \(y\), iff one of the following three statements is true:
+
+\begin{itemize}
+\tightlist
+\item
+  \(x\) and \(y\) are real numbers, and \(x\leq y\) as real numbers.
+\item
+  \(y=+\infty\).
+\item
+  \(x=-\infty\).
+\end{itemize}
+
+We say that \(x<y\) if we have \(x\leq y\) and \(x\ne y\). We sometimes write \(x<y\) as \(y>x\), and \(x\leq y\) as \(y\geq x\).
+\end{definition}
+
+\begin{proposition}
+
+Let \(x,y,z\) be extended real numbers. Then the following statements are true:
+
+\begin{itemize}
+\tightlist
+\item
+  (Reflexivity) We have \(x\leq x\).
+\item
+  (Trichotomy) Exactly one of the statements \(x<y\) ,\(x=y\), or \(x>y\) is true.
+\item
+  (Transitivity) If \(x\leq y\) and \(y\leq z\), then \(x\leq z\).
+\item
+  (Negation reverses other) If \(x\leq y\), then \(-y\leq -x\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{definition}[Supremum of sets of extended reals]
+Let \(E\) be a subset of \(\mathbb{R}^{\ast}\). Then we define the \emph{supremum} \(\sup(E)\) or \emph{least upper bound} of \(E\) by the following rule.
+
+\begin{itemize}
+\tightlist
+\item
+  If \(E\) is contained in \(\mathbb{R}\), then we let \(\sup(E)\) be as defined in Definition 5.19
+\item
+  If \(E\) contains \(+\infty\), then we set \(\sup(E):=+\infty\).
+\item
+  If \(E\) does not contain \(+\infty\) but does contain \(-\infty\), then we set \(\sup(E):=\sup(E\setminus\{-\infty\})\)
+\end{itemize}
+
+We also define the \emph{infimum} \(\inf(E)\) of \(E\) (also known as the \emph{greatest lower bound} of \(E\)) by the formula
+\[
+\inf(E) :=-\sup(-E)
+\]
+where \(-E\) is the set \(-E:=\{-x:x\in E\}\).
+\end{definition}
+
+Let \(E\) be the empty set. Then \(\sup(E) = -\infty\) and \(\inf(E) = +\infty\). This is the only case in which the supremum can be less than the infimum.
+
+\begin{theorem}
+
+Let \(E\) be a subset of \(\mathbb{R}^{\ast}\). Then the following statements are true.
+
+\begin{itemize}
+\tightlist
+\item
+  Forevery \(x\in E\) we have \(x\leq \sup(E)\) and \(x\geq \inf(E)\).
+\item
+  Suppose that \(M\in \mathbb{R}^{\ast}\) is an upper bound for \(E\), i.e., \(x\leq M\) for all \(x\in E\). Then we have \(\sup(E)\leq M\).
+\item
+  Suppose that \(M\in \mathbb{R}^{\ast}\) is an lower bound for \(E\), i.e., \(x\leq M\) for all \(x\in E\). Then we have \(\inf(E)\geq M\).
+\end{itemize}
+
+\end{theorem}
+
+\section{Suprema and Infima of sequences}\label{suprema-and-infima-of-sequences}
+
+\begin{definition}[Sup and inf of sequences]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers. Then we define \(\sup(a_n)_{n=m}^{\infty}\) to be the supremum of the set \(\{a_n:n\geq m\}\), and \(\inf(a_n)_{n=m}^{\infty}\) to be the infimum of the same set \(\{a_n:n\geq m\}\). The quantities \(\sup(a_n)_{n=m}^{\infty}\) and \(\inf(a_n)_{n=m}^{\infty}\) are sometimes written as \(\sup_{n\geq m}a_n\) and \(\inf_{n\geq m}a_n\) respectively.
+\end{definition}
+
+\begin{proposition}[Least upper bound property]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers, and let \(x\) be the extended real number \(x:=\sup(a_n)_{n=m}^{\infty}\). Then we have \(a_n\leq x\) for all \(n\geq m\). Also, whenever \(M \in \mathbb{R}^{\ast}\) is an upper bound for \(a_n\), we have \(x\leq M\). Finally, for every extended real number \(y\) for which \(y<x\), there exists at least one \(n\geq m\) for which \(y< a_n\leq x\).
+\end{proposition}
+
+\begin{proposition}[Monotone bounded sequences converge]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers which has some finite upper bound \(M \in \mathbb{R}\), and which is also increasing. Then \((a_n)_{n=m}^{\infty}\) is convergent, and in fact
+\[
+\lim_{n\to\infty}a_n=\sup (a_n)_{n=m}^{\infty} \leq M
+\]
+\end{proposition}
+
+One can similarly prove that if sequence \((a_n)_{n=m}^{\infty}\) is bounded below and decreasing, then it is convergent, and that the limit is equal to the infimum.
+
+\begin{corollary}
+Let \(0<x<1\). Then we have \(\lim_{n\to \infty}x^n=0\). (Hint: let \(L =\lim_{n\to \infty}x^n\), then we see that \((x^{n+1})_{n=1}^{\infty}\) converges to \(xL\) from Theorem \ref{thm:law}. But the sequence \((x^{n+1})_{n=1}^{\infty}\) is just the sequence \((x^{n})_{n=2}^{\infty}\). So \(L=xL\).)
+\end{corollary}
+
+\section{Limsup, Liminf, and limit points}\label{limsup-liminf-and-limit-points}
+
+\begin{definition}[Limit points]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers, let \(x\) be a real number, and let \(\varepsilon>0\) be a real number. We say that \(x\) is \emph{\(\varepsilon\)-adherent} to \((a_n)_{n=m}^{\infty}\) iff there exists an \(n\geq m\) such that \(a_n\) is \(\varepsilon\)-close to \(x\). We say that \(x\) is \emph{continually \(\varepsilon\)-adherent} to \((a_n)_{n=m}^{\infty}\) iff it is \(\varepsilon\)-adherent to \((a_n)_{n=N}^{\infty}\) for every \(N\geq m\). We say that \(x\) is a \emph{limit point} or \emph{adherent point} of \((a_n)_{n=m}^{\infty}\) iff it is continually \(\varepsilon\)-adherent to \((a_n)_{n=m}^{\infty}\) for every \(\varepsilon>0\).
+\end{definition}
+
+\begin{proposition}[Limits are limit points]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence which converges to a real number \(c\). Then \(c\) is a limit point of \((a_n)_{n=m}^{\infty}\), and in fact it is the only limit point of \((a_n)_{n=m}^{\infty}\).
+\end{proposition}
+
+\begin{definition}[Limit superior and limit inferior]
+Suppose that \((a_n)_{n=m}^{\infty}\) is a sequence. We define a new sequence \((a_N^+)_{N=m}^{\infty}\) by the formula
+\[
+a_N^+:=\sup(a_n)_{n=N}^{\infty}.
+\]
+We define the \emph{limit superior} of the sequence \((a_n)_{n=m}^{\infty}\), denoted \(\limsup_{n\to\infty}a_n\), by the formula
+\[
+\limsup_{n\to\infty}a_n := \inf (a_N^+)_{N=m}^{\infty}.
+\]
+Similarly, we can define
+\[
+a_N^-:=\inf(a_n)_{n=N}^{\infty}
+\]
+and define the \emph{limit inferior} of the sequence \((a_n)_{n=m}^{\infty}\), denoted \(\liminf_{n\to\infty}a_n\), by the formula
+\[
+\liminf_{n\to\infty}a_n := \sup (a_N^-)_{N=m}^{\infty}.
+\]
+\end{definition}
+
+Note that the starting index \(m\) of the sequence is irrelevant.
+
+\begin{proposition}
+\protect\hypertarget{prp:em}{}\label{prp:em}
+
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers, let \(L^+\) be the limit superior of this sequence, and let \(L^-\) be the limit inferior of this sequence.
+
+\begin{itemize}
+\tightlist
+\item
+  For every \(x>L^+\), there exists an \(N\geq m\) such that \(a_n<x\) for all \(n\geq N\). Similarly, for every \(y<L^-\), there exists an \(N\geq m\) such that \(a_n>y\) for all \(n\geq N\).
+\item
+  For every \(x<L^+\), and every \(N\geq m\), there exists an \(n\geq N\) such that \(a_n>x\). Similarly, for every \(y>L^-\), and every \(N\geq m\), there exists an \(n\geq N\) such that \(a_n<y\).
+\item
+  We have \(\inf(a_n)_{n=m}^{\infty}\leq L^-\leq L^+\leq \sup(a_n)_{n=m}^{\infty}\)
+\item
+  If \(c\) is any limit point of \((a_n)_{n=m}^{\infty}\), then we have \(L^-\leq c\leq L^+\).
+\item
+  If \(L^+\) is finite, then it is a limit point of \((a_n)_{n=m}^{\infty}\). Similarly, if \(L^-\) is finite, then it is a limit point of \((a_n)_{n=m}^{\infty}\).
+\item
+  Let \(c\) be a real number. If \((a_n)_{n=m}^{\infty}\) converges to \(c\), then we must have \(L^+=L^-=c\). Conversely, if \(L^+=L^-=c\), then \((a_n)_{n=m}^{\infty}\) converges to \(c\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{lemma}[Comparison principle]
+Suppose that \((a_n)_{n=m}^{\infty}\) and \((b_n)_{n=m}^{\infty}\) are two sequence of real numbers such that \(a_n\leq b_n\) for all \(n\geq m\). Then we have the inequalities
+\[
+\begin{aligned}
+\sup (a_n)_{n=m}^{\infty} &\leq \sup (b_n)_{n=m}^{\infty}\\
+\inf (a_n)_{n=m}^{\infty} &\leq \inf (b_n)_{n=m}^{\infty}\\
+\limsup_{n\to\infty}a_n &\leq \limsup_{n\to\infty}b_n\\
+\liminf_{n\to\infty}a_n &\leq \liminf_{n\to\infty}b_n
+\end{aligned}
+\]
+\end{lemma}
+
+\begin{corollary}[Squeeze test]
+Let \((a_n)_{n=m}^{\infty}\), \((b_n)_{n=m}^{\infty}\), \((c_n)_{n=m}^{\infty}\) be sequences of real numbers such that \(a_n\leq b_n\leq c_n\) for all \(n\geq m\). Suppose also that \((a_n)_{n=m}^{\infty}\) and \((c_n)_{n=m}^{\infty}\) both converge to the same limit \(L\). Then \((b_n)_{n=m}^{\infty}\) is also convergent to \(L\).
+\end{corollary}
+
+\begin{corollary}[Zero test for sequences]
+Let \((a_n)_{n=m}^{\infty}\) be a sequence of real numbers. Then the limit \(\lim_{n\to\infty}a_n\) exists and is equal to zero iff the limit \(\lim_{n\to \infty}|a_n|\) exists and is equal to zero.
+\end{corollary}
+
+\begin{theorem}[Completeness of the reals]
+\protect\hypertarget{thm:c}{}\label{thm:c}A sequence \((a_n)_{n=1}^{\infty}\) of real numbers is a Cauchy sequence iff it is convergent.
+\end{theorem}
+
+Note that while it is very similar in spirit to Proposition \ref{prp:fg}, it is a bit more general. Here we can prove this easily since we only need to show that \(L^-=L^+\) according to \ref{prp:em}.
+
+Theorem \ref{thm:c} asserts that the real numbers are a \emph{complete} metric space - that they do not contain ``holes'' the same way the rationals do. (Certainly the rationals have lots of Cauchy sequences which do not converge to other rationals) This property is closely related to the least upper bound property (Theorem 5.1), and is one of the principal characteristics which make the real numbers superior to the rational numbers for the purposes of doing analysis (taking limits, taking derivatives and integrals, finding zeroes of functions, that kind of thing), as we shall see in later chapters.
+
+\section{Subsequences}\label{subsequences}
+
+\begin{definition}
+Let \((a_n)_{n=0}^{\infty}\) and \((b_n)_{n=0}^{\infty}\) be sequences of real numbers. We say that \((b_n)_{n=0}^{\infty}\) is a \emph{subsequence} of \((a_n)_{n=0}^{\infty}\) iff there exists a function \(f:\mathbb{N}\to\mathbb{N}\) which is strictly increasing such that
+\[
+b_n=f(a_n) \text{ for all } n\in\mathbb{N}.
+\]
+\end{definition}
+
+\begin{lemma}
+Let \((a_n)_{n=0}^{\infty}\), \((b_n)_{n=0}^{\infty}\), and \((c_n)_{n=0}^{\infty}\) be sequences of real numbers. Then \((a_n)_{n=0}^{\infty}\) is a subsequence of \((a_n)_{n=0}^{\infty}\). Furthermore, if \((b_n)_{n=0}^{\infty}\) is a subsequence of \((a_n)_{n=0}^{\infty}\), and \((c_n)_{n=0}^{\infty}\) is a subsequence of \((b_n)_{n=0}^{\infty}\), then \((c_n)_{n=0}^{\infty}\) is a subsequence of \((a_n)_{n=0}^{\infty}\).
+\end{lemma}
+
+\begin{proposition}[Subsequences related to limits]
+
+Let \((a_n)_{n=0}^{\infty}\) be a sequence of real numbers, and let \(L\) be a real number. Then the following two statements are logically equivalent:
+
+\begin{itemize}
+\tightlist
+\item
+  The sequence \((a_n)_{n=0}^{\infty}\) converges to \(L\).
+\item
+  Every subsequence of \((a_n)_{n=0}^{\infty}\) converges to \(L\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{proposition}[Subsequences related to limit points]
+\protect\hypertarget{prp:s}{}\label{prp:s}
+
+Let \((a_n)_{n=0}^{\infty}\) be a sequence of real numbers, and let \(L\) be a real number. Then the following two statements are logically equivalent.
+
+\begin{itemize}
+\tightlist
+\item
+  \(L\) is a limit point of \((a_n)_{n=0}^{\infty}\).
+\item
+  There exists a subsequence of \((a_n)_{n=0}^{\infty}\) which converges to \(L\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{theorem}[Bolzano-Weierstrass theorem]
+Let \((a_n)_{n=0}^{\infty}\) be a bounded sequence. Then there is at least one subsequence of \((a_n)_{n=0}^{\infty}\) which converges.
+\end{theorem}
+
+One can prove this with Proposition \ref{prp:em} and Proposition \ref{prp:s}.
+
+The Bolzano-Weierstrass theorem says that if a sequence is bounded, then eventually it has no choice but to converge in some places; it has ``no room'' to spread out and stop itself from acquiring limit points. In the language of topology, this means that the interval \(\{x\in\mathbb{R}:-M\leq x\leq M\}\) is \emph{compact}, whereas an unbounded set such as the real line \(\mathbb{R}\) is not compact.
+
+\section{Real exponentiation, part II}\label{real-exponentiation-part-ii}
+
+\begin{lemma}[Continuity of exponentiation]
+Let \(x>0\), and let \(\alpha\) be a real number. Let \((q_n)_{n=1}^{\infty}\) be any sequence of rational numbers converging to \(\alpha\). Then \((x^{q_n})_{n=1}^{\infty}\) is also a convergent sequence. Furthermore, if \((q'_n)_{n=1}^{\infty}\) is any other sequence of rational numbers converging to \(\alpha\), then \((x^{q'_n})_{n=1}^{\infty}\) has the same limit as \((x^{q_n})_{n=1}^{\infty}\):
+\[
+\lim_{n\to \infty} x^{q_n}=\lim_{n\to \infty} x^{q'_n}.
+\]
+\end{lemma}
+
+\begin{definition}[Exponentiation to a real exponent]
+Let \(x>0\) be real, and let \(\alpha\) be real number. We define the quantity \(x^{\alpha}\) by the formula \(x^\alpha = \lim_{n\to \infty} x^{q_n}\), where \((q_n)_{n=1}^{\infty}\) is any sequence of rational numbers converging to \(\alpha\).
+\end{definition}
+
+\begin{proposition}
+All the results of Lemma 5.12, which held for rational numbers \(q\) and \(r\), continue to hold for real numbers \(q\) and \(r\).
+\end{proposition}
+
+\chapter{Series}\label{series}
+
+\section{Finite series}\label{finite-series}
+
+\begin{definition}[Finite series]
+Let \(m,n\) be integers, and let \((a_n)_{n=m}^{\infty}\) be a finite sequence of real numbers, assigning a real number \(a_i\) to each integer \(i\) between \(m\) and \(n\) inclusive (i.e., \(m\leq i\leq n\)). Then we define the finite sum (or finite series) \(\sum_{i=m}^na_i\) by the recursive formula
+\[
+\begin{aligned}
+\sum_{i=m}^na_i&:=0 \text{ whenever } n<m;\\
+\sum_{i=m}^{n+1}a_i&:=\left(\sum_{i=m}^na_i\right)+a_{n+1}  \text{ whenever } n\geq m-1.
+\end{aligned}
+\]
+\end{definition}
+
+Strictly speaking, a series is an \emph{expression} of the form \(\sum_{i=m}^na_i\); this series if mathematically (but not semantically) equal to a real number, which is the \emph{sum} of that series. Note that the variable \(i\) (sometimes called the \emph{index of summation}) is a \emph{bound variable} (sometimes called a \emph{dummy variable}); the expression \(\sum_{i=m}^na_i\) does not actually depend on any quantity named \(i\).
+
+\begin{lemma}
+\leavevmode
+
+\begin{itemize}
+\tightlist
+\item
+  Let \(m\leq n\leq p\) be integers, and let \(a_i\) be a real number assigned to each integer \(m\leq i \leq p\). Then we have
+  \[
+  \sum_{i=m}^na_i + \sum_{i=n+1}^pa_i=\sum_{i=m}^pa_i.
+  \]
+\item
+  Let \(m\leq n\) be integers, \(k\) be another integer, and let \(a_i\) be a real number assigned to each integer \(m\leq i \leq n\). Then we have
+  \[
+  \sum_{i=m}^na_=\sum_{i=m+k}^{n+k}a_{i-k}.
+  \]
+\item
+  Let \(m\leq n\) be integers, and let \(a_i, b_i\) be real numbers assigned to each integer \(m\leq i \leq n\). Then we have
+  \[
+  \sum_{i=m}^n(a_i+b_i)=\sum_{i=m}^na_i+\sum_{i=m}^nb_i.
+  \]
+\item
+  Let \(m\leq n\) be integers, and let \(a_i\) be a real number assigned to each integer \(m\leq i \leq n\), and \(c\) be another real number. Then we have
+  \[
+  \sum_{i=m}^n(ca_i)=c\sum_{i=m}^na_i.
+  \]
+\item
+  (Triangle inequality fir finite series) Let \(m\leq n\) be integers, and let \(a_i\) be a real number assigned to each integer \(m\leq i \leq n\). Then we have
+  \[
+  \left|\sum_{i=m}^na_i\right|\leq\sum_{i=m}^n|a_i|.
+  \]
+\item
+  (Comparison test for finite series) Let \(m\leq n\) be integers, and let \(a_i, b_i\) be real numbers assigned to each integer \(m\leq i \leq n\). Suppose that \(a_i\leq b_i\) for all \(m\leq i\leq n\). Then we have
+  \[
+  \sum_{i=m}^na_i\leq\sum_{i=m}^nb_i.
+  \]
+\end{itemize}
+
+\end{lemma}
+
+\begin{definition}[Summations over fintite sets]
+Let \(X\) be a finite et with \(n\) elements (where \(n\in \mathbb{N}\)), and let \(f:X\to \mathbb{R}\) be a function from \(X\) to the real numbers. Then we can define the finite sum \(\sum_{x\in X}f(x)\) as follows. We first select and bijection \(g\) from \(\{i\in\mathbb{N}:1\leq i\leq n\}\) to \(X\); such a bijection exists since \(X\) is assumed to have \(n\) elements. We then define
+\[
+\sum_{x\in X}f(x) :=\sum_{i=1}^nf(g(i)).
+\]
+\end{definition}
+
+\begin{proposition}[Finite summations are well-defined]
+Let \(X\) be a finite et with \(n\) elements (where \(n\in \mathbb{N}\)), and let \(f:X\to \mathbb{R}\) be a function, and let \(g:\{i\in\mathbb{N}:1\leq i\leq n\}\to X\) and \(h:\{i\in\mathbb{N}:1\leq i\leq n\}\to X\) be bijections. Then we have
+\[
+\sum_{i=1}^nf(g(i))=\sum_{i=1}^nf(h(i)).
+\]
+\end{proposition}
+
+\begin{proposition}[Basic properties of summation over finite sets]
+\protect\hypertarget{prp:bpf}{}\label{prp:bpf}\leavevmode
+
+\begin{itemize}
+\tightlist
+\item
+  If \(X\) is empty, and \(f:X\to \mathbb{R}\) is a function, we have
+  \[
+  \sum_{x\in X}f(x) = 0.
+  \]
+\item
+  If \(X\) consists of a single element, \(X=\{x_0\}\), and \(f:X\to \mathbb{R}\) is a function, we have
+  \[
+  \sum_{x\in X}f(x) = f(x_0).
+  \]
+\item
+  (Substitution, part I) If \(X\) is a finite set, \(f:X\to \mathbb{R}\) is a function, and \(g:Y\to X\) is a bijection, then
+  \[
+  \sum_{x\in X}f(x) = \sum_{y\in Y}f(g(y)).
+  \]
+\item
+  (Substitution, part II) Let \(n\leq m\) be integers, and let \(X\) be the set \(X:=\{i\in\mathbb{Z}:n\leq i\leq m\}\). If \(a_i\) is a real number assigned to each integer \(i\in X\), then we have
+  \[
+  \sum_{i=n}^m a_i=\sum_{i\in X}a_i.
+  \]
+\item
+  Let \(X,Y\) be disjoint finite sets, and \(f:X\cup Y\to \mathbb{R}\) is a function. Then we have
+  \[
+  \sum_{z\in X\cup Y}f(z)=\sum_{x\in X}f(x)+\sum_{y\in Y}f(y).
+  \]
+\item
+  (Linearity, part I) Let \(X\) be a finite set, and let \(f:X\to \mathbb{R}\) and \(g:X\to \mathbb{R}\) be functions. Then
+  \[
+  \sum_{x\in X}(f(x)+g(x)) = \sum_{x\in X}f(x)+\sum_{x\in X}g(x).
+  \]
+\item
+  (Linearity, part II) Let \(X\) be a finite set, and let \(f:X\to \mathbb{R}\) be a function. Then
+  \[
+  \sum_{x\in X}cf(x) = c\sum_{x\in X}f(x).
+  \]
+\item
+  (Monotonicity) Let \(X\) be a finite set, and let \(f:X\to \mathbb{R}\) and \(g:X\to \mathbb{R}\) be functions such that \(f(x)\leq g(x)\) for all \(x\in X\). Then we have
+  \[
+  \sum_{x\in X}f(x)\leq\sum_{x\in X}g(x).
+  \]
+\item
+  (Triangle inequality) Let \(x\) be a finite set, and let \(f:X\to \mathbb{R}\) be a function, then
+  \[
+  \left|\sum_{x\in X}f(x)\right|\leq\sum_{x\in X}|f(x)|.
+  \]
+\end{itemize}
+
+\end{proposition}
+
+The substitution rule in Proposition \ref{prp:bpf} indicates that we can rearrange the elements of a finite sequence at will and still obtain the same value.
+
+\begin{lemma}
+Let \(X,Y\) be a finite set, and let \(f:X\times Y\to \mathbb{R}\) be a function. Then
+\[
+\sum_{x\in X}\left(\sum_{y\in Y}f(x,y)\right) = \sum_{(x,y)\in X\times Y}f(x,y).
+\]
+\end{lemma}
+
+\begin{corollary}[Fubini's theorem for finite series]
+Let \(X,Y\) be finite sets, and let \(f:X\times Y\to \mathbb{R}\) be a function. Then
+\[
+\begin{aligned}
+\sum_{x\in X}\left(\sum_{y\in Y}f(x,y)\right) &= \sum_{(x,y)\in X\times Y}f(x,y)\\
+&= \sum_{(y,x)\in Y\times X}f(x,y)\\
+&=\sum_{y\in Y}\left(\sum_{x\in X}f(x,y)\right)
+\end{aligned}
+\]
+\end{corollary}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+Let \(X\) be a finite set, let \(m\) be an integer and for each \(x\in X\) let \((a_n(x))_{n=m}^{\infty}\) be a convergent sequence of real numbers. Show that the sequence \(\sum_{x\in X}(a_n(x))_{n=m}^{\infty}\) is convergent, and
+\[
+\lim_{n\to \infty}\sum_{x\in X}a_n(x)=\sum_{x\in X}\lim_{n\to \infty}a_n(x).
+\]
+\end{exercise}
+
+\section{Infinite series}\label{infinite-series}
+
+\begin{definition}[Formal infinite series]
+A \emph{(formal) series} is any expression of the form
+\[
+\sum_{n=m}^{\infty}a_n,
+\]
+\end{definition}
+
+where \(m\) is an integer, and \(a_n\) is a real number for any integer \(n\geq m\).
+
+\begin{definition}[Convergence of series]
+Let \(\sum_{n=m}^{\infty}a_n\) be a formal infinite series. For any integer \(N \geq m\), we define the \(N^{\text{th}}\) \emph{partial sum} \(S_N\) of this series to be \(S_N:=\sum_{n=m}^Na_n\). If the sequence \((S_N)^{\infty}_{N=m}\) converges to some limit \(L\) as \(N\to\infty\), then we say that the infinite series \(\sum_{n=m}^{\infty}a_n\) is \emph{convergent}, and \emph{converges} to \(L\); we also write \(L=\sum_{n=m}^{\infty}a_n\), and say that \(L\) is the sum of the infinite series \(\sum_{n=m}^{\infty}a_n\). If the partial sums \(S_N\) diverge, then we say that the infinite series \(\sum_{n=m}^{\infty}a_n\) is \emph{divergent}, and we do not assign any real number value to that series.
+\end{definition}
+
+\begin{proposition}
+Let \(\sum_{n=m}^{\infty}a_n\) be a formal series of real numbers. Then \(\sum_{n=m}^{\infty}a_n\) converges iff for every real number \(\varepsilon>0\). there exists an integer \(N\geq m\) such that
+\[
+\left|
+\sum_{n=p}^{q}a_n\right|\leq \varepsilon \text{ for all }p,q\geq N
+\]
+\end{proposition}
+
+\begin{corollary}[Zero test]
+Let \(\sum_{n=m}^{\infty}a_n\) be a convergent series of real numbers. Then must have \(\lim_{n\to\infty}a_n\). To put this another way, if \(\lim_{n\to\infty}a_n\) is non-zero or divergent, then the series \(\sum_{n=m}^{\infty}a_n\) is divergent.
+\end{corollary}
+
+\begin{definition}[Absolute convergence]
+Let \(\sum_{n=m}^{\infty}a_n\) be a formal series of real numbers. We say that this series is \emph{absolutely convergent} iff the series \(\sum_{n=m}^{\infty}|a_n|\) is convergent.
+\end{definition}
+
+In order to distinguish convergence from absolute convergence, we sometimes refer to the former as \emph{conditional} convergence.
+
+\begin{proposition}[Absolute convergence test]
+Let \(\sum_{n=m}^{\infty}a_n\) be a formal series of real numbers. If this series is absolutely convergent, then it is also conditionally convergent. Furthermore, in this case we have the triangle inequality
+\[
+\left|\sum_{i=m}^{\infty}a_i\right|\leq\sum_{i=m}^{\infty}|a_i|.
+\]
+\end{proposition}
+
+\begin{proposition}[Alternating series test]
+Let \(\sum_{n=m}^{\infty}a_n\) be a sequence of real numbers which are non-negative and decreasing. Then the series \(\sum_{n=m}^{\infty}(-1)^na_n\) is convergent iff the sequence \(a_n\) converges to \(0\) as \(n\to\infty\).
+\end{proposition}
+
+\begin{proposition}[Series laws]
+\leavevmode
+
+\begin{itemize}
+\tightlist
+\item
+  If \(\sum_{n=m}^{\infty}a_n\) is a series of real numbers converging to \(x\), and \(\sum_{n=m}^{\infty}b_n\) is a series of real numbers converging to \(y\), then \(\sum_{n=m}^{\infty}(a_n+b_n)\) is also a convergent series, and converges to \(x+y\). In particular, we have
+  \[
+  \sum_{i=m}^{\infty}(a_i+b_i)=\sum_{i=m}^{\infty}a_i+\sum_{i=m}^{\infty}b_i.
+  \]
+\item
+  If \(\sum_{n=m}^{\infty}a_n\) is a series of real numbers converging to \(x\), and \(c\) is a real number, then \(\sum_{n=m}^{\infty}(ca_n)\) is also a convergent series, and converges to \(cx\). In particular, we have
+  \[
+  \sum_{i=m}^{\infty}(ca_i)=c\sum_{i=m}^{\infty}a_i.
+  \]
+\item
+  Let \(\sum_{n=m}^{\infty}a_n\) be a series of real numbers, and \(k\geq 0\) bean integer. If one of the two series \(\sum_{n=m}^{\infty}a_n\) and \(\sum_{n=m+k}^{\infty}a_n\) are convergent, then the other one is also, and we have the identity
+  \[
+  \sum_{n=m}^{\infty}a_n=\sum_{n=m}^{m+k-1}a_n+\sum_{n=m+k}^{\infty}a_n
+  \]
+\item
+  Let \(\sum_{n=m}^{\infty}a_n\) be a series of real numbers converging to \(x\), and let \(k\) be an integer. Then \(\sum_{n=m+k}^{\infty}a_{n-k}\) also converges to \(x\).
+\end{itemize}
+
+\end{proposition}
+
+\begin{lemma}[Telescoping series]
+Let \((a_n)_{n=0}^{\infty}\) be a sequence if real numbers which converge to \(0\). Then the series \(\sum_{n=0}^{\infty}(a_n-a_{n+1})\) converges to \(a_0\).
+\end{lemma}
+
+\section{Sums of non-negative numbers}\label{sums-of-non-negative-numbers}
+
+\begin{proposition}
+Let \(\sum_{n=m}^{\infty}a_n\) be a formal series of non-negative real numbers. Then this series is convergent iff there is a real number \(M\) such that
+
+\[
+\sum_{n=m}^{N}a_n\leq M \text{ for all integers } N\geq m.
+\]
+\end{proposition}
+
+:::\{corollary name=``Comparision test''\}
+Let \(\sum_{n=m}^{\infty}a_n\) and \(\sum_{n=m}^{\infty}b_n\) be two formal series of real numbers, and suppose that \(|a_n|\leq b_n\) for all \(n\geq m\). Then if \(\sum_{n=m}^{\infty}b_n\) is convergent, then \(\sum_{n=m}^{\infty}a_n\) is absolutely convergent, and in fact
+
+\[
+\left|\sum_{n=m}^{\infty}a_n\right|\leq \sum_{n=m}^{\infty}|a_n|\leq\sum_{n=m}^{\infty}b_n.
+\]
+:::
+
+:::\{.lemma name=``Geometric series\}
+Let \(x\) be a real number. If \(|x|\geq 1\), the the series \(\sum_{n=0}^{\infty}x^n\) is divergent. If however \(|x|<1\), then the series is absolutely convergent and
+\[
+\sum_{n=0}^{\infty}x^n = 1/(1-x).
+\]
+:::
+
+Let \((a_n)_{n=1}^{\infty}\) be a decreasing sequence of non-negative real numbers (so \(a_n\geq 0\) and \(a_{n+1}\leq a_n\) for ll \(n\geq 1\)). Then the series \(\sum_{n=1}^{\infty}a_n\) is convergent iff the series
+\[
+\sum_{k=0}^{\infty}2^ka_{2^k}=a_1+2a_2+4a_4+\dots
+\]
+is convergent.
+
+Let \(q>0\) be a rational number. Then the series \(\sum_{n=1}^{\infty}1/n^q\) is convergent when \(q>1\) and divergent when \(q\leq 1\).
+
+Then quantity \(\sum_{n=1}^{\infty}1/n^q\), when it converges, is called \(\zeta(q)\), then \emph{Riemann-zeta} function of \(q\).
+
+\section{Rearrangement of series}\label{rearrangement-of-series}
+
+\begin{proposition}
+Let \(\sum_{n=0}^{\infty}a_n\) be a convergent series of non-negative real numbers, and let \(f:\mathbb{N}\to\mathbb{N}\) be a bijection. Then \(\sum_{m=0}^{\infty}a_{f(m)}\) is also convergent, and has the same sum:
+\[
+\sum_{n=0}^{\infty}a_n=\sum_{m=0}^{\infty}a_{f(m)}.
+\]
+\end{proposition}
+
+\begin{proposition}[Rearrangement of series]
+Let \(\sum_{n=0}^{\infty}a_n\) be an absolutely convergent series o real numbers, and let \(f:\mathbb{N}\to\mathbb{N}\) be a bijection. Then \(\sum_{m=0}^{\infty}a_{f(m)}\) is also absolutely convergent, and has the same sum:
+\[
+\sum_{n=0}^{\infty}a_n=\sum_{m=0}^{\infty}a_{f(m)}.
+\]
+\end{proposition}
+
+A series which is conditionally convergent but bot absolutely convergent can in fact be rearranged to converge to any value.
+
+\section{The root and ratio tests}\label{the-root-and-ratio-tests}
+
+\begin{theorem}[Root test]
+
+Let \(\sum_{n=m}^{\infty}a_n\) be a series of real numbers, and let \(\alpha:=\limsup_{n\to \infty}|a_n|^{1/n}\).
+
+\begin{itemize}
+\tightlist
+\item
+  If \(\alpha<1\), then the series \(\sum_{n=0}^{\infty}a_n\) is absolutely convergent (and hence conditionally convergent).
+\item
+  If \(\alpha>1\), then the series \(\sum_{n=0}^{\infty}a_n\) is not conditionally convergent (and hence absolutely convergent).
+\item
+  If \(\alpha=1\), we cannot assert any conclusion.
+\end{itemize}
+
+\end{theorem}
+
+\begin{lemma}
+Let \((c_n)_{n=m}^{\infty}\) be a sequence of positive numbers. Then we have
+\[
+\liminf_{n\to\infty}\frac{c_{n+1}}{c_n} \leq \liminf_{n\to\infty}c_n^{1/n} \leq \limsup_{n\to\infty}c_n^{1/n} \leq \limsup_{n\to\infty}\frac{c_{n+1}}{c_n}.
+\]
+\end{lemma}
+
+\begin{corollary}[Ratio test]
+
+Let \(\sum_{n=m}^{\infty}a_n\) be a series of non-zero real numbers, and let \(\alpha:=\limsup_{n\to \infty}\frac{|a_{n+1}|}{|a_n|}\).
+
+\begin{itemize}
+\tightlist
+\item
+  If \(\alpha<1\), then the series \(\sum_{n=0}^{\infty}a_n\) is absolutely convergent (and hence conditionally convergent).
+\item
+  If \(\alpha>1\), then the series \(\sum_{n=0}^{\infty}a_n\) is not conditionally convergent (and hence absolutely convergent).
+\item
+  If \(\alpha=1\), we cannot assert any conclusion.
+\end{itemize}
+
+\end{corollary}
+
+We have \(\lim_{n\to \infty}n^{1/n}=1\).
+
+\chapter{Infinite sets}\label{infinite}
+
+\section{Countability}\label{countability}
+
+\begin{definition}[Countable sets]
+A set \(X\) is said to be \emph{countably infinite} (or just \emph{countable}) iff it has equal cardinality with the natural numbers \(\mathbb{N}\). A set \(X\) is said to be \emph{at most countable} iff it is either countable or finite. We say that a set is \emph{uncountable} if it is infinite but not countable.
+\end{definition}
+
+\begin{proposition}[Well ordering principle]
+Let \(X\) be a non-empty subset of the natural numbers \(\mathbb{N}\). Then there exists exactly one element \(n\in X\) such that \(n\leq m\) for all \(m\in X\). In other words, every non-empty set of natural numbers has a minimum element.
+\end{proposition}
+
+Here is the proof.
+
+\begin{proof}
+Given any non-empty subset \(E\) of \(\mathbb{N}\), then there exists \(\inf(E)\). Then we just need to illustrate that \(\inf(E)\in E\).
+\end{proof}
+
+\begin{proposition}
+Let \(X\) be an infinite subset of the natural numbers \(\mathbb{N}\). Then there exists a unique bijection \(f:\mathbb{N} \to X\) which is increasing, in the sense that \(f(n+1)>f(n)\) for all \(n\in\mathbb{N}\).
+\end{proposition}
+
+Here is the proof.
+
+\begin{proof}
+\(f(n):=\min\{x\in X:x\ne a_m\text{ for all }m<n \}\)
+\end{proof}
+
+\begin{corollary}
+All subsets if the natural numbers are at most countable.
+\end{corollary}
+
+\begin{corollary}
+If \(X\) is an at most countable set, and \(Y\) is a subset of \(X\), then \(Y\) is at most countable.
+\end{corollary}
+
+\begin{proposition}
+Let \(Y\) be a set, and let \(f:\mathbb{N} \to Y\) be a function. Then \(f(\mathbb{N})\) is t most countable.
+\end{proposition}
+
+\section{Summation on infinite sets}\label{summation-on-infinite-sets}
+
+\section{Uncountable sets}\label{uncountable-sets}
+
+\section{The axiom of choice}\label{the-axiom-of-choice}
+
+\section{Ordered sets}\label{ordered-sets}
+
+\chapter{\texorpdfstring{Continuous functions on \(\mathbb{R}\)}{Continuous functions on \textbackslash mathbb\{R\}}}\label{continuous}
+
+\section{Subsets of the real line}\label{subsets-of-the-real-line}
+
+\section{The algebra of real-valued functions}\label{the-algebra-of-real-valued-functions}
+
+\section{Limiting values of functions}\label{limiting-values-of-functions}
+
+\section{Continuous functions}\label{continuous-functions}
+
+\section{Left and right limits}\label{left-and-right-limits}
+
+\section{The maximum principle}\label{the-maximum-principle}
+
+\section{The intermediate value theorem}\label{the-intermediate-value-theorem}
+
+\section{Monotonic functions}\label{monotonic-functions}
+
+\section{Uniform continuity}\label{uniform-continuity}
+
+\section{Limits at infinity}\label{limits-at-infinity}
+
+\chapter{Differentiation of functions}\label{diff}
+
+\section{Basic definitions}\label{basic-definitions}
+
+\section{Local maxima, local minima, and derivatives}\label{local-maxima-local-minima-and-derivatives}
+
+\section{Monotone functions and derivatives}\label{monotone-functions-and-derivatives}
+
+\section{Inverse functions and derivatives}\label{inverse-functions-and-derivatives}
+
+\section{L'Hôpital's rule}\label{lhuxf4pitals-rule}
+
+\chapter{The Riemann integral}\label{riemann}
+
+\section{Partitions}\label{partitions}
+
+\section{Piecewise constant functions}\label{piecewise-constant-functions}
+
+\section{Upper and lower Riemann integrals}\label{upper-and-lower-riemann-integrals}
+
+\section{Basic properties of the Riemann integrals}\label{basic-properties-of-the-riemann-integrals}
+
+\section{Riemann integrability of continuous functions}\label{riemann-integrability-of-continuous-functions}
+
+\section{Riemann integrability of monotone functions}\label{riemann-integrability-of-monotone-functions}
+
+\section{A non-Riemann integrable function}\label{a-non-riemann-integrable-function}
+
+\section{The Riemann-Stieltjes integral}\label{the-riemann-stieltjes-integral}
+
+\section{The two fundamental theorems of calculus}\label{the-two-fundamental-theorems-of-calculus}
+
+\section{Consequences of the fundamental theorems}\label{consequences-of-the-fundamental-theorems}
+
+\chapter{Appendix: the basics of mathematical logic}\label{logic}
+
+\section{Mathematical statements}\label{mathematical-statements}
+
+Not every combination of mathematical symbols is a statement; we sometimes call it \emph{ill-formed} or \emph{ill-defined}. ill-formed statements are considered to be neither true or false.
+
+\textbf{Axiom} every well-formed statement is either true or false, bur not both. (Though if there are free variables, the truth of a statement may depend on the values of these variables)
+
+In fact, usually we call well-formed statement as statement, and ill-fomed statements are not considered statements at all.
+
+\textbf{Conjunction.}
+
+\textbf{Disjunction.}
+
+\textbf{Negation.}
+
+\textbf{If and only if (iff).}
+
+\section{Implication}\label{implication}
+
+What this statement ``if \(X\), then \(Y\)'' means depend on whether \(X\) is true or false. If \(X\) is true, then ``if \(X\), then \(Y\)'' is true when \(Y\) is true, and false when \(Y\) is false. If however \(X\) is false, then ``if \(X\), then \(Y\)'' os always true, regardless of \(Y\) is true or false. That is, when \(X\) is false, the statement ``if \(X\), then \(Y\)'' offers no information about whether \(Y\) is true or not; the statement is true, but \emph{vacuous}.
+
+The only way to disprove an implication is to show that the hypothesis is true while the conclusion is false.
+
+\section{The stucture of proofs}\label{the-stucture-of-proofs}
+
+\section{Variables and quantifiers}\label{variables-and-quantifiers}
+
+\emph{Mathematical logic} is the same as propositional logic but with the additional ingredient of variables added. A \emph{variable} is a symbol, such as \(n\) or \(x\), which denotes a certain type if mathematical object.
+
+\textbf{Universal quantifiers.}
+
+\textbf{Existential quantifiers.}
+
+\section{Nested quantifiers}\label{nested-quantifiers}
+
+Swapping two ``for all'' quantifiers or ``there exists'' quantifiers has no effect; swapping a ``for all'' with a ``there exist'' makes a lot of difference.
+
+\section{Equality}\label{equality}
+
+Equality is a relation linking two objects \(x,y\) of the same type \(T\).For the purposes of logic we require that equality obeys the following four \emph{axiom of equality}.
+
+\begin{itemize}
+\tightlist
+\item
+  (Reflexive axiom). Given any object \(x\), we have \(x=x\).
+\item
+  (Symmetry axiom). Given any two objects \(x\) and \(y\) of the same type, if \(x=y\), then \(y=x\).
+\item
+  (Transitive axiom). Given any three objects \(x,\ y,\ z\) of the same type, if \(x=y\) and \(y=z\), then \(x=z\).
+\item
+  (Substitution axiom). Given any two objects \(x\) and \(y\) of the same type, if \(x=y\), then \(f(x) = f(y)\) for all functions or operations \(f\). Similarly, for any property \(P(x)\) depending on \(x\), if \(x=y\), then \(P(x)\) and \(P(y)\) are equivalent statements.
+\end{itemize}
+
+\section{Vocabulary}\label{vocabulary-2}
+
+\begin{itemize}
+\tightlist
+\item
+  veer
+\item
+  viable
+\item
+  Propositional logic \emph{or} Boolean logic
+\item
+  syllogism
+\item
+  Aristotlean logic
+\item
+  number crunching
+\item
+  integral
+\end{itemize}
+
+\chapter{Appendix: the decimal system}\label{decimalism}
+
+\section{The decimal representation of natural numbers}\label{the-decimal-representation-of-natural-numbers}
+
+\begin{definition}[Digits]
+A \emph{digit} is any one of the ten symbols 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+\end{definition}
+
+\begin{definition}[Positive integer decimals]
+We equate each positive integer decimal with a positive integer by the formula
+\[
+a_n a_{n-1}\dots a_0 \equiv \sum_{i=0}^n a_i \times \text{ten}^i.
+\]
+\end{definition}
+
+\begin{theorem}[Uniqueness and existence of decimal representtions]
+Every positive integer \(m\) is equal to exactly one positive integer decimal.
+\end{theorem}
+
+The theorem can be proven with the strong principle of induction (Chapter \ref{start}
+
+\section{The decimal representation of real numbers}\label{the-decimal-representation-of-real-numbers}
+
+\begin{definition}[Real decimals]
+The decimal is equated to the real number
+\[
+\pm a_n\dots a_0.a_{-1}a_{-2}\dots \equiv \pm 1\times \sum_{i=-\infty}^n a_i \times 10^i.
+\]
+\end{definition}
+
+\begin{theorem}[Existence of decimal representations]
+Every real number \(x\) has at least one decimal representation
+\[
+x=\pm a_n\dots a_0.a_{-1}a_{-2}\dots
+\]
+\end{theorem}
+
+\begin{proposition}[Failure of uniqueness of decimal representation]
+The number \(1\) has two different decimal representations: \(1.000\dots\) and \(0.999\dots\)
+\end{proposition}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+If \(a_n\dots a_0.a_{-1}a_{-2}\dots\) is a real decimal, show that the series \(\sum_{i=-\infty}^n a_i \times 10^i\) is absolutely convergent.
+\end{exercise}
+
+\begin{exercise}
+Show that the only decimal representations
+\[
+1=\pm a_n\dots a_0.a_{-1}a_{-2}\dots
+\]
+of \(1\) are \(1=1.000\dots\) and \(0.999\dots\).
+\end{exercise}
+
+\begin{exercise}
+A real number \(x\) is said to be \emph{terminating decimal} if we have \(x=n/10^{-m}\) for some integers \(n,m\). Show that if \(x\) is a terminating decimal, then \(x\) has exactly two decimal representations, while if \(x\) is not at terminating decimal, then \(x\) has exactly one decimal representation.
+\end{exercise}
+
+\begin{exercise}
+Rewrite
+\end{exercise}
+
+\section{Vocabulary}\label{vocabulary-3}
+
+\begin{itemize}
+\tightlist
+\item
+  painstaking
+\item
+  Babylonian
+\item
+  angular
+\item
+  horrendous
+\item
+  hexadecimal
+\item
+  menial
+\item
+  lose sleep over
+\end{itemize}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

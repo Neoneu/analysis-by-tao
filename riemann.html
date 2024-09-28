@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 The Riemann integral | Analysis</title>
+<meta name="author" content="Neoneu">
+<meta name="description" content="10.1 Partitions   10.2 Piecewise constant functions   10.3 Upper and lower Riemann integrals   10.4 Basic properties of the Riemann integrals   10.5 Riemann integrability of continuous functions  ...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
+<meta property="og:title" content="Chapter 10 The Riemann integral | Analysis">
+<meta property="og:type" content="book">
+<meta property="og:description" content="10.1 Partitions   10.2 Piecewise constant functions   10.3 Upper and lower Riemann integrals   10.4 Basic properties of the Riemann integrals   10.5 Riemann integrability of continuous functions  ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 The Riemann integral | Analysis">
+<meta name="twitter:description" content="10.1 Partitions   10.2 Piecewise constant functions   10.3 Upper and lower Riemann integrals   10.4 Basic properties of the Riemann integrals   10.5 Riemann integrability of continuous functions  ...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Analysis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="start.html"><span class="header-section-number">1</span> Starting at the begining: the natural numbers</a></li>
+<li><a class="" href="set.html"><span class="header-section-number">2</span> Set theory</a></li>
+<li><a class="" href="integers.html"><span class="header-section-number">3</span> Integers and rationals</a></li>
+<li><a class="" href="real.html"><span class="header-section-number">4</span> The real numbers</a></li>
+<li><a class="" href="limits.html"><span class="header-section-number">5</span> Limits of sequences</a></li>
+<li><a class="" href="series.html"><span class="header-section-number">6</span> Series</a></li>
+<li><a class="" href="infinite.html"><span class="header-section-number">7</span> Infinite sets</a></li>
+<li><a class="" href="continuous.html"><span class="header-section-number">8</span> Continuous functions on \(\mathbb{R}\)</a></li>
+<li><a class="" href="diff.html"><span class="header-section-number">9</span> Differentiation of functions</a></li>
+<li><a class="active" href="riemann.html"><span class="header-section-number">10</span> The Riemann integral</a></li>
+<li><a class="" href="logic.html"><span class="header-section-number">11</span> Appendix: the basics of mathematical logic</a></li>
+<li><a class="" href="decimalism.html"><span class="header-section-number">12</span> Appendix: the decimal system</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="riemann" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> The Riemann integral<a class="anchor" aria-label="anchor" href="#riemann"><i class="fas fa-link"></i></a>
+</h1>
+<div id="partitions" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Partitions<a class="anchor" aria-label="anchor" href="#partitions"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="piecewise-constant-functions" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Piecewise constant functions<a class="anchor" aria-label="anchor" href="#piecewise-constant-functions"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="upper-and-lower-riemann-integrals" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Upper and lower Riemann integrals<a class="anchor" aria-label="anchor" href="#upper-and-lower-riemann-integrals"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="basic-properties-of-the-riemann-integrals" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Basic properties of the Riemann integrals<a class="anchor" aria-label="anchor" href="#basic-properties-of-the-riemann-integrals"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="riemann-integrability-of-continuous-functions" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Riemann integrability of continuous functions<a class="anchor" aria-label="anchor" href="#riemann-integrability-of-continuous-functions"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="riemann-integrability-of-monotone-functions" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Riemann integrability of monotone functions<a class="anchor" aria-label="anchor" href="#riemann-integrability-of-monotone-functions"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="a-non-riemann-integrable-function" class="section level2" number="10.7">
+<h2>
+<span class="header-section-number">10.7</span> A non-Riemann integrable function<a class="anchor" aria-label="anchor" href="#a-non-riemann-integrable-function"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="the-riemann-stieltjes-integral" class="section level2" number="10.8">
+<h2>
+<span class="header-section-number">10.8</span> The Riemann-Stieltjes integral<a class="anchor" aria-label="anchor" href="#the-riemann-stieltjes-integral"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="the-two-fundamental-theorems-of-calculus" class="section level2" number="10.9">
+<h2>
+<span class="header-section-number">10.9</span> The two fundamental theorems of calculus<a class="anchor" aria-label="anchor" href="#the-two-fundamental-theorems-of-calculus"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="consequences-of-the-fundamental-theorems" class="section level2" number="10.10">
+<h2>
+<span class="header-section-number">10.10</span> Consequences of the fundamental theorems<a class="anchor" aria-label="anchor" href="#consequences-of-the-fundamental-theorems"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="diff.html"><span class="header-section-number">9</span> Differentiation of functions</a></div>
+<div class="next"><a href="logic.html"><span class="header-section-number">11</span> Appendix: the basics of mathematical logic</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#riemann"><span class="header-section-number">10</span> The Riemann integral</a></li>
+<li><a class="nav-link" href="#partitions"><span class="header-section-number">10.1</span> Partitions</a></li>
+<li><a class="nav-link" href="#piecewise-constant-functions"><span class="header-section-number">10.2</span> Piecewise constant functions</a></li>
+<li><a class="nav-link" href="#upper-and-lower-riemann-integrals"><span class="header-section-number">10.3</span> Upper and lower Riemann integrals</a></li>
+<li><a class="nav-link" href="#basic-properties-of-the-riemann-integrals"><span class="header-section-number">10.4</span> Basic properties of the Riemann integrals</a></li>
+<li><a class="nav-link" href="#riemann-integrability-of-continuous-functions"><span class="header-section-number">10.5</span> Riemann integrability of continuous functions</a></li>
+<li><a class="nav-link" href="#riemann-integrability-of-monotone-functions"><span class="header-section-number">10.6</span> Riemann integrability of monotone functions</a></li>
+<li><a class="nav-link" href="#a-non-riemann-integrable-function"><span class="header-section-number">10.7</span> A non-Riemann integrable function</a></li>
+<li><a class="nav-link" href="#the-riemann-stieltjes-integral"><span class="header-section-number">10.8</span> The Riemann-Stieltjes integral</a></li>
+<li><a class="nav-link" href="#the-two-fundamental-theorems-of-calculus"><span class="header-section-number">10.9</span> The two fundamental theorems of calculus</a></li>
+<li><a class="nav-link" href="#consequences-of-the-fundamental-theorems"><span class="header-section-number">10.10</span> Consequences of the fundamental theorems</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Analysis</strong>" was written by Neoneu. It was last built on 2024-06-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
